@@ -17,6 +17,7 @@ down:
 build:
 	docker compose build
 	$(MAKE) up
+	docker exec -it rewardengine-web bash -c "npm install && npm run build"
 
 #
 # Helper functions

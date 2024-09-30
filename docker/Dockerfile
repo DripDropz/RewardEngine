@@ -12,6 +12,10 @@ RUN pecl install -o -f redis \
     && docker-php-ext-enable redis \
     && docker-php-ext-install -j$(nproc) pcntl zip mysqli pdo_mysql gd bcmath intl
 
+# Install Nodejs 18
+RUN curl -sL https://deb.nodesource.com/setup_18.x  | bash -
+RUN apt-get -y install nodejs
+
 # Configure php & apache
 RUN cp /usr/local/etc/php/php.ini-production php.ini && \
     rm -rf /etc/apache2/sites-available/* && \

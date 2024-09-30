@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'RewardEngine'),
+    'version' => 'v1.0.0',
 
     /*
     |--------------------------------------------------------------------------
