@@ -13,11 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Seed only on the local dev and staging environment
+        if (app()->environment('local', 'staging')) {
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+            // Seed test user
+            User::factory()->create([
+                'name' => 'Test User',
+                'email' => 'test@local.dev',
+            ]);
+
+        }
     }
 }

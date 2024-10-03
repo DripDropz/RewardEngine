@@ -29,8 +29,15 @@
 
             <!-- Page Content -->
             <main>
+                <x-alert />
                 {{ $slot }}
             </main>
+
+            <!-- Page Footer -->
+            <footer class="text-center text-sm">
+                <hr />
+                <p class="py-6 text-gray-600">Powered by <a class="underline" href="https://github.com/DripDropz/RewardEngine" target="_blank">{{ config('app.name') }}</a> {{ config('app.version') }}</p>
+            </footer>
         </div>
     </body>
 </html>
