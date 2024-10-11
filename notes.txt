@@ -1,0 +1,10 @@
+Social auth providers:
+- Discord (https://discord.com/developers/applications)
+- Github (https://github.com/settings/developers)
+- Twitter (https://developer.x.com/en/portal/projects-and-apps) Note: Use consumer keys
+- Google (https://medium.com/@mimranisrar6/how-to-add-a-google-login-using-socialite-in-laravel-21f6eebafcec)
+
+What we collect from socially authenticated user's public profile:
+    - name
+    - email
+    - avatar image url

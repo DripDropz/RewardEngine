@@ -29,3 +29,18 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// TEST ROUTE :: START
+if (app()->environment('local')) {
+
+    Route::get('test/{authProvider}', static function ($authProvider) {
+        return \Laravel\Socialite\Facades\Socialite::driver($authProvider)->redirect();
+    });
+
+    Route::get('social-auth-callback/{authProvider}', static function ($authProvider) {
+        $socialUser = \Laravel\Socialite\Facades\Socialite::driver($authProvider)->user();
+        dd($socialUser);
+    });
+
+}
+// TEST ROUTE :: END
