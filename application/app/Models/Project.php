@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -20,4 +21,12 @@ class Project extends Model
     protected $hidden = [
         'private_api_key',
     ];
+
+    protected function privateApiKey(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => decrypt($value),
+            set: fn (string $value) => encrypt($value),
+        );
+    }
 }

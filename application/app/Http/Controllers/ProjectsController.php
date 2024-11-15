@@ -51,14 +51,43 @@ class ProjectsController extends Controller
         $project->fill([
             'user_id' => auth()->id(),
             'name' => $request->validated('name'),
-            'public_api_key' => encrypt(Str::uuid()),
-            'private_api_key' => encrypt(Str::uuid()),
+            'public_api_key' => Str::uuid(),
+            'private_api_key' => Str::uuid(),
             'geo_blocked_countries' => $request->validated('geo_blocked_countries'),
         ]);
         $project->save();
 
         return redirect()
-            ->route('projects.index')
+            ->route('projects.show', $project)
             ->with('alert', __('New project (:name) successfully created.', ['name' => $request->validated('name')]));
+    }
+
+    public function update(int $projectId, StoreProjectRequest $request): RedirectResponse
+    {
+        $project = Project::query()
+            ->where('user_id', auth()->id())
+            ->where('id', $projectId)
+            ->first();
+
+        if (!$project) {
+            return redirect()
+                ->route('projects.index')
+                ->with('alert', __('Project not found.'));
+        }
+
+        $changes = [
+            'name' => $request->validated('name'),
+            'geo_blocked_countries' => $request->validated('geo_blocked_countries'),
+        ];
+        if ($request->validated('regenerate_api_keys') === 'yes') {
+            $changes['public_api_key'] = Str::uuid();
+            $changes['private_api_key'] = Str::uuid();
+        }
+
+        $project->update($changes);
+
+        return redirect()
+            ->route('projects.show', $project)
+            ->with('alert', __('Project (:name) successfully updated.', ['name' => $request->validated('name')]));
     }
 }

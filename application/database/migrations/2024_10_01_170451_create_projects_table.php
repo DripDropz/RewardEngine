@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('name', 128);
-            $table->string('public_api_key', 512);
+            $table->string('public_api_key', 64)->index();
             $table->string('private_api_key', 512);
             $table->string('geo_blocked_countries', 128)->nullable();
             $table->timestamps();

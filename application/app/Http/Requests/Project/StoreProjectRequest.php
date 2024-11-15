@@ -24,6 +24,14 @@ class StoreProjectRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:3', 'max:128'],
             'geo_blocked_countries' => ['nullable', 'string', 'min:2', 'max:128'],
+            'regenerate_api_keys' => ['nullable', 'in:yes'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'regenerate_api_keys.in' => 'This value is invalid.',
         ];
     }
 }
