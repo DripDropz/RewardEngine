@@ -26,18 +26,39 @@ class ProjectsController extends Controller
         return view('projects.create');
     }
 
+    public function show(int $projectId): View|Factory|Application|RedirectResponse
+    {
+        $project = Project::query()
+            ->where('user_id', auth()->id())
+            ->where('id', $projectId)
+            ->first();
+
+        if (!$project) {
+            return redirect()
+                ->route('projects.index')
+                ->with('alert', __('Project not found.'));
+        }
+
+        return view(
+            'projects.show',
+            compact('project'),
+        );
+    }
+
     public function store(StoreProjectRequest $request): RedirectResponse
     {
         $project = new Project;
         $project->fill([
             'user_id' => auth()->id(),
             'name' => $request->validated('name'),
-            'api_key' => encrypt(Str::uuid()),
+            'public_api_key' => encrypt(Str::uuid()),
+            'private_api_key' => encrypt(Str::uuid()),
+            'geo_blocked_countries' => $request->validated('geo_blocked_countries'),
         ]);
         $project->save();
 
         return redirect()
             ->route('projects.index')
-            ->with('alert', __('New project (:name) created successfully.', ['name' => $request->validated('name')]));
+            ->with('alert', __('New project (:name) successfully created.', ['name' => $request->validated('name')]));
     }
 }

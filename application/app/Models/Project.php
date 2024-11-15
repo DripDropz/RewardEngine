@@ -12,10 +12,12 @@ class Project extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'api_key',
+        'public_api_key',
+        'private_api_key',
+        'geo_blocked_countries',
     ];
 
     protected $hidden = [
-        'api_key',
+        'private_api_key',
     ];
 }

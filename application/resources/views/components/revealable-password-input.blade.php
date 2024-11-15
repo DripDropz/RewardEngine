@@ -1,6 +1,6 @@
 @props(['disabled' => false])
 
-<div x-data="{ showPassword: false }" class="relative pt-0.5">
+<div x-data="{ showPassword: false }" class="relative mt-0.5">
     <input {{ $disabled ? 'disabled' : '' }} :type="showPassword ? 'text' : 'password'" {!! $attributes->merge(['class' => 'w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm disabled:cursor-not-allowed disabled:opacity-75']) !!} />
     <button type="button"  @click="showPassword = !showPassword" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-600" aria-label="Show password">
         <svg x-show="!showPassword" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="size-5">

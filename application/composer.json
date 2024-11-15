@@ -9,6 +9,7 @@
         "laravel/framework": "^11.9",
         "laravel/socialite": "^5.16",
         "laravel/tinker": "^2.9",
+        "laravel/vapor-core": "^2.37",
         "socialiteproviders/discord": "^4.2",
         "socialiteproviders/github": "^4.1",
         "socialiteproviders/google": "^4.1",

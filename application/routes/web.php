@@ -16,6 +16,7 @@ Route::middleware(['auth', 'verified'])->group(static function () {
     // Projects
     Route::prefix('projects')->group(static function () {
         Route::get('/', [ProjectsController::class, 'index'])->name('projects.index');
+        Route::get('{projectId}', [ProjectsController::class, 'show'])->name('projects.show');
         Route::get('create', [ProjectsController::class, 'create'])->name('projects.create');
         Route::post('store', [ProjectsController::class, 'store'])->name('projects.store');
     });
