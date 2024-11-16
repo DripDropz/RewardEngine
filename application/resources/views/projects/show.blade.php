@@ -45,23 +45,17 @@
                                     <div>
                                         <x-input-label for="public_api_key" :value="__('Public API Key')" />
                                         <x-text-input id="public_api_key" type="text" class="mt-1 block w-full bg-indigo-50" :value="$project->public_api_key" readonly />
-                                        <p class="text-gray-600 text-sm pt-1">
-                                            Used when communicating from a <strong class="text-green-600">frontend</strong> (e.g. wallet/social authentication).
-                                        </p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
                                         <x-input-label for="public_api_key" :value="__('Private API Key')" />
                                         <x-revealable-password-input id="public_api_key" type="text" class="mt-1 block w-full bg-indigo-50" :value="$project->private_api_key" readonly />
-                                        <p class="text-gray-600 text-sm pt-1">
-                                            Used when communicating from a <strong class="text-blue-600">backend</strong> (e.g. authentication check/stats).
-                                        </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="border rounded p-3 border-orange-600">
+                            <div class="border rounded p-3 border-orange-600 bg-orange-50">
                                 <label for="regenerate_api_keys" class="inline-flex items-center">
                                     <input id="regenerate_api_keys" name="regenerate_api_keys" value="yes" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500">
                                     <span class="ms-2 text-sm text-gray-600">{{ __('Generate new public/private api key pair') }}</span>
@@ -102,13 +96,23 @@
                                 <div>
                                     <x-input-label :for="$authProvider" :value="__(ucfirst($authProvider))" />
                                     <div class="flex rounded-lg">
-                                        <input type="text" id="{{ $authProvider }}" value="{{ route('api.v1.auth.init', ['publicApiKey' => $project->public_api_key, 'authProvider' => $authProvider]) }}?reference=your-app-identifier-123" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" readonly>
-                                        <x-primary-link-button class="ml-2" href="{{ route('api.v1.auth.init', ['publicApiKey' => $project->public_api_key, 'authProvider' => $authProvider]) }}?reference=your-app-identifier-123" target="_blank">Open</x-primary-link-button>
+                                        <input type="text" id="{{ $authProvider }}" value="{{ route('api.v1.auth.init', ['publicApiKey' => $project->public_api_key, 'authProvider' => $authProvider]) }}/?reference=your-app-identifier-123" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" readonly>
+                                        <x-primary-link-button class="ml-4" href="{{ route('api.v1.auth.init', ['publicApiKey' => $project->public_api_key, 'authProvider' => $authProvider]) }}/?reference=your-app-identifier-123" target="_blank">{{ __('Test') }}</x-primary-link-button>
                                     </div>
                                 </div>
                             @endif
                         @endforeach
 
+                    </div>
+
+                    <div class="mt-6">
+                        <div class="border rounded p-3 border-indigo-600 bg-indigo-50">
+                            <x-input-label for="check" value="To check the status of an initiated social authentication" />
+                            <div class="flex rounded-lg">
+                                <input type="text" id="check" value="{{ route('api.v1.auth.check', ['publicApiKey' => $project->public_api_key ]) }}/?reference=your-app-identifier-123" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" readonly>
+                                <x-primary-link-button class="ml-4" href="{{ route('api.v1.auth.check', ['publicApiKey' => $project->public_api_key ]) }}/?reference=your-app-identifier-123" target="_blank">{{ __('Test') }}</x-primary-link-button>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>

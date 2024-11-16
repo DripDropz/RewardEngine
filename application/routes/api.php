@@ -14,11 +14,12 @@ Route::prefix('v1')->group(static function ()
     Route::prefix('auth')->group(static function ()
     {
         // Public Endpoints
-        Route::get('providers', [AuthController::class, 'providers']);
+        Route::get('providers', [AuthController::class, 'providers'])->name('api.v1.auth.providers');
         Route::get('init/{publicApiKey}/{authProvider}', [AuthController::class, 'init'])->middleware(['web'])->name('api.v1.auth.init');
+        Route::get('check/{publicApiKey}', [AuthController::class, 'check'])->name('api.v1.auth.check');
 
         // Private Endpoints
-        Route::post('check', [AuthController::class, 'check'])->middleware(ProjectAPIKeyAuth::class);
+        // Route::post('xxx', [AuthController::class, 'xxx'])->middleware(ProjectAPIKeyAuth::class);
 
     });
 

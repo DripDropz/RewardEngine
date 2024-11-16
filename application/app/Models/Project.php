@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model
 {
@@ -21,6 +22,11 @@ class Project extends Model
     protected $hidden = [
         'private_api_key',
     ];
+
+    public function accounts(): HasMany
+    {
+        return $this->hasMany(ProjectAccount::class);
+    }
 
     protected function privateApiKey(): Attribute
     {

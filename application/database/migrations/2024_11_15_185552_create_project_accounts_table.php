@@ -14,15 +14,12 @@ return new class extends Migration
         Schema::create('project_accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('project_id')->constrained('projects');
-            $table->string('reference', 512);
             $table->string('auth_provider', 32);
             $table->unsignedBigInteger('auth_provider_id')->nullable();
             $table->string('auth_name', 1024)->nullable();
             $table->string('auth_email', 1024)->nullable();
             $table->string('auth_avatar', 1024)->nullable();
-            $table->string('auth_country_code', 2)->nullable();
-            $table->dateTime('authenticated_at')->nullable();
-            $table->unique(['project_id', 'reference', 'auth_provider'], 'UQ_project_accounts');
+            $table->unique(['project_id', 'auth_provider', 'auth_provider_id'], 'UQ_project_provider_accounts');
             $table->timestamps();
         });
     }
