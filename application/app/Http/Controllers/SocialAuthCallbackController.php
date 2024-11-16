@@ -117,7 +117,7 @@ class SocialAuthCallbackController extends Controller
     public function processGEOBlock(Project $project, Request $request): void
     {
         if ($this->isGEOBlocked($project, $request)) {
-            exit(__('Accept not permitted'));
+            exit(__('Access not permitted'));
         }
     }
 

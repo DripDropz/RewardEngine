@@ -64,7 +64,7 @@ class AuthController extends Controller
         if ($this->isGEOBlocked($project, $request)) {
             return response()->json([
                 'error' => __('Unauthorized'),
-                'reason' => __('Accept not permitted'),
+                'reason' => __('Access not permitted'),
             ], 401);
         }
 
