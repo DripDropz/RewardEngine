@@ -5,6 +5,7 @@ Social auth providers:
 - Google (https://medium.com/@mimranisrar6/how-to-add-a-google-login-using-socialite-in-laravel-21f6eebafcec)
 
 What we collect from socially authenticated user's public profile:
+    - id
     - name
     - email
     - avatar image url
