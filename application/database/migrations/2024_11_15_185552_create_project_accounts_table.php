@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('project_id')->constrained('projects');
             $table->string('auth_provider', 32);
-            $table->unsignedBigInteger('auth_provider_id')->nullable();
+            $table->string('auth_provider_id', 128)->nullable();
             $table->string('auth_name', 1024)->nullable();
             $table->string('auth_email', 1024)->nullable();
             $table->string('auth_avatar', 1024)->nullable();

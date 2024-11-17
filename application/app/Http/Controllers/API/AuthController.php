@@ -105,6 +105,7 @@ class AuthController extends Controller
                 $project = Project::query()
                     ->where('public_api_key', $publicApiKey)
                     ->with(['accounts' => function ($query) {
+                        $query->orderBy('id', 'desc')->limit(1);
                         $query->with(['sessions' => function ($query) {
                             $query->orderBy('id', 'desc')->limit(1);
                         }]);
