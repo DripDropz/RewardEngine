@@ -71,7 +71,10 @@ class AuthController extends Controller
         // Handle wallet auth provider
         if ($authProvider === AuthProviderType::WALLET->value) {
             // TODO: Handle wallet auth differently
-            exit('TODO');
+            return response()->json([
+                'error' => __('Not Implemented'),
+                'reason' => __('Wallet is not supported yet'),
+            ], 400);
         }
 
         // Handle social auth provider
@@ -123,7 +126,7 @@ class AuthController extends Controller
                 );
 
                 // Check if this request should be geo-blocked
-                if ($this->isGEOBlocked($project, $request)) {
+                if ($isAuthenticated && $this->isGEOBlocked($project, $request)) {
 
                     // Invalidate the isAuthenticated state
                     $isAuthenticated = false;
