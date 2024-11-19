@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class ProjectAccountSession extends Model
 {
@@ -21,6 +22,11 @@ class ProjectAccountSession extends Model
 
     public function account(): BelongsTo
     {
-        return $this->belongsTo(ProjectAccount::class);
+        return $this->belongsTo(ProjectAccount::class, 'project_account_id', 'id');
+    }
+
+    public function project(): HasOneThrough
+    {
+        return $this->hasOneThrough(Project::class, ProjectAccount::class, 'id', 'id', 'project_account_id', 'project_id');
     }
 }

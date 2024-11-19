@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Enums\AuthProviderType;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\ProjectAccountSession;
 use App\Traits\GEOBlockTrait;
 use App\Traits\IPHelperTrait;
 use Illuminate\Http\JsonResponse;
@@ -104,50 +105,35 @@ class AuthController extends Controller
             // Check and cache the result for 10 seconds
             $result = Cache::remember(sprintf('auth-check:%s', md5($publicApiKey . $request->get('reference'))), 10, function () use ($publicApiKey, $request) {
 
-                // Load project, account and session
-                $project = Project::query()
-                    ->where('public_api_key', $publicApiKey)
-                    ->with(['accounts' => function ($query) {
-                        $query->orderBy('id', 'desc')->limit(1);
-                        $query->with(['sessions' => function ($query) {
-                            $query->orderBy('id', 'desc')->limit(1);
-                        }]);
-                    }])
-                    ->whereHas('accounts.sessions', function ($query) use ($request) {
-                        $query->where('reference', $request->get('reference'));
+                // Load session and account info
+                $projectAccountSession = ProjectAccountSession::query()
+                    ->where('reference', $request->get('reference'))
+                    ->with('account')
+                    ->whereHas('project', static function ($query) use ($publicApiKey) {
+                        $query->where('public_api_key', $publicApiKey);
                     })
                     ->first();
 
-                // Determine if user is authenticated
-                $isAuthenticated = (
-                    $project &&
-                    $project->accounts->count() === 1 &&
-                    $project->accounts->first()->sessions->count() === 1
-                );
+                // Determine if authenticated
+                $isAuthenticated  = (bool) $projectAccountSession;
 
                 // Check if this request should be geo-blocked
-                if ($isAuthenticated && $this->isGEOBlocked($project, $request)) {
+                if ($isAuthenticated && $this->isGEOBlocked($projectAccountSession->project, $request)) {
 
                     // Invalidate the isAuthenticated state
                     $isAuthenticated = false;
 
                 }
 
-                // Load project account
-                $projectAccount = $isAuthenticated ? $project->accounts->first() : null;
-
-                // Load project account session
-                $projectAccountSession = $isAuthenticated ? $projectAccount->sessions->first() : null;
-
                 // Build result
                 return [
                     'authenticated' => $isAuthenticated,
                     'account' => $isAuthenticated ? [
-                        'auth_provider' => $projectAccount->auth_provider,
-                        'auth_provider_id' => $projectAccount->auth_provider_id,
-                        'auth_name' => $projectAccount->auth_name,
-                        'auth_email' => $projectAccount->auth_email,
-                        'auth_avatar' => $projectAccount->auth_avatar,
+                        'auth_provider' => $projectAccountSession->account->auth_provider,
+                        'auth_provider_id' => $projectAccountSession->account->auth_provider_id,
+                        'auth_name' => $projectAccountSession->account->auth_name,
+                        'auth_email' => $projectAccountSession->account->auth_email,
+                        'auth_avatar' => $projectAccountSession->account->auth_avatar,
                     ] : null,
                     'session' => $isAuthenticated ? [
                         'reference' => $projectAccountSession->reference,
