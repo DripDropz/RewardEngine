@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Project extends Model
 {
@@ -26,6 +27,11 @@ class Project extends Model
     public function accounts(): HasMany
     {
         return $this->hasMany(ProjectAccount::class);
+    }
+
+    public function sessions(): HasManyThrough
+    {
+        return $this->hasManyThrough(ProjectAccountSession::class, ProjectAccount::class, 'project_id', 'project_account_id', 'id', 'id');
     }
 
     protected function privateApiKey(): Attribute

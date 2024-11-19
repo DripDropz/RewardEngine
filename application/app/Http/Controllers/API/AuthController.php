@@ -69,6 +69,17 @@ class AuthController extends Controller
             ], 401);
         }
 
+        // Ensure the reference is unique across project account sessions
+        $project->load(['sessions' => function ($query) use ($request) {
+            $query->where('reference', $request->get('reference'));
+        }]);
+        if ($project->sessions->count()) {
+            return response()->json([
+                'error' => __('Bad Request'),
+                'reason' => __('The reference must be unique.'),
+            ], 400);
+        }
+
         // Handle wallet auth provider
         if ($authProvider === AuthProviderType::WALLET->value) {
             // TODO: Handle wallet auth differently
