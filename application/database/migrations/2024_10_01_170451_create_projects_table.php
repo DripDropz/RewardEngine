@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('public_api_key', 64)->index();
             $table->string('private_api_key', 512);
             $table->string('geo_blocked_countries', 128)->nullable();
+            $table->unsignedInteger('session_valid_for_seconds')->default(3600);
             $table->timestamps();
         });
     }

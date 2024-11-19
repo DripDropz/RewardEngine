@@ -23,6 +23,7 @@ class ProjectFactory extends Factory
             'public_api_key' => '067d20be-8baa-49cb-b501-e004af358870',
             'private_api_key' => 'f200599d-5d54-4883-b53d-318a00a055e2',
             'geo_blocked_countries' => 'CU, IR, KP, SY, UA', // Cuba, Iran, North Korea, Syria, Ukraine
+            'session_valid_for_seconds' => 3600, // 1 Hour
         ];
     }
 }

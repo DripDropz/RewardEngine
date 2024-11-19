@@ -54,6 +54,7 @@ class ProjectsController extends Controller
             'public_api_key' => Str::uuid(),
             'private_api_key' => Str::uuid(),
             'geo_blocked_countries' => $request->validated('geo_blocked_countries'),
+            'session_valid_for_seconds' => $request->validated('session_valid_for_seconds'),
         ]);
         $project->save();
 
@@ -78,6 +79,7 @@ class ProjectsController extends Controller
         $changes = [
             'name' => $request->validated('name'),
             'geo_blocked_countries' => $request->validated('geo_blocked_countries'),
+            'session_valid_for_seconds' => $request->validated('session_valid_for_seconds'),
         ];
         if ($request->validated('regenerate_api_keys') === 'yes') {
             $changes['public_api_key'] = Str::uuid();

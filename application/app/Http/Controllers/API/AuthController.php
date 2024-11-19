@@ -119,14 +119,17 @@ class AuthController extends Controller
                 // Load session and account info
                 $projectAccountSession = ProjectAccountSession::query()
                     ->where('reference', $request->get('reference'))
-                    ->with('account')
+                    ->with('account', 'project')
                     ->whereHas('project', static function ($query) use ($publicApiKey) {
                         $query->where('public_api_key', $publicApiKey);
                     })
                     ->first();
 
                 // Determine if authenticated
-                $isAuthenticated  = (bool) $projectAccountSession;
+                $isAuthenticated  = (
+                    $projectAccountSession &&
+                    (int) $projectAccountSession->authenticated_at->diffInSeconds(now()) <= $projectAccountSession->project->session_valid_for_seconds
+                );
 
                 // Check if this request should be geo-blocked
                 if ($isAuthenticated && $this->isGEOBlocked($projectAccountSession->project, $request)) {

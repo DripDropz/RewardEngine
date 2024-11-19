@@ -18,6 +18,7 @@ class Project extends Model
         'public_api_key',
         'private_api_key',
         'geo_blocked_countries',
+        'session_valid_for_seconds',
     ];
 
     protected $hidden = [
