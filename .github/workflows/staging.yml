@@ -38,7 +38,7 @@ jobs:
 
       - name: Install Project Dependencies
         working-directory: ./application
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Deploy Environment
         working-directory: ./application
