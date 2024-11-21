@@ -1,5 +1,5 @@
 {
-    "message": "Unprocessable Entity",
+    "error": "Validation Failed",
     "fields": {
         "field_name": [
             "The field name is required."

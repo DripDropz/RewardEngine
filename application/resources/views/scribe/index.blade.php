@@ -743,6 +743,8 @@ response.json()</code></pre>                                        </div>
                                                         aria-label="Response sample"
                                                         onchange="switchExampleResponse('GETapi-v1-auth-providers', event.target.value);">
                                                                                                             <option value="0">200</option>
+                                                                                                            <option value="1">429, Too Many Requests</option>
+                                                                                                            <option value="2">500, Internal Server Error</option>
                                                                                                     </select></div>
                                         </div>
                                     </div>
@@ -771,6 +773,25 @@ response.json()</code></pre>                                        </div>
     &quot;discord&quot;,
     &quot;github&quot;
 ]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-auth-providers example-response-GETapi-v1-auth-providers-1"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-auth-providers example-response-GETapi-v1-auth-providers-2"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Internal Server Error&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
                                                                             </div>
                                 </div>
                                                     </div>
@@ -1263,6 +1284,8 @@ response.json()</code></pre>                                        </div>
                                                                                                             <option value="1">400, Bad Request</option>
                                                                                                             <option value="2">401, Unauthorized</option>
                                                                                                             <option value="3">401</option>
+                                                                                                            <option value="4">429, Too Many Requests</option>
+                                                                                                            <option value="5">500, Internal Server Error</option>
                                                                                                     </select></div>
                                         </div>
                                     </div>
@@ -1339,7 +1362,7 @@ response.json()</code></pre>                                        </div>
                                                                                                                     access-control-allow-origin
                                                             : *
                                                                                                                     set-cookie
-                                                            : XSRF-TOKEN=eyJpdiI6IjBscVlyVWsrOEREQ1B0WnE3cmZYTFE9PSIsInZhbHVlIjoiMmlZOWZzWUJuak8zYXlUK1hMcWlzdzcvWXNOSkR2bDNGbXpOREM2ZWxuRWU3L29HQThleG5zY21qcXlHR2NkbWovUEw0MEJTSEdkdFAxRlJWejVZTHRtTEZkMVpSeUVlYzJHSm05aW4zNTl4R3RhZlpvM0s4YzZubjBVOGQzZjciLCJtYWMiOiIxODk1OTlmZDRlNjkxYzVhZjRjMjFiODQxMTRmZTAxNzBjMzUzZTJhZmE5YzBkYjA3NmNmODVlZjhkNTVkYzc2IiwidGFnIjoiIn0%3D; expires=Fri, 22 Nov 2024 01:06:16 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6IlFCQkFVdnNKSmRvQmxqdXZRQXJza1E9PSIsInZhbHVlIjoibDZwTXR4bGUwbzNWYlpLRnVmNXZ3NWFCL0hWZXl1WmZLZmkxKzF3RHhEMHc1SDV2VW80dm1JTTNDWmI4V1JGV01UMGdxeGVGL0pOVU55bTNrbXZiU0JjYmw3TzFSR01RQWEwRFRiR2Z6ZlBrOVJTM2c4cWg0ZGNHSnhVRDZBOFEiLCJtYWMiOiI2Y2ZlMjE1OWQwMTAyMGFlZDJlMzQzMGMzZDg1ZDE0MmY0NzIyMDg3OTI4Y2M1ZGFkMjU4ODhlMzJjM2FmZjkyIiwidGFnIjoiIn0%3D; expires=Fri, 22 Nov 2024 01:06:16 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+                                                            : XSRF-TOKEN=eyJpdiI6IkFhOFZhQ0xsZVdkRjJSNjA3ekdkYmc9PSIsInZhbHVlIjoiWmdDR3Bya0k1aTJacElZQmFvamdIazRpRk9Cckd4YXlPanlWRmYzVVBPaEk1bmYreXJKT1hUTWorcHk2MXdkTnhCNlhhb3B3SXJ4TlVDM2JwNjgzYjM5ZCtzYUpZZ3VHa2psbU5zUHRIbHREdlBEQWJFeGR4d2tXUWE2TTl6WjUiLCJtYWMiOiI0ZDkzYjcwODBmNmJkODBkZTQwNTA2NWNhZjRmZjRmNjg4MzY1ZjI1NWRmY2ZmOGI5M2E0YjNkNTc0NDliMzQ3IiwidGFnIjoiIn0%3D; expires=Fri, 22 Nov 2024 01:22:09 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6Imt5TXFnQTkvRjg4eXBnL016RkFpTkE9PSIsInZhbHVlIjoiSm1oOXJnYVY1UkYxSXF2bW90NlVkejR6aTdkOWxHaHhWQnVScktpUG5ySDRIZERjSUJQRTJmMC9NeFdrb2Q4aCtXYzd3YjNqSVl0V3VpM2NWdjVBbHVGZGlXUlBLMTZZaE5PemdsWXd6ZlZlYkYyOUZFcmpyRnFJb1lhK3U1NFIiLCJtYWMiOiI4OTI3ZTMyMDUzMTY3OWZjNzNkYjM0MWE3NjY5MDgzMDFiZjU1YWYzZjA3YzFhYmQ3OTMyZWM2MDk0MzFhNDQ3IiwidGFnIjoiIn0%3D; expires=Fri, 22 Nov 2024 01:22:09 GMT; Max-Age=7200; path=/; httponly; samesite=lax
                                                          </code></pre>
                                             </details>
                                                                                                                                                                         
@@ -1347,6 +1370,25 @@ response.json()</code></pre>                                        </div>
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
     &quot;error&quot;: &quot;Unauthorized&quot;,
     &quot;reason&quot;: &quot;Invalid project public api key&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-auth-init--publicApiKey---authProvider- example-response-GETapi-v1-auth-init--publicApiKey---authProvider--4"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-auth-init--publicApiKey---authProvider- example-response-GETapi-v1-auth-init--publicApiKey---authProvider--5"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Internal Server Error&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
 }</code></pre>
                                                                             </div>
                                 </div>
@@ -1803,7 +1845,8 @@ response.json()</code></pre>                                        </div>
                                                                                                             <option value="0">200, OK - Authenticated</option>
                                                                                                             <option value="1">200, OK - Unauthenticated</option>
                                                                                                             <option value="2">400, Bad Request</option>
-                                                                                                            <option value="3">500, Internal Server Error</option>
+                                                                                                            <option value="3">429, Too Many Requests</option>
+                                                                                                            <option value="4">500, Internal Server Error</option>
                                                                                                     </select></div>
                                         </div>
                                     </div>
@@ -1867,6 +1910,14 @@ response.json()</code></pre>                                        </div>
                                                                             </div>
                                 </div>
                                                             <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-auth-check--publicApiKey- example-response-GETapi-v1-auth-check--publicApiKey--3"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-auth-check--publicApiKey- example-response-GETapi-v1-auth-check--publicApiKey--4"
                                      style=" display: none;"
                                 >
                                     <div class="sl-panel__content sl-p-0">                                                                                                                                
@@ -2390,6 +2441,83 @@ response.json()</code></pre>                                        </div>
                                 </div>
                                                     </div>
                     
+                                            <div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg">
+                            <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none">
+                                <div class="sl-flex sl-flex-1 sl-items-center sl-py-2">
+                                    <div class="sl--ml-2">
+                                        <div class="sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-text-muted sl-rounded sl-border-transparent sl-border">
+                                            <div class="sl-mb-2 sl-inline-block">Example response:</div>
+                                            <div class="sl-mb-2 sl-inline-block">
+                                                <select
+                                                        class="example-response-POSTapi-v1-events-toggle sl-text-base"
+                                                        aria-label="Response sample"
+                                                        onchange="switchExampleResponse('POSTapi-v1-events', event.target.value);">
+                                                                                                            <option value="0">200, OK</option>
+                                                                                                            <option value="1">422, Validation Failed</option>
+                                                                                                            <option value="2">429, Too Many Requests</option>
+                                                                                                            <option value="3">500, Internal Server Error</option>
+                                                                                                    </select></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button"
+                                        class="sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 hover:sl-bg-canvas-50 active:sl-bg-canvas-100 sl-text-muted hover:sl-text-body focus:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70">
+                                    <div class="sl-mx-0">
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy"
+                                             class="svg-inline--fa fa-copy fa-fw fa-sm sl-icon" role="img"
+                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                  d="M384 96L384 0h-112c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48H464c26.51 0 48-21.49 48-48V128h-95.1C398.4 128 384 113.6 384 96zM416 0v96h96L416 0zM192 352V128h-144c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h192c26.51 0 48-21.49 48-48L288 416h-32C220.7 416 192 387.3 192 352z"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-POSTapi-v1-events example-response-POSTapi-v1-events-0"
+                                     style=" "
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-POSTapi-v1-events example-response-POSTapi-v1-events-1"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Validation Failed&quot;,
+    &quot;fields&quot;: {
+        &quot;field_name&quot;: [
+            &quot;The field name is required.&quot;
+        ],
+        &quot;another_field&quot;: [
+            &quot;The another field must not be greater than 64 characters.&quot;
+        ]
+    }
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-POSTapi-v1-events example-response-POSTapi-v1-events-2"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-POSTapi-v1-events example-response-POSTapi-v1-events-3"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Internal Server Error&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                    </div>
                             </div>
     </div>
 </div>

@@ -18,10 +18,15 @@ class EventsController extends Controller
      *
      * @header x-public-api-key 414f7c5c-b932-4d26-9570-1c2f954b64ed
      * @header x-private-api-key 3e070a66-cb1d-4f2c-930a-ee13ec7c9529
+     *
+     * @response status=200 scenario="OK" [No Content]
+     * @response status=429 scenario="Too Many Requests" [No Content]
+     * @responseFile status=422 scenario="Validation Failed" resources/api-responses/422.json
+     * @responseFile status=500 scenario="Internal Server Error" resources/api-responses/500.json
      */
     public function store(Request $request): Response
     {
-        $request->validate([
+        $validated = $request->validate([
             // Unique event id. Must not exceed 128 characters. Example: aad91eb6-924d-43c6-a78f-04d7ddbbc382
             'event_id' => ['required', 'string', 'max:128'],
             // Unix timestamp when the event occurred. Example: 1732230013
@@ -33,9 +38,9 @@ class EventsController extends Controller
         try {
             $eventData = EventData::create([
                 'project_id' => $request->project->id,
-                'event_id' => $request->validated('event_id'),
-                'timestamp' => $request->validated('timestamp'),
-                'data' => json_encode($request->validated('data')),
+                'event_id' => $validated['event_id'],
+                'timestamp' => $validated['timestamp'],
+                'data' => json_encode($validated['data']),
             ]);
             // TODO dispatch(new ProcessEventDataJob($eventData));
         } catch (UniqueConstraintViolationException) {}

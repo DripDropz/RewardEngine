@@ -29,32 +29,32 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->render(function (NotFoundHttpException $e, Request $request) {
             if ($request->is('api/*')) {
                 if ($e->getPrevious() instanceof ModelNotFoundException) {
-                    $message = 'Record Not Found';
+                    $error = 'Record Not Found';
                 } else {
-                    $message = sprintf('Route %s Not Found', $request->url());
+                    $error = sprintf('Route %s Not Found', $request->url());
                 }
-                return response()->json(compact('message'), 404);
+                return response()->json([ 'error' => $error, 'reason' => 'Not found http exception.' ], 404);
             }
         });
 
         // Handle API Authentication Exception
         $exceptions->render(function (AuthenticationException $e, Request $request) {
             if ($request->is('api/*')) {
-                return response()->json([ 'message' => 'Unauthorized' ], 401);
+                return response()->json([ 'error' => 'Unauthorized', 'reason' => 'Authentication exception.' ], 401);
             }
         });
 
         // Handle API Access Denied Http Exception
         $exceptions->render(function (AccessDeniedHttpException $e, Request $request) {
             if ($request->is('api/*')) {
-                return response()->json([ 'message' => 'Access Denied' ], 401);
+                return response()->json([ 'error' => 'Access Denied', 'reason' => 'Access denied http exception.' ], 401);
             }
         });
 
         // Handle API Method Not Allowed Http Exception
         $exceptions->render(function (MethodNotAllowedHttpException $e, Request $request) {
             if ($request->is('api/*')) {
-                return response()->json([ 'message' => $e->getMessage() ], 400);
+                return response()->json([ 'error' => $e->getMessage(), 'reason' => 'Method not allowed http exception.' ], 400);
             }
         });
 
@@ -69,7 +69,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->render(function (ValidationException $e, Request $request) {
             if ($request->is('api/*')) {
                 return response()->json([
-                    'message' => 'Validation Failed',
+                    'error' => 'Validation Failed',
                     'fields' => $e->validator->errors()->toArray(),
                 ], 422);
             }
@@ -91,7 +91,7 @@ return Application::configure(basePath: dirname(__DIR__))
                         'line' => $e->getPrevious()->getLine(),
                     ] : null,
                 ]);
-                return response()->json([ 'message' => 'Internal Server Error' ], 500);
+                return response()->json([ 'error' => 'Internal Server Error', 'reason' => 'Unhandled http exception.' ], 500);
             }
         });
 
