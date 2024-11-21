@@ -1,0 +1,11 @@
+{
+    "message": "Unprocessable Entity",
+    "fields": {
+        "field_name": [
+            "The field name is required."
+        ],
+        "another_field": [
+            "The another field must not be greater than 64 characters."
+        ]
+    }
+}

@@ -16,10 +16,18 @@ use Illuminate\Support\Facades\Cookie;
 use Laravel\Socialite\Facades\Socialite;
 use Throwable;
 
+/**
+ * @group Authentication
+ */
 class AuthController extends Controller
 {
     use IPHelperTrait, GEOBlockTrait;
 
+    /**
+     * List Auth Providers
+     *
+     * @response 200 ["wallet", "google", "twitter", "discord", "github"]
+     */
     public function providers(): JsonResponse
     {
         // Return supported auth providers
@@ -27,6 +35,17 @@ class AuthController extends Controller
             ->json(AuthProviderType::values());
     }
 
+    /**
+     * Initialize Authentication
+     *
+     * @urlParam publicApiKey string required The project's public api key. Example: 414f7c5c-b932-4d26-9570-1c2f954b64ed
+     * @urlParam authProvider string required The selected auth provider. Example: twitter
+     * @queryParam reference string required Unique user/session identifier in your application. Example: abcd1234
+     *
+     * @response status=322 scenario="When successfully initialised"
+     * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
+     * @responseFile status=401 scenario="Unauthorized" resources/api-responses/401.json
+     */
     public function init(string $publicApiKey, string $authProvider, Request $request): RedirectResponse|JsonResponse
     {
         // Validate requested auth provider
@@ -101,6 +120,17 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * Check Authentication Status
+     *
+     * @urlParam publicApiKey string required The project's public api key. Example: 414f7c5c-b932-4d26-9570-1c2f954b64ed
+     * @queryParam reference string required Unique user/session identifier in your application that was used in the initialization step. Example: abcd1234
+     *
+     * @response status=200 scenario="OK - Authenticated" {"authenticated":true,"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg"},"session":{"reference":"your-app-identifier-123","session_id":"265dfd21-0fa2-4895-9277-87d2ed74a294","auth_country_code":"GB","authenticated_at":"2024-11-21 22:46:16"}}
+     * @response status=200 scenario="OK - Unauthenticated" {"authenticated":false,"account":null,"session":null}
+     * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
+     * @responseFile status=500 scenario="Internal Server Error" resources/api-responses/500.json
+     */
     public function check(string $publicApiKey, Request $request): JsonResponse
     {
         try {

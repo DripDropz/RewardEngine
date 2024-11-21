@@ -40,6 +40,10 @@ jobs:
         working-directory: ./application
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
+      - name: Build API Documentation
+        working-directory: ./application
+        run: touch database/database.sqlite && APP_URL='https://staging-rewardengine.dripdropz.io' php artisan scribe:generate --force && rm -f database/database.sqlite
+
       - name: Deploy Environment
         working-directory: ./application
         run: vapor deploy staging

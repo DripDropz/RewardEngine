@@ -21,6 +21,7 @@
 * `composer-install` Run composer install
 * `db-migrate` Run database migration(s)
 * `db-refresh` Drop all database tables, re-run the migration(s) with seeds
+* `api-docs` Generates api documentation based on code annotations
 * `tinker` Starts a new php artisan tinker session
 * `status` View the status of all running containers
 * `logs` View the logs out of all running containers

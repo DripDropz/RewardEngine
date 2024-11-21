@@ -1,25 +1,32 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
-use App\Http\Middleware\ProjectAPIKeyAuth;
+use App\Http\Controllers\API\EventsController;
+use App\Http\Middleware\ProjectApiKeyAuth;
 use Illuminate\Support\Facades\Route;
 
 /**
  * V1 API Implementation
  */
-Route::prefix('v1')->group(static function ()
+Route::prefix('v1')->name('api.v1.')->group(static function ()
 {
 
     // Auth
-    Route::prefix('auth')->group(static function ()
+    Route::prefix('auth')->name('auth.')->middleware(['throttle:api-auth'])->group(static function ()
     {
         // Public Endpoints
-        Route::get('providers', [AuthController::class, 'providers'])->name('api.v1.auth.providers');
-        Route::get('init/{publicApiKey}/{authProvider}', [AuthController::class, 'init'])->middleware(['web'])->name('api.v1.auth.init');
-        Route::get('check/{publicApiKey}', [AuthController::class, 'check'])->name('api.v1.auth.check');
+        Route::get('providers', [AuthController::class, 'providers'])->name('providers');
+        Route::get('init/{publicApiKey}/{authProvider}', [AuthController::class, 'init'])->middleware(['web'])->name('init');
+        Route::get('check/{publicApiKey}', [AuthController::class, 'check'])->name('check');
 
-        // Private Endpoints
-        // Route::post('xxx', [AuthController::class, 'xxx'])->middleware(ProjectAPIKeyAuth::class);
+    });
+
+    // Private Endpoints
+    Route::middleware(ProjectApiKeyAuth::class)->group(static function ()
+    {
+
+        // Events
+         Route::post('events', [EventsController::class, 'store']);
 
     });
 

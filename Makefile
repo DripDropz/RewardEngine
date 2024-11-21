@@ -35,6 +35,10 @@ db-migrate:
 db-refresh:
 	docker exec -it rewardengine-web bash -c "php artisan migrate:fresh --seed"
 
+.PHONY: api-docs
+api-docs:
+	docker exec -it rewardengine-web bash -c "php artisan scribe:generate --force"
+
 .PHONY: tinker
 tinker:
 	docker exec -it rewardengine-web bash -c "php artisan tinker"
