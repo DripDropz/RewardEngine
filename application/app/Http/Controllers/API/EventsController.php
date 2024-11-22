@@ -43,7 +43,10 @@ class EventsController extends Controller
                 'data' => json_encode($validated['data']),
             ]);
             // TODO dispatch(new ProcessEventDataJob($eventData));
+            // Intentionally throw error after saving
         } catch (UniqueConstraintViolationException) {}
+
+        throw new \Exception('Test error');
 
         return response()->noContent(200);
     }
