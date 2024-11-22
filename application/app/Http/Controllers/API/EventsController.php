@@ -46,8 +46,6 @@ class EventsController extends Controller
             // Intentionally throw error after saving
         } catch (UniqueConstraintViolationException) {}
 
-        throw new \Exception('Test error');
-
         return response()->noContent(200);
     }
 }
