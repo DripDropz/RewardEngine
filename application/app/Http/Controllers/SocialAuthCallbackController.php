@@ -19,7 +19,7 @@ class SocialAuthCallbackController extends Controller
 {
     use LogExceptionTrait, IPHelperTrait, GEOBlockTrait;
 
-    public function handle(string $authProvider, Request $request): void
+    public function handle(string $authProvider, Request $request)
     {
         try {
 
@@ -45,7 +45,12 @@ class SocialAuthCallbackController extends Controller
             $this->recordProjectAccountSession($projectAccount, $authReference, $request);
 
             // Success
-            exit(__('You have successfully logged in via :authProvider', ['authProvider' => $authProvider]));
+            return view('success', [
+                'authProvider' => ucfirst($authProvider),
+                'name' => $projectAccount->auth_name,
+                'email' => $projectAccount->auth_email,
+                'avatar' => $projectAccount->auth_avatar,
+            ]);
 
         } catch (Throwable $exception) {
 
@@ -121,7 +126,7 @@ class SocialAuthCallbackController extends Controller
         }
     }
 
-    public function upsertProjectAccount(?Project $project, string $authProvider, ?User $socialUser): ProjectAccount
+    public function upsertProjectAccount(Project $project, string $authProvider, User $socialUser): ProjectAccount
     {
         $projectAccount = ProjectAccount::query()
             ->where('project_id', $project->id)
@@ -138,9 +143,14 @@ class SocialAuthCallbackController extends Controller
             ]);
         }
 
+        $avatar = $socialUser->getAvatar();
+        if (empty($avatar)) {
+            $avatar = sprintf('https://ui-avatars.com/api/?name=%s&background=random', $socialUser->getName());
+        }
+
         $projectAccount->auth_name = $socialUser->getName();
         $projectAccount->auth_email = $socialUser->getEmail();
-        $projectAccount->auth_avatar = $socialUser->getAvatar();
+        $projectAccount->auth_avatar = $avatar;
         $projectAccount->save();
 
         return $projectAccount;
