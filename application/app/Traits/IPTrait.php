@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Throwable;
 
-trait IPHelperTrait
+trait IPTrait
 {
     use LogExceptionTrait;
 

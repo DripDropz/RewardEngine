@@ -6,13 +6,17 @@ use App\Enums\AuthProviderType;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\ProjectAccountSession;
+use App\Models\ProjectWallet;
+use App\Models\ProjectWalletSession;
 use App\Traits\GEOBlockTrait;
-use App\Traits\IPHelperTrait;
+use App\Traits\IPTrait;
+use App\Traits\WalletAuthTrait;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 use Throwable;
 
@@ -21,7 +25,7 @@ use Throwable;
  */
 class AuthController extends Controller
 {
-    use IPHelperTrait, GEOBlockTrait;
+    use IPTrait, GEOBlockTrait, WalletAuthTrait;
 
     /**
      * List Auth Providers
@@ -92,23 +96,75 @@ class AuthController extends Controller
             ], 401);
         }
 
+        /**
+         * Wallet Auth
+         */
+
+        // Handle wallet auth provider type differently
+        if ($authProvider === AuthProviderType::WALLET->value) {
+
+            // Ensure the reference is unique across project wallet sessions
+            $project->load(['walletSessions' => function ($query) use ($request) {
+                $query->where('reference', $request->get('reference'));
+            }]);
+            if ($project->walletSessions->count()) {
+                return response()->json([
+                    'error' => __('Bad Request'),
+                    'reason' => __('The reference must be unique.'),
+                ], 400);
+            }
+
+            // Upsert project wallet & set wallet auth attempt
+            $projectWallet = ProjectWallet::query()
+                ->where('project_id', $project->id)
+                ->where('stake_key_hex', $request->input('stake_key_hex'))
+                ->where('stake_key_address', $request->input('stake_key_address'))
+                ->first();
+            if (!$projectWallet) {
+                $projectWallet = new ProjectWallet;
+                $projectWallet->fill([
+                    'project_id' => $project->id,
+                    'stake_key_hex' => $request->get('stake_key_hex'),
+                    'stake_key_address' => $request->get('stake_key_address'),
+                ]);
+            }
+            $projectWallet
+                ->fill([
+                    'auth_nonce' => Str::uuid(),
+                    'auth_issued' => now(),
+                    'auth_expiration' => now()->addMinutes(15),
+                ])
+                ->save();
+
+            // Record project wallet session
+            $projectWalletSession = new ProjectWalletSession;
+            $projectWalletSession
+                ->fill([
+                    'project_wallet_id' => $projectWallet->id,
+                    'reference' => $request->get('reference'),
+                    'session_id' => Str::uuid(),
+                ])
+                ->save();
+
+            // Return challenge hex
+            return response()->json([
+                'challenge_hex' => $this->buildWalletChallengeHex($projectWallet),
+            ]);
+
+        }
+
+        /**
+         * Social Auth
+         */
+
         // Ensure the reference is unique across project account sessions
-        $project->load(['sessions' => function ($query) use ($request) {
+        $project->load(['accountSessions' => function ($query) use ($request) {
             $query->where('reference', $request->get('reference'));
         }]);
-        if ($project->sessions->count()) {
+        if ($project->accountSessions->count()) {
             return response()->json([
                 'error' => __('Bad Request'),
                 'reason' => __('The reference must be unique.'),
-            ], 400);
-        }
-
-        // Handle wallet auth provider
-        if ($authProvider === AuthProviderType::WALLET->value) {
-            // TODO: Handle wallet auth differently
-            return response()->json([
-                'error' => __('Not Implemented'),
-                'reason' => __('Wallet is not supported yet'),
             ], 400);
         }
 

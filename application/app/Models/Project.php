@@ -25,12 +25,22 @@ class Project extends Model
         'private_api_key',
     ];
 
+    public function wallets(): HasMany
+    {
+        return $this->hasMany(ProjectWallet::class);
+    }
+
+    public function walletSessions(): HasManyThrough
+    {
+        return $this->hasManyThrough(ProjectWalletSession::class, ProjectWallet::class, 'project_id', 'project_wallet_id', 'id', 'id');
+    }
+
     public function accounts(): HasMany
     {
         return $this->hasMany(ProjectAccount::class);
     }
 
-    public function sessions(): HasManyThrough
+    public function accountSessions(): HasManyThrough
     {
         return $this->hasManyThrough(ProjectAccountSession::class, ProjectAccount::class, 'project_id', 'project_account_id', 'id', 'id');
     }

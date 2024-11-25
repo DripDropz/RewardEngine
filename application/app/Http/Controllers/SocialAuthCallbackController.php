@@ -7,7 +7,7 @@ use App\Models\Project;
 use App\Models\ProjectAccount;
 use App\Models\ProjectAccountSession;
 use App\Traits\GEOBlockTrait;
-use App\Traits\IPHelperTrait;
+use App\Traits\IPTrait;
 use App\Traits\LogExceptionTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -17,7 +17,7 @@ use Throwable;
 
 class SocialAuthCallbackController extends Controller
 {
-    use LogExceptionTrait, IPHelperTrait, GEOBlockTrait;
+    use LogExceptionTrait, IPTrait, GEOBlockTrait;
 
     public function handle(string $authProvider, Request $request)
     {

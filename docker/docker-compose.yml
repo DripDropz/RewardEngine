@@ -12,7 +12,8 @@ services:
     volumes:
       - ../application:/home/rewardengine/application
     ports:
-      - "8200:80"
+      - "8200:80"   # Laravel
+      - "8201:8201" # Vite
     depends_on:
       - rewardengine-mysql
       - rewardengine-redis

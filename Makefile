@@ -8,6 +8,7 @@ up:
 	$(MAKE) composer-install
 	./docker/wait-for-mysql.sh
 	$(MAKE) db-migrate
+	$(MAKE) frontend-build
 
 .PHONY: down
 down:
@@ -17,11 +18,23 @@ down:
 build:
 	docker compose build
 	$(MAKE) up
-	docker exec -it rewardengine-web bash -c "npm install && npm run build"
+	$(MAKE) frontend-build
 
 #
 # Helper functions
 #
+
+.PHONY: frontend-build
+frontend-build:
+	docker exec -it rewardengine-web bash -c "npm install && npm run build"
+
+.PHONY: frontend-watch
+frontend-watch:
+	docker exec -it rewardengine-web bash -c "npm install && npm run dev"
+
+.PHONY: frontend-upgrade
+frontend-upgrade:
+	docker exec -it rewardengine-web bash -c "npm update"
 
 .PHONY: composer-install
 composer-install:
