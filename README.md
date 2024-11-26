@@ -11,7 +11,7 @@
 - Clone repo `git clone git@github.com:DripDropz/RewardEngine.git`
 - Switch to repo dir `cd $HOME/Desktop/RewardEngine`
 - Copy `.env.example` as `.env` (then make necessary changes to `.env` file)
-- Run `make buid` to build & start the containers
+- Run `make build` to build & start the containers
 - Application should be running locally at `http://localhost:8200`
 
 ### Available Make Commands (Local Development)
