@@ -16,6 +16,15 @@ class ProjectAccount extends Model
         'auth_name',
         'auth_email',
         'auth_avatar',
+        'stake_key_address',
+        'auth_nonce',
+        'auth_issued',
+        'auth_expiration',
+    ];
+
+    protected $casts = [
+        'auth_issued' => 'datetime:Y-m-d H:i:s',
+        'auth_expiration' => 'datetime:Y-m-d H:i:s',
     ];
 
     public function project(): BelongsTo

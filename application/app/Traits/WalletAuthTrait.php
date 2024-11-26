@@ -2,19 +2,24 @@
 
 namespace App\Traits;
 
-use App\Models\ProjectWallet;
+use Carbon\Carbon;
 
 trait WalletAuthTrait
 {
-    public function buildWalletChallengeHex(ProjectWallet $projectWallet): string
+    public function buildWalletChallengeHex(
+        Carbon $expiration,
+        Carbon $issued,
+        string $nonce,
+        string $stakeKeyAddress,
+    ): string
     {
         return bin2hex(json_encode([
-            'expiration' => $projectWallet->auth_expiration->toAtomString(),
-            'issued' => $projectWallet->auth_issued->toAtomString(),
-            'nonce' => $projectWallet->auth_nonce,
+            'expiration' => $expiration->toAtomString(),
+            'issued' => $issued->toAtomString(),
+            'nonce' => $nonce,
             'type' => 'UserAuthentication',
             'uri' => url('/'),
-            'userID' => $projectWallet->stake_key_hex . '|' . $projectWallet->stake_key_address,
+            'userID' => $stakeKeyAddress,
             'version' => '1.0.0',
         ]));
     }

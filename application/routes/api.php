@@ -17,6 +17,8 @@ Route::prefix('v1')->name('api.v1.')->group(static function ()
         // Public Endpoints
         Route::get('providers', [AuthController::class, 'providers'])->name('providers');
         Route::get('init/{publicApiKey}/{authProvider}', [AuthController::class, 'init'])->middleware(['web'])->name('init');
+        Route::post('initWallet/{publicApiKey}', [AuthController::class, 'initWallet'])->name('initWallet');
+        Route::post('verifyWallet/{publicApiKey}', [AuthController::class, 'verifyWallet'])->name('verifyWallet');
         Route::get('check/{publicApiKey}', [AuthController::class, 'check'])->name('check');
 
     });
