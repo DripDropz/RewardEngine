@@ -87,7 +87,7 @@
                 <section>
                     <header>
                         <h2 class="text-lg font-medium text-gray-900">
-                            {{ __('Social Auth Login Links') }}
+                            {{ __('Auth Login Links') }}
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
@@ -98,15 +98,13 @@
                     <div class="mt-6 space-y-3">
 
                         @foreach(\App\Enums\AuthProviderType::values() as $authProvider)
-                            @if ($authProvider !== \App\Enums\AuthProviderType::WALLET->value)
-                                <div>
-                                    <x-input-label :for="$authProvider" :value="__(ucfirst($authProvider))" />
-                                    <div class="flex rounded-lg">
-                                        <input type="text" id="{{ $authProvider }}" value="{{ route('api.v1.auth.init', ['publicApiKey' => $project->public_api_key, 'authProvider' => $authProvider]) }}/?reference=your-app-identifier-123" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" readonly>
-                                        <x-primary-link-button class="ml-4" href="{{ route('api.v1.auth.init', ['publicApiKey' => $project->public_api_key, 'authProvider' => $authProvider]) }}/?reference=your-app-identifier-123" target="_blank">{{ __('Test') }}</x-primary-link-button>
-                                    </div>
+                            <div>
+                                <x-input-label :for="$authProvider" :value="__(ucfirst($authProvider))" />
+                                <div class="flex rounded-lg">
+                                    <input type="text" id="{{ $authProvider }}" value="{{ route('api.v1.auth.init', ['publicApiKey' => $project->public_api_key, 'authProvider' => $authProvider]) }}/?reference={{ $randomString }}" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" readonly>
+                                    <x-primary-link-button class="ml-4" href="{{ route('api.v1.auth.init', ['publicApiKey' => $project->public_api_key, 'authProvider' => $authProvider]) }}/?reference={{ $randomString }}" target="_blank">{{ __('Test') }}</x-primary-link-button>
                                 </div>
-                            @endif
+                            </div>
                         @endforeach
 
                     </div>
@@ -115,8 +113,8 @@
                         <div class="border rounded p-3 border-indigo-600 bg-indigo-50">
                             <x-input-label for="check" value="To check the status of an initiated social authentication" />
                             <div class="flex rounded-lg">
-                                <input type="text" id="check" value="{{ route('api.v1.auth.check', ['publicApiKey' => $project->public_api_key ]) }}/?reference=your-app-identifier-123" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" readonly>
-                                <x-primary-link-button class="ml-4" href="{{ route('api.v1.auth.check', ['publicApiKey' => $project->public_api_key ]) }}/?reference=your-app-identifier-123" target="_blank">{{ __('Test') }}</x-primary-link-button>
+                                <input type="text" id="check" value="{{ route('api.v1.auth.check', ['publicApiKey' => $project->public_api_key ]) }}/?reference={{ $randomString }}" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" readonly>
+                                <x-primary-link-button class="ml-4" href="{{ route('api.v1.auth.check', ['publicApiKey' => $project->public_api_key ]) }}/?reference={{ $randomString }}" target="_blank">{{ __('Test') }}</x-primary-link-button>
                             </div>
                         </div>
                     </div>

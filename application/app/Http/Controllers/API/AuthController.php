@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Enums\AuthProviderType;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\ProjectAccount;
 use App\Models\ProjectAccountSession;
 use App\Traits\GEOBlockTrait;
 use App\Traits\IPTrait;
@@ -117,6 +118,7 @@ class AuthController extends Controller
             // Show wallet connect screen
             return Inertia::render('Wallet/Select', [
                 'publicApiKey' => $publicApiKey,
+                'projectName' => $project->name,
                 'reference' => $request->get('reference'),
             ]);
 
@@ -142,7 +144,7 @@ class AuthController extends Controller
     {
         // Validate request
         $request->validate([
-            'walletName' => ['required', 'string', 'min:3', 'max:128'],
+            'reference' => ['required', 'string', 'min:3', 'max:512'],
             'stakeKeyAddress' => ['required', 'string', 'min:56', 'max:128'],
         ]);
 
@@ -165,6 +167,17 @@ class AuthController extends Controller
                 'error' => __('Unauthorized'),
                 'reason' => __('Access not permitted'),
             ], 401);
+        }
+
+        // Ensure the reference is unique across project account sessions
+        $project->load(['sessions' => function ($query) use ($request) {
+            $query->where('reference', $request->get('reference'));
+        }]);
+        if ($project->sessions->count()) {
+            return response()->json([
+                'error' => __('Bad Request'),
+                'reason' => __('The reference must be unique.'),
+            ], 400);
         }
 
         // Generate a wallet auth attempt
@@ -187,12 +200,22 @@ class AuthController extends Controller
     public function verifyWallet(string $publicApiKey, Request $request): JsonResponse
     {
         // Validate request
-        $request->validate([
+        $isHardwareWallet = (bool) $request->get('isHardwareWallet');
+        $rules = [
             'walletName' => ['required', 'string', 'min:3', 'max:128'],
             'reference' => ['required', 'string', 'min:3', 'max:512'],
             'stakeKeyAddress' => ['required', 'string', 'min:56', 'max:128'],
-            'signature' => ['required'],
-        ]);
+            'isHardwareWallet' => ['required', 'bool'],
+            'networkMode' => ['required', 'in:0,1'],
+        ];
+        if ($isHardwareWallet === true) {
+            $rules['transactionCbor'] = ['required', 'string'];
+            $rules['transactionWitness'] = ['required', 'string'];
+        } else {
+            $rules['signatureCbor'] = ['required', 'string'];
+            $rules['signatureKey'] = ['required', 'string'];
+        }
+        $request->validate($rules);
 
         // Load project by public api key
         $project = Project::query()
@@ -215,6 +238,17 @@ class AuthController extends Controller
             ], 401);
         }
 
+        // Ensure the reference is unique across project account sessions
+        $project->load(['sessions' => function ($query) use ($request) {
+            $query->where('reference', $request->get('reference'));
+        }]);
+        if ($project->sessions->count()) {
+            return response()->json([
+                'error' => __('Bad Request'),
+                'reason' => __('The reference must be unique.'),
+            ], 400);
+        }
+
         // Retrieve the wallet auth challenge hex
         $cacheKey = sprintf('wallet-auth-challenge-hex:%d-%s', $project->id, $request->get('stakeKeyAddress'));
         $walletAuthChallengeHex = Cache::get($cacheKey);
@@ -225,13 +259,68 @@ class AuthController extends Controller
             ], 410);
         }
 
-        // call the signature validation service
+        // Validate the verification signature/transaction
+        $isValid = $isHardwareWallet
+            ? $this->verifyWalletChallengeTransaction(
+                $request->get('transactionCbor'),
+                $request->get('transactionWitness'),
+                $walletAuthChallengeHex,
+                $request->get('stakeKeyAddress'),
+                $request->get('networkMode'),
+            )
+            : $this->verifyWalletChallengeSignature(
+                $request->get('signatureCbor'),
+                $request->get('signatureKey'),
+                $walletAuthChallengeHex,
+                $request->get('stakeKeyAddress'),
+                $request->get('networkMode'),
+            );
+        if (!$isValid) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Could not verify signature.'),
+            ], 401);
+        }
 
-        // if its valid, upsert a projectAccount and projectAccountSession row
+        // Upsert project account
+        $projectAccount = ProjectAccount::query()
+            ->where('project_id', $project->id)
+            ->where('auth_provider', AuthProviderType::WALLET->value)
+            ->where('auth_provider_id', $request->get('stakeKeyAddress'))
+            ->first();
+        if (!$projectAccount) {
+            $projectAccount = new ProjectAccount;
+            $projectAccount->fill([
+                'project_id' => $project->id,
+                'auth_provider' => AuthProviderType::WALLET->value,
+                'auth_provider_id' => $request->get('stakeKeyAddress'),
+            ]);
+        }
+        $projectAccount->auth_wallet = $request->get('walletName');
+        $projectAccount->auth_name = $this->resolveAdaHandle($request->get('stakeKeyAddress'));
+        $projectAccount->auth_email = 'N/A';
+        $projectAccount->auth_avatar = sprintf(
+            'https://api.dicebear.com/9.x/pixel-art/svg?seed=%s',
+            $request->get('stakeKeyAddress'),
+        );
+        $projectAccount->save();
 
-        // Redirect to success page (modify it to handle wallet auth success)
+        // Record project account session
+        $projectAccountSession = new ProjectAccountSession;
+        $projectAccountSession->fill([
+            'project_account_id' => $projectAccount->id,
+            'reference' => $request->get('reference'),
+            'session_id' => Str::uuid(),
+            'auth_country_code' => $this->getIPCountryCode($request),
+            'authenticated_at' => now(),
+        ]);
+        $projectAccountSession->save();
 
-        // TODO: fix auth check
+        // Success
+        return response()->json([
+            'authAvatar' => $projectAccount->auth_avatar,
+            'authName' => $projectAccount->auth_name,
+        ]);
     }
 
     /**
@@ -240,7 +329,7 @@ class AuthController extends Controller
      * @urlParam publicApiKey string required The project's public api key. Example: 414f7c5c-b932-4d26-9570-1c2f954b64ed
      * @queryParam reference string required Unique user/session identifier in your application that was used in the initialization step. Example: abcd1234
      *
-     * @response status=200 scenario="OK - Authenticated" {"authenticated":true,"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg"},"session":{"reference":"your-app-identifier-123","session_id":"265dfd21-0fa2-4895-9277-87d2ed74a294","auth_country_code":"GB","authenticated_at":"2024-11-21 22:46:16"}}
+     * @response status=200 scenario="OK - Authenticated" {"authenticated":true,"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_wallet":"eternl","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg"},"session":{"reference":"your-app-identifier-123","session_id":"265dfd21-0fa2-4895-9277-87d2ed74a294","auth_country_code":"GB","authenticated_at":"2024-11-21 22:46:16"}}
      * @response status=200 scenario="OK - Unauthenticated" {"authenticated":false,"account":null,"session":null}
      * @response status=429 scenario="Too Many Requests" [No Content]
      * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
@@ -290,6 +379,7 @@ class AuthController extends Controller
                     'account' => $isAuthenticated ? [
                         'auth_provider' => $projectAccountSession->account->auth_provider,
                         'auth_provider_id' => $projectAccountSession->account->auth_provider_id,
+                        'auth_wallet' => $projectAccountSession->account->auth_wallet,
                         'auth_name' => $projectAccountSession->account->auth_name,
                         'auth_email' => $projectAccountSession->account->auth_email,
                         'auth_avatar' => $projectAccountSession->account->auth_avatar,

@@ -9,7 +9,7 @@ defineProps({
     <v-app>
         <Head :title="title"/>
         <v-app-bar color="white" elevation="0" class="px-8">
-            <span>RewardEngine</span>
+            {{ title }}
         </v-app-bar>
         <v-main>
             <slot/>

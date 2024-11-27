@@ -8,7 +8,7 @@ up:
 	$(MAKE) composer-install
 	./docker/wait-for-mysql.sh
 	$(MAKE) db-migrate
-	$(MAKE) frontend-build
+#	$(MAKE) frontend-build
 
 .PHONY: down
 down:
@@ -18,7 +18,7 @@ down:
 build:
 	docker compose build
 	$(MAKE) up
-	$(MAKE) frontend-build
+#	$(MAKE) frontend-build
 
 #
 # Helper functions
@@ -68,13 +68,17 @@ logs:
 logs-web:
 	docker compose logs -f --tail=100 rewardengine-web
 
+.PHONY: logs-cardano-sidecar
+logs-cardano-sidecar:
+	docker compose logs -f --tail=100 rewardengine-cardano-sidecar
+
 .PHONY: shell
 shell:
 	docker exec -it rewardengine-web bash
 
 .PHONY: stats
 stats:
-	docker stats rewardengine-web rewardengine-mysql rewardengine-redis
+	docker stats rewardengine-web rewardengine-mysql rewardengine-redis rewardengine-cardano-sidecar
 
 .PHONY: artisan
 artisan:

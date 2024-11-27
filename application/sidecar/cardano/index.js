@@ -17,23 +17,28 @@ const publicKeyToStakeKey = (publicKey, networkMode) => {
 };
 
 const verifySignature = (event) => {
-    const { signatureCbor, signatureKey, walletAuthChallengeHex, stakeKeyAddress, networkMode } = event;
-    const publicKey = sigKeyToPublicKey(signatureKey);
-    const stakeAddr = publicKeyToStakeKey(publicKey, networkMode);
-    const coseSign1_verify = CMS.COSESign1.from_bytes(toHexBuffer(signatureCbor));
-    const signedSigStruc_verify = coseSign1_verify.signed_data();
-    const sig = CSL.Ed25519Signature.from_bytes(coseSign1_verify.signature());
-    const stakePrefix = networkMode === 1 ? 'stake' : 'stake_test';
-    const walletMatches = stakeAddr.to_bech32(stakePrefix) === stakeKeyAddress;
-    const validates = publicKey.verify(signedSigStruc_verify.to_bytes(), sig);
-    const payloadMatches = toHexString(signedSigStruc_verify.payload()) === walletAuthChallengeHex;
-
-    return {
-        isValid: (walletMatches && payloadMatches && validates),
-        walletMatches,
-        payloadMatches,
-        validates,
-    };
+    try {
+        const { signatureCbor, signatureKey, walletAuthChallengeHex, stakeKeyAddress, networkMode } = event;
+        const publicKey = sigKeyToPublicKey(signatureKey);
+        const stakeAddr = publicKeyToStakeKey(publicKey, networkMode);
+        const coseSign1Verify = CMS.COSESign1.from_bytes(toHexBuffer(signatureCbor));
+        const signedSigStrucVerify = coseSign1Verify.signed_data();
+        const sig = CSL.Ed25519Signature.from_bytes(coseSign1Verify.signature());
+        const stakePrefix = networkMode === 1 ? 'stake' : 'stake_test';
+        const walletMatches = stakeAddr.to_bech32(stakePrefix) === stakeKeyAddress;
+        const signatureValidates = publicKey.verify(signedSigStrucVerify.to_bytes(), sig);
+        const payloadMatches = toHexString(signedSigStrucVerify.payload()) === walletAuthChallengeHex;
+        return {
+            isValid: (walletMatches && payloadMatches && signatureValidates),
+            walletMatches,
+            payloadMatches,
+            signatureValidates,
+        };
+    } catch (error) {
+        return {
+            error: error.message,
+        };
+    }
 };
 
 const generateNewWallet = () => {

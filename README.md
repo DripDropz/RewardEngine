@@ -29,6 +29,7 @@
 * `status` View the status of all running containers
 * `logs` View the logs out of all running containers
 * `logs-web` View the logs out of `rewardengine-web` container only
+* `logs-cardano-sidecar` View the logs out of `rewardengine-cardano-sidecar` container only
 * `shell` Drop into an interactive shell inside _rewardengine-web_ container
 * `stats` View the resource usage of all running containers
 * `artisan` Execute Laravel `artisan` command inside _rewardengine-web_ container (e.g. usage: `make artisan COMMAND="make:model MyModel -m"`)

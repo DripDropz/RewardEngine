@@ -79,6 +79,10 @@
                                     <input value="${ authState.account.auth_provider_id }" type="text" class="form-control form-control-sm" disabled>
                                 </div>
                                 <div class="mb-1">
+                                    <label class="form-label">Auth Wallet</label>
+                                    <input value="${ authState.account.auth_wallet ?? 'N/A' }" type="text" class="form-control form-control-sm" disabled>
+                                </div>
+                                <div class="mb-1">
                                     <label class="form-label">Auth Name</label>
                                     <input value="${ authState.account.auth_name }" type="text" class="form-control form-control-sm" disabled>
                                 </div>
@@ -153,15 +157,13 @@
                             </div>
                         `;
                         authProviders.forEach(authProvider => {
-                            if (authProvider !== 'wallet') { // Not yet implemented
-                                authUI += `
-                                    <div class="mb-3">
-                                        <button type="button" onclick="signIn(this)" data-redirect-url="${ apiBaseUrl }/auth/init/${ publicApiKey }/${ authProvider }/?reference=${ reference }" class="btn col-12 btn-primary">
-                                            ${ capitalize(authProvider) }
-                                        </button>
-                                    </div>
-                                `;
-                            }
+                            authUI += `
+                                <div class="mb-3">
+                                    <button type="button" onclick="signIn(this)" data-redirect-url="${ apiBaseUrl }/auth/init/${ publicApiKey }/${ authProvider }/?reference=${ reference }" class="btn col-12 btn-primary">
+                                        ${ capitalize(authProvider) }
+                                    </button>
+                                </div>
+                            `;
                         });
                         $status.hide();
                         $authContainer.html(authUI).show();

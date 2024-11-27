@@ -12,10 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('project_accounts', function (Blueprint $table) {
-            $table->string('stake_key_address', 64)->index()->nullable();
-            $table->string('auth_nonce', 36)->nullable();
-            $table->dateTime('auth_issued')->nullable();
-            $table->dateTime('auth_expiration')->nullable();
+            $table->string('auth_wallet', 64)->after('auth_provider_id')->nullable();
         });
     }
 
@@ -25,10 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('project_accounts', function (Blueprint $table) {
-            $table->dropColumn('stake_key_address');
-            $table->dropColumn('auth_nonce');
-            $table->dropColumn('auth_issued');
-            $table->dropColumn('auth_expiration');
+            $table->dropColumn('auth_wallet');
         });
     }
 };

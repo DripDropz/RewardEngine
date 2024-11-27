@@ -1,17 +1,18 @@
 const lambda = require('./index');
 
 const express = require('express');
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const app = express();
-app.use(bodyParser.json());
 const port = 3000;
+
+app.use(bodyParser.json());
 
 app.post('/', async (req, res) => {
     res.send(await lambda.handler(req.body));
 });
 
 app.listen(port, () => {
-    console.log(`Dev server listening on port ${port}`)
+    console.log(`Cardano sidecar dev server listening on port ${port}`)
 });
 
 /**

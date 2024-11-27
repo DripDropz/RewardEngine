@@ -4,12 +4,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SocialAuthCallbackController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index']);
-Route::get('test', [TestController::class, 'index']);
 Route::get('demo', fn() => view('demo'));
 Route::get('social-auth-callback/{authProvider}', [SocialAuthCallbackController::class, 'handle']);
 

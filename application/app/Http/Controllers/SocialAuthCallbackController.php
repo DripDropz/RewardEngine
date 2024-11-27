@@ -145,7 +145,7 @@ class SocialAuthCallbackController extends Controller
 
         $avatar = $socialUser->getAvatar();
         if (empty($avatar)) {
-            $avatar = sprintf('https://ui-avatars.com/api/?name=%s&background=random', $socialUser->getName());
+            $avatar = sprintf('https://api.dicebear.com/9.x/pixel-art/svg?seed=%s', $socialUser->getName());
         }
 
         $projectAccount->auth_name = $socialUser->getName();

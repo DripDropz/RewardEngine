@@ -19,7 +19,7 @@
         "vue": "^3.5.13"
     },
     "dependencies": {
-        "@emurgo/cardano-serialization-lib-asmjs": "^11.5.0",
+        "@emurgo/cardano-serialization-lib-asmjs": "^13.2.0",
         "@mdi/font": "^7.4.47",
         "buffer": "^6.0.3",
         "chart.js": "^4.4.5",

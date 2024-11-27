@@ -22,7 +22,7 @@ export default defineConfig({
         }),
     ],
     build: {
-        chunkSizeWarningLimit: 10240,
+        chunkSizeWarningLimit: 12288,
     },
     server: {
         port: 8201,
