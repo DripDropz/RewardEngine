@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 trait GEOBlockTrait
 {
-    use IPHelperTrait;
+    use IPTrait;
 
     private function isGEOBlocked(Project $project, Request $request): bool
     {

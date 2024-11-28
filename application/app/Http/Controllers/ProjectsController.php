@@ -39,9 +39,11 @@ class ProjectsController extends Controller
                 ->with('alert', __('Project not found.'));
         }
 
+        $randomString = 'your-app-identifier-' . Str::random(8);
+
         return view(
             'projects.show',
-            compact('project'),
+            compact('project', 'randomString'),
         );
     }
 

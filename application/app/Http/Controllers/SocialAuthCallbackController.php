@@ -7,8 +7,9 @@ use App\Models\Project;
 use App\Models\ProjectAccount;
 use App\Models\ProjectAccountSession;
 use App\Traits\GEOBlockTrait;
-use App\Traits\IPHelperTrait;
+use App\Traits\IPTrait;
 use App\Traits\LogExceptionTrait;
+use App\Traits\WalletAuthTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Contracts\User;
@@ -17,7 +18,7 @@ use Throwable;
 
 class SocialAuthCallbackController extends Controller
 {
-    use LogExceptionTrait, IPHelperTrait, GEOBlockTrait;
+    use LogExceptionTrait, IPTrait, GEOBlockTrait, WalletAuthTrait;
 
     public function handle(string $authProvider, Request $request)
     {
@@ -43,6 +44,9 @@ class SocialAuthCallbackController extends Controller
 
             // Record project account session
             $this->recordProjectAccountSession($projectAccount, $authReference, $request);
+
+            // Setup new wallet
+            $this->setupNewWallet($projectAccount);
 
             // Success
             return view('success', [
@@ -145,7 +149,7 @@ class SocialAuthCallbackController extends Controller
 
         $avatar = $socialUser->getAvatar();
         if (empty($avatar)) {
-            $avatar = sprintf('https://ui-avatars.com/api/?name=%s&background=random', $socialUser->getName());
+            $avatar = sprintf('https://api.dicebear.com/9.x/pixel-art/svg?seed=%s', $socialUser->getName());
         }
 
         $projectAccount->auth_name = $socialUser->getName();
@@ -167,5 +171,18 @@ class SocialAuthCallbackController extends Controller
             'authenticated_at' => now(),
         ]);
         $projectAccountSession->save();
+    }
+
+    private function setupNewWallet(ProjectAccount $projectAccount): void
+    {
+        if (empty($projectAccount->generated_wallet_mnemonic)) {
+            $newWallet = $this->generateNewWallet();
+            if ($newWallet) {
+                $projectAccount->update([
+                    'generated_wallet_mnemonic' => $newWallet['mnemonic'],
+                    'generated_wallet_stake_address' => $newWallet['wallet']['rewardAddress'],
+                ]);
+            }
+        }
     }
 }

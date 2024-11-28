@@ -11,7 +11,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/tailwind_app.css', 'resources/js/tailwind_app.js'])
         <script>
             setTimeout(() => window.close(), 5000);
         </script>
@@ -45,7 +45,7 @@
                         </div>
                     </main>
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        Powered by <a class="underline" href="https://github.com/DripDropz/RewardEngine" target="_blank">{{ config('app.name') }}</a> {{ config('app.version') }}
+                        Powered by <a class="underline" href="https://github.com/DripDropz/RewardEngine" target="_blank">DripDropz.io RewardEngine</a> {{ config('app.version') }}
                     </footer>
                 </div>
             </div>

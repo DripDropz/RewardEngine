@@ -11,10 +11,13 @@
 - Clone repo `git clone git@github.com:DripDropz/RewardEngine.git`
 - Switch to repo dir `cd $HOME/Desktop/RewardEngine`
 - Copy `.env.example` as `.env` (then make necessary changes to `.env` file)
-- Run `make buid` to build & start the containers
+- Run `make build` to build & start the containers
 - Application should be running locally at `http://localhost:8200`
 
 ### Available Make Commands (Local Development)
+* `frontend-build` Rebuild frontend
+* `frontend-watch` Runs `npm run dev` (vite watch/hot-reload mode) inside _rewardengine-web_ container
+* `frontend-upgrade` Upgrades npm packages inside _rewardengine-web_ container
 * `up` Restart all docker containers
 * `down` Shutdown all docker containers
 * `build` Rebuilds all docker containers
@@ -26,6 +29,7 @@
 * `status` View the status of all running containers
 * `logs` View the logs out of all running containers
 * `logs-web` View the logs out of `rewardengine-web` container only
+* `logs-cardano-sidecar` View the logs out of `rewardengine-cardano-sidecar` container only
 * `shell` Drop into an interactive shell inside _rewardengine-web_ container
 * `stats` View the resource usage of all running containers
 * `artisan` Execute Laravel `artisan` command inside _rewardengine-web_ container (e.g. usage: `make artisan COMMAND="make:model MyModel -m"`)

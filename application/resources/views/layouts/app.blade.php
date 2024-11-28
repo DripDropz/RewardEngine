@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/tailwind_app.css', 'resources/js/tailwind_app.js'])
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -36,7 +36,7 @@
             <!-- Page Footer -->
             <footer class="text-center text-sm">
                 <hr />
-                <p class="py-6 text-gray-600">Powered by <a class="underline" href="https://github.com/DripDropz/RewardEngine" target="_blank">{{ config('app.name') }}</a> {{ config('app.version') }}</p>
+                <p class="py-6 text-gray-600">Powered by <a class="underline" href="https://github.com/DripDropz/RewardEngine" target="_blank">DripDropz.io RewardEngine</a> {{ config('app.version') }}</p>
             </footer>
         </div>
     </body>

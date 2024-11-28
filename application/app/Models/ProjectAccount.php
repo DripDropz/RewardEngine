@@ -13,9 +13,22 @@ class ProjectAccount extends Model
         'project_id',
         'auth_provider',
         'auth_provider_id',
+        'auth_wallet',
         'auth_name',
         'auth_email',
         'auth_avatar',
+        'generated_wallet_mnemonic',
+        'generated_wallet_stake_address',
+        'linked_wallet_stake_address',
+    ];
+
+    protected $casts = [
+        'auth_issued' => 'datetime:Y-m-d H:i:s',
+        'auth_expiration' => 'datetime:Y-m-d H:i:s',
+    ];
+
+    protected $hidden = [
+        'generated_wallet_mnemonic',
     ];
 
     public function project(): BelongsTo
@@ -31,24 +44,32 @@ class ProjectAccount extends Model
     protected function authName(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => decrypt($value),
-            set: fn (string $value) => encrypt($value),
+            get: fn (string|null $value) => $value ? decrypt($value) : null,
+            set: fn (string|null $value) => $value ? encrypt($value) : null,
         );
     }
 
     protected function authEmail(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => decrypt($value),
-            set: fn (string $value) => encrypt($value),
+            get: fn (string|null $value) => $value ? decrypt($value) : null,
+            set: fn (string|null $value) => $value ? encrypt($value) : null,
         );
     }
 
     protected function authAvatar(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => decrypt($value),
-            set: fn (string $value) => encrypt($value),
+            get: fn (string|null $value) => $value ? decrypt($value) : null,
+            set: fn (string|null $value) => $value ? encrypt($value) : null,
+        );
+    }
+
+    protected function generatedWalletMnemonic(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string|null $value) => $value ? decrypt($value) : null,
+            set: fn (string|null $value) => $value ? encrypt($value) : null,
         );
     }
 }

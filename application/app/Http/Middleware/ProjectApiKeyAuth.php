@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Project;
-use App\Traits\IPHelperTrait;
+use App\Traits\IPTrait;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProjectApiKeyAuth
 {
-    use IPHelperTrait;
+    use IPTrait;
 
     /**
      * Handle an incoming request.

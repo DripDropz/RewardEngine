@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\HydraDoomEventParserJob;
 use App\Models\EventData;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
@@ -36,14 +37,16 @@ class EventsController extends Controller
         ]);
 
         try {
+
             $eventData = EventData::create([
                 'project_id' => $request->project->id,
                 'event_id' => $validated['event_id'],
                 'timestamp' => $validated['timestamp'],
-                'data' => json_encode($validated['data']),
+                'data' => $validated['data'],
             ]);
-            // TODO dispatch(new ProcessEventDataJob($eventData));
-            // Intentionally throw error after saving
+
+            dispatch(new HydraDoomEventParserJob($eventData));
+
         } catch (UniqueConstraintViolationException) {}
 
         return response()->noContent(200);

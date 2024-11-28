@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Application;
@@ -22,6 +23,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->throttleWithRedis();
+        $middleware->web(append: [
+            HandleInertiaRequests::class,
+        ]);
     })
     ->withExceptions(static function (Exceptions $exceptions) {
 
