@@ -14,7 +14,7 @@ return [
      * The name of the application. This value will be used to name the functions
      * when deploying. It defaults to the Laravel application's name.
      */
-    'app_name' => env('SIDECAR_APP_NAME', env('APP_NAME')),
+    'app_name' => 'RewardEngine', // env('SIDECAR_APP_NAME', env('APP_NAME')),
 
     /*
      * Sidecar separates functions by environment. If you'd like to change
