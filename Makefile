@@ -40,6 +40,10 @@ frontend-upgrade:
 composer-install:
 	docker exec -it rewardengine-web bash -c "composer install"
 
+.PHONY: deploy-sidecar
+deploy-sidecar:
+	docker exec -it rewardengine-web bash -c "php artisan sidecar:deploy --activate"
+
 .PHONY: db-migrate
 db-migrate:
 	docker exec -it rewardengine-web bash -c "php artisan migrate"

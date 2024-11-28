@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Sidecar\Cardano;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -9,6 +10,8 @@ use Throwable;
 
 trait WalletAuthTrait
 {
+    use LogExceptionTrait;
+
     public function buildWalletChallengeHex(
         Carbon $expiration,
         Carbon $issued,
@@ -29,14 +32,19 @@ trait WalletAuthTrait
 
     public function verifyWalletChallengeTransaction(
         string $transactionCbor,
-        string $transactionWitness,
         string $walletAuthChallengeHex,
         string $stakeKeyAddress,
-        int $networkMode,
     ): bool
     {
-        // TODO: implementation
-        return false;
+        return $this->verifyWalletChallenge([
+            'type' => 'verifyTransaction',
+            ...compact(
+                'transactionCbor',
+                'walletAuthChallengeHex',
+                'walletAuthChallengeHex',
+                'stakeKeyAddress',
+            ),
+        ]);
     }
 
     public function verifyWalletChallengeSignature(
@@ -47,7 +55,7 @@ trait WalletAuthTrait
         int $networkMode,
     ): bool
     {
-        $payload = [
+        return $this->verifyWalletChallenge([
             'type' => 'verifySignature',
             ...compact(
                 'signatureCbor',
@@ -56,16 +64,28 @@ trait WalletAuthTrait
                 'stakeKeyAddress',
                 'networkMode',
             ),
-        ];
+        ]);
+    }
 
+    private function verifyWalletChallenge(array $answer): bool
+    {
         if (app()->environment('local')) {
-            $response = Http::post('http://rewardengine-cardano-sidecar:3000', $payload);
-            if ($response->successful()) {
-                return $response->json('isValid');
+            try {
+                $response = Http::post('http://rewardengine-cardano-sidecar:3000', $answer)->throw();
+                if ($response->successful()) {
+                    return (bool) $response->json('isValid');
+                }
+            } catch (Throwable $exception) {
+                $this->logException('Local verifyWalletChallengeSignature Error', $exception);
             }
         }
 
-        // TODO Call Sidecar Lambda function
+        try {
+            $result = Cardano::execute($answer);
+            return (bool) $result->body()['isValid'];
+        } catch (Throwable $exception) {
+            $this->logException('Sidecar verifyWalletChallengeSignature Error', $exception);
+        }
 
         return false;
     }
@@ -74,17 +94,18 @@ trait WalletAuthTrait
     {
         return Cache::remember(sprintf('adahandle:%s', $stakeKeyAddress), 1800, function () use ($stakeKeyAddress) {
             try {
-
                 $response = Http::timeout(10)
                     ->connectTimeout(10)
-                    ->get(sprintf('https://api.handle.me/handles?holder_address=%s', $stakeKeyAddress));
-
+                    ->get(sprintf('https://api.handle.me/handles?holder_address=%s', $stakeKeyAddress))
+                    ->throw();
                 if ($response->successful() && isset($response->json()[0]['default_in_wallet'])) {
                     return $response->json()[0]['default_in_wallet'];
                 }
-
-            } catch (Throwable) {}
-
+            } catch (Throwable $exception) {
+                $this->logException('Failed to resolve adahandle', $exception, [
+                    'stakeKeyAddress' => $stakeKeyAddress,
+                ]);
+            }
             return $stakeKeyAddress;
         });
     }

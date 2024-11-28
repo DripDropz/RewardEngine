@@ -210,7 +210,6 @@ class AuthController extends Controller
         ];
         if ($isHardwareWallet === true) {
             $rules['transactionCbor'] = ['required', 'string'];
-            $rules['transactionWitness'] = ['required', 'string'];
         } else {
             $rules['signatureCbor'] = ['required', 'string'];
             $rules['signatureKey'] = ['required', 'string'];
@@ -263,10 +262,8 @@ class AuthController extends Controller
         $isValid = $isHardwareWallet
             ? $this->verifyWalletChallengeTransaction(
                 $request->get('transactionCbor'),
-                $request->get('transactionWitness'),
                 $walletAuthChallengeHex,
                 $request->get('stakeKeyAddress'),
-                $request->get('networkMode'),
             )
             : $this->verifyWalletChallengeSignature(
                 $request->get('signatureCbor'),

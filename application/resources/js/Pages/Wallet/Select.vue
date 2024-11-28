@@ -219,7 +219,6 @@ const connectWallet = async (walletName) => {
                     );
                     verificationPayload.isHardwareWallet = true;
                     verificationPayload.transactionCbor = signedTx.to_hex();
-                    verificationPayload.transactionWitness = witness;
                 }
 
                 axios

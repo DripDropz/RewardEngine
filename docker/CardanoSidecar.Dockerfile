@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 MAINTAINER Latheesan Kanesamoorthy <latheesan87@gmail.com>
 
 WORKDIR /app
