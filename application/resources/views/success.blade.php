@@ -45,7 +45,7 @@
                         </div>
                     </main>
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        Powered by <a class="underline" href="https://github.com/DripDropz/RewardEngine" target="_blank">{{ config('app.name') }}</a> {{ config('app.version') }}
+                        Powered by <a class="underline" href="https://github.com/DripDropz/RewardEngine" target="_blank">DripDropz.io RewardEngine</a> {{ config('app.version') }}
                     </footer>
                 </div>
             </div>

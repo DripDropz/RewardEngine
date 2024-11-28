@@ -111,7 +111,7 @@
 
                     <div class="mt-6">
                         <div class="border rounded p-3 border-indigo-600 bg-indigo-50">
-                            <x-input-label for="check" value="To check the status of an initiated social authentication" />
+                            <x-input-label for="check" value="To check the status of an initiated authentication attempt" />
                             <div class="flex rounded-lg">
                                 <input type="text" id="check" value="{{ route('api.v1.auth.check', ['publicApiKey' => $project->public_api_key ]) }}/?reference={{ $randomString }}" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" readonly>
                                 <x-primary-link-button class="ml-4" href="{{ route('api.v1.auth.check', ['publicApiKey' => $project->public_api_key ]) }}/?reference={{ $randomString }}" target="_blank">{{ __('Test') }}</x-primary-link-button>
@@ -122,48 +122,5 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <section>
-                    <header>
-                        <h2 class="text-lg font-medium text-gray-900">
-                            {{ __('Event Types') }}
-                        </h2>
-
-                        <p class="mt-1 text-sm text-gray-600">
-                            {{ __('Define a list of acceptable event types that will be submitted via the stats api endpoint.') }}
-                        </p>
-                    </header>
-
-                    <div class="mt-6 space-y-6">
-
-                        Coming Soon
-
-                    </div>
-                </section>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <section>
-                    <header>
-                        <h2 class="text-lg font-medium text-gray-900">
-                            {{ __('Accomplishments') }}
-                        </h2>
-
-                        <p class="mt-1 text-sm text-gray-600">
-                            {{ __("Define various accomplishments based possible event types and their value requirements.") }}
-                        </p>
-                    </header>
-
-                    <div class="mt-6 space-y-6">
-
-                        Coming Soon
-
-                    </div>
-                </section>
-            </div>
-        </div>
     </div>
 </x-app-layout>

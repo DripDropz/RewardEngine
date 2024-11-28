@@ -198,6 +198,7 @@ const connectWallet = async (walletName) => {
                     const signedPayload = await walletConnection.value.signData(stakeAddressCbor, walletAuthChallengeHex);
                     verificationPayload.signatureCbor = signedPayload.signature;
                     verificationPayload.signatureKey = signedPayload.key;
+                    console.log(signedPayload);
                 } else {
                     const txn = await CardanoTxn.create(stakeKey, walletAuthChallengeHex);
                     const witness = await walletConnection.value.signTx(txn.to_hex(), true);

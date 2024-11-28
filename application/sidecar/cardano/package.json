@@ -17,6 +17,7 @@
   "dependencies": {
     "@emurgo/cardano-message-signing-nodejs": "^1.1.0",
     "@emurgo/cardano-serialization-lib-nodejs": "^13.2.0",
+    "blakejs": "^1.2.1",
     "buffer": "^6.0.3",
     "cbor": "^10.0.3"
   }

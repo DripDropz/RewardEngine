@@ -8,7 +8,7 @@ up:
 	$(MAKE) composer-install
 	./docker/wait-for-mysql.sh
 	$(MAKE) db-migrate
-#	$(MAKE) frontend-build
+	$(MAKE) frontend-build
 
 .PHONY: down
 down:
@@ -18,7 +18,7 @@ down:
 build:
 	docker compose build
 	$(MAKE) up
-#	$(MAKE) frontend-build
+	$(MAKE) frontend-build
 
 #
 # Helper functions

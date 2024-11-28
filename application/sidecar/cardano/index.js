@@ -2,6 +2,7 @@ const CMS = require('@emurgo/cardano-message-signing-nodejs');
 const CSL = require('@emurgo/cardano-serialization-lib-nodejs');
 const Buffer = require('buffer');
 const cbor = require('cbor');
+const blakejs = require('blakejs');
 
 const toHexBuffer = hex => Buffer.Buffer.from(hex, 'hex');
 const toHexString = array => Buffer.Buffer.from(array).toString('hex');
@@ -27,8 +28,7 @@ const verifyTransaction = (event) => {
         const stake_key_hex = CSL.Address.from_bech32(stakeKeyAddress).to_hex().substring(2);
         const tx = CSL.Transaction.from_bytes(toHexBuffer(transactionCbor));
         const witnesses = tx.witness_set();
-        // const tx_hash = CSL.hash_transaction(tx.body()).to_hex();
-        const tx_hash = CSL.FixedTransaction.from_bytes(tx.body().to_bytes()).transaction_hash();
+        const tx_hash = CSL.hash_transaction(tx.body()).to_hex();
         const tx_metadata_hash = tx.body().auxiliary_data_hash().to_hex();
         const test_metadata_hash = CSL.hash_auxiliary_data(tx.auxiliary_data()).to_hex();
         const nonce_entry_value = tx.auxiliary_data().metadata().get(CSL.BigNum.from_str('8'));
@@ -65,7 +65,13 @@ const verifySignature = (event) => {
         const stakePrefix = networkMode === 1 ? 'stake' : 'stake_test';
         const walletMatches = stakeAddr.to_bech32(stakePrefix) === stakeKeyAddress;
         const signatureValidates = publicKey.verify(signedSigStrucVerify.to_bytes(), sig);
-        const payloadMatches = toHexString(signedSigStrucVerify.payload()) === walletAuthChallengeHex;
+        const signedPayloadHex = toHexString(signedSigStrucVerify.payload());
+        const payloadMatches = (
+            // Signed by lite wallet
+            signedPayloadHex === walletAuthChallengeHex ||
+            // Signed by hardware wallet
+            signedPayloadHex === blakejs.blake2bHex(Buffer.Buffer.from(walletAuthChallengeHex, 'hex'), null, 28)
+        );
         return {
             isValid: (walletMatches && payloadMatches && signatureValidates),
             walletMatches,

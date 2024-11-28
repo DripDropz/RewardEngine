@@ -17,7 +17,7 @@ defineProps({
         <v-footer app>
             <v-container class="text-center text-sm-body-2">
                 Powered by
-                <a class="text-black" href="https://github.com/DripDropz/RewardEngine" target="_blank">RewardEngine</a>
+                <a class="text-black" href="https://github.com/DripDropz/RewardEngine" target="_blank">DripDropz.io RewardEngine</a>
                 {{ $page.props.appVersion }}
             </v-container>
         </v-footer>
