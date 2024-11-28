@@ -295,7 +295,6 @@ class AuthController extends Controller
         }
         $projectAccount->auth_wallet = $request->get('walletName');
         $projectAccount->auth_name = $this->resolveAdaHandle($request->get('stakeKeyAddress'));
-        $projectAccount->auth_email = 'N/A';
         $projectAccount->auth_avatar = sprintf(
             'https://api.dicebear.com/9.x/pixel-art/svg?seed=%s',
             $request->get('stakeKeyAddress'),
@@ -312,6 +311,17 @@ class AuthController extends Controller
             'authenticated_at' => now(),
         ]);
         $projectAccountSession->save();
+
+        // Setup new wallet
+        if (empty($projectAccount->generated_wallet_mnemonic)) {
+            $newWallet = $this->generateNewWallet();
+            if ($newWallet) {
+                $projectAccount->update([
+                    'generated_wallet_mnemonic' => $newWallet['mnemonic'],
+                    'generated_wallet_stake_address' => $newWallet['wallet']['rewardAddress'],
+                ]);
+            }
+        }
 
         // Success
         return response()->json([

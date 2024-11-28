@@ -67,27 +67,11 @@ trait WalletAuthTrait
         ]);
     }
 
-    private function verifyWalletChallenge(array $answer): bool
+    public function generateNewWallet(): array|null
     {
-        if (app()->environment('local')) {
-            try {
-                $response = Http::post('http://rewardengine-cardano-sidecar:3000', $answer)->throw();
-                if ($response->successful()) {
-                    return (bool) $response->json('isValid');
-                }
-            } catch (Throwable $exception) {
-                $this->logException('Local verifyWalletChallengeSignature Error', $exception);
-            }
-        }
-
-        try {
-            $result = Cardano::execute($answer);
-            return (bool) $result->body()['isValid'];
-        } catch (Throwable $exception) {
-            $this->logException('Sidecar verifyWalletChallengeSignature Error', $exception);
-        }
-
-        return false;
+        return $this->executeCardanoSidecar([
+            'type' => 'generateNewWallet',
+        ]);
     }
 
     public function resolveAdaHandle(string $stakeKeyAddress): string
@@ -108,5 +92,39 @@ trait WalletAuthTrait
             }
             return $stakeKeyAddress;
         });
+    }
+
+    private function verifyWalletChallenge(array $answer): bool
+    {
+        $result = $this->executeCardanoSidecar($answer);
+
+        return (
+            $result &&
+            isset($result['isValid']) &&
+            $result['isValid'] === true
+        );
+    }
+
+    private function executeCardanoSidecar(array $payload): array|null
+    {
+        if (app()->environment('local')) {
+            try {
+                $response = Http::post('http://rewardengine-cardano-sidecar:3000', $payload)->throw();
+                if ($response->successful()) {
+                    return $response->json();
+                }
+            } catch (Throwable $exception) {
+                $this->logException('Local verifyWalletChallengeSignature Error', $exception);
+            }
+        } else {
+            try {
+                $result = Cardano::execute($payload);
+                return $result->body();
+            } catch (Throwable $exception) {
+                $this->logException('Sidecar verifyWalletChallengeSignature Error', $exception);
+            }
+        }
+
+        return null;
     }
 }
