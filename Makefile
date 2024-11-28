@@ -42,7 +42,9 @@ composer-install:
 
 .PHONY: deploy-sidecar
 deploy-sidecar:
-	docker exec -it rewardengine-web bash -c "php artisan sidecar:deploy --activate"
+	# docker exec -it rewardengine-web bash -c "php artisan sidecar:deploy --activate --env=local"
+	# docker exec -it rewardengine-web bash -c "php artisan sidecar:deploy --activate --env=staging"
+	docker exec -it rewardengine-web bash -c "php artisan sidecar:deploy --activate --env=production"
 
 .PHONY: db-migrate
 db-migrate:

@@ -21,7 +21,7 @@ return [
      * your Sidecar environment without changing your entire application
      * environment, you may do so here.
      */
-    'env' => env('SIDECAR_ENV', env('APP_ENV')),
+    'env' => 'production', // env('SIDECAR_ENV', env('APP_ENV')),
 
     /*
      * The default timeout for your functions, in seconds.
