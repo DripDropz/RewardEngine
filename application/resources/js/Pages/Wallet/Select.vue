@@ -272,12 +272,12 @@ const connectWallet = async (walletName) => {
                             <template v-else>
                                 <template v-if="availableWallets.length">
                                     <v-card-text>
-                                        <v-switch v-model="walletHardwareMode"
-                                                  :true-value="true"
-                                                  :false-value="false"
-                                                  hide-details
-                                                  label="Use Hardware Wallet Signing Method?"
-                                                  color="primary"/>
+<!--                                        <v-switch v-model="walletHardwareMode"-->
+<!--                                                  :true-value="true"-->
+<!--                                                  :false-value="false"-->
+<!--                                                  hide-details-->
+<!--                                                  label="Use Hardware Wallet Signing Method?"-->
+<!--                                                  color="primary"/>-->
                                         <v-btn variant="tonal" class="mt-3" size="large"
                                                v-for="wallet in availableWallets"
                                                :key="wallet.walletName"
