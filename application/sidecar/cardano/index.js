@@ -3,6 +3,8 @@ const CSL = require('@emurgo/cardano-serialization-lib-nodejs');
 const Buffer = require('buffer');
 const cbor = require('cbor');
 const blakejs = require('blakejs');
+const lucidWallet = require('@lucid-evolution/wallet');
+const bip39 = require('@lucid-evolution/bip39');
 
 const toHexBuffer = hex => Buffer.Buffer.from(hex, 'hex');
 const toHexString = array => Buffer.Buffer.from(array).toString('hex');
@@ -28,7 +30,9 @@ const verifyTransaction = (event) => {
         const stake_key_hex = CSL.Address.from_bech32(stakeKeyAddress).to_hex().substring(2);
         const tx = CSL.Transaction.from_bytes(toHexBuffer(transactionCbor));
         const witnesses = tx.witness_set();
-        const tx_hash = CSL.hash_transaction(tx.body()).to_hex();
+
+        const fixed_transaction = CSL.FixedTransaction.new_from_body_bytes(tx.body().to_bytes());
+        const tx_hash = fixed_transaction.transaction_hash().to_hex();
         const tx_metadata_hash = tx.body().auxiliary_data_hash().to_hex();
         const test_metadata_hash = CSL.hash_auxiliary_data(tx.auxiliary_data()).to_hex();
         const nonce_entry_value = tx.auxiliary_data().metadata().get(CSL.BigNum.from_str('8'));
@@ -84,8 +88,10 @@ const verifySignature = (event) => {
 };
 
 const generateNewWallet = () => {
+    const mnemonic = bip39.generateMnemonic(256);
     return {
-        message: 'TODO',
+        mnemonic,
+        address: lucidWallet.walletFromSeed(mnemonic)
     };
 }
 
