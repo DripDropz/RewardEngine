@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class HydraDoomEventParserJob implements ShouldQueue
 {
@@ -57,7 +58,8 @@ class HydraDoomEventParserJob implements ShouldQueue
      */
     public function handle(): void
     {
-        if (empty($this->eventData->data['type']) || empty($this->eventData->data['game_id'])) {
+        if (empty($this->eventData->data['type'])) {
+            Log::info(sprintf('Skipping event %d (empty type)', $this->eventData->id));
             return;
         }
 
@@ -81,14 +83,19 @@ class HydraDoomEventParserJob implements ShouldQueue
                 $this->processKillEvent();
                 break;
             default:
-                echo sprintf('Unknown Event Type: %s', $this->eventData->data['type']);
+                Log::info(sprintf('Skipping event %d (unknown type: %s)', $this->eventData->id, $this->eventData->data['type']));
                 break;
         }
     }
 
     private function processGlobalEvent(): void
     {
-        Cache::put(
+        if (empty($this->eventData->data['stats'])) {
+            Log::info(sprintf('Skipping event %d (empty stats)', $this->eventData->id));
+            return;
+        }
+
+        Cache::forever(
             sprintf('project-%d:global-stats', $this->eventData->project_id),
             $this->eventData->data['stats'],
         );
@@ -96,6 +103,11 @@ class HydraDoomEventParserJob implements ShouldQueue
 
     private function processNewGameEvent(): void
     {
+        if (empty($this->eventData->data['game_id'])) {
+            Log::info(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
+            return;
+        }
+
         $this->recordProjectAccountSessionEvent([
             'project_id' => $this->eventData->project_id,
             'reference' => '-',
@@ -109,7 +121,8 @@ class HydraDoomEventParserJob implements ShouldQueue
 
     private function processGameStartedEvent(): void
     {
-        if (empty($this->eventData->data['keys'])) {
+        if (empty($this->eventData->data['keys']) || empty($this->eventData->data['game_id'])) {
+            Log::info(sprintf('Skipping event %d (empty keys or game_id)', $this->eventData->id));
             return;
         }
 
@@ -131,7 +144,8 @@ class HydraDoomEventParserJob implements ShouldQueue
 
     private function processPlayerJoinedEvent(): void
     {
-        if (empty($this->eventData->data['key'])) {
+        if (empty($this->eventData->data['key']) || empty($this->eventData->data['game_id'])) {
+            Log::info(sprintf('Skipping event %d (empty key or game_id)', $this->eventData->id));
             return;
         }
 
@@ -148,10 +162,16 @@ class HydraDoomEventParserJob implements ShouldQueue
 
     private function processKillEvent(): void
     {
+        if (empty($this->eventData->data['game_id'])) {
+            Log::info(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
+            return;
+        }
+
         $killerReference = $this->eventData->data['killer'];
         $victimReference = $this->eventData->data['victim'];
 
         if (empty($killerReference) || empty($victimReference) || !is_string($killerReference) || !is_string($victimReference)) {
+            Log::info(sprintf('Skipping event %d (empty killer or victim)', $this->eventData->id));
             return;
         }
 
@@ -194,6 +214,11 @@ class HydraDoomEventParserJob implements ShouldQueue
 
     private function processGameFinishedEvent(): void
     {
+        if (empty($this->eventData->data['game_id'])) {
+            Log::info(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
+            return;
+        }
+
         $allJoinedPlayers = ProjectAccountSessionEvent::query()
             ->where('game_id', $this->eventData->data['game_id'])
             ->where('event_type', self::TYPE_PLAYER_JOINED)

@@ -28,6 +28,7 @@ class ParseAllHydraDoomEventsCommand extends Command
     {
         $eventData = \App\Models\EventData::query()
             ->where('project_id', 1)
+            ->orderBy('timestamp', 'asc')
             ->get();
 
         foreach ($eventData as $eventDatum) {

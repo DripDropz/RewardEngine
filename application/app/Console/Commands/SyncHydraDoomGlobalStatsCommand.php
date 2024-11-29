@@ -38,8 +38,8 @@ class SyncHydraDoomGlobalStatsCommand extends Command
     {
         try {
 
-            $response = Http::timeout(30)
-                ->connectTimeout(30)
+            $response = Http::timeout(60)
+                ->connectTimeout(60)
                 ->get(static::API_ENDPOINT)
                 ->throw();
 
