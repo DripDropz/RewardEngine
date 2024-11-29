@@ -56,7 +56,7 @@ class HydraDoomEventParserJob implements ShouldQueue
      */
     public function handle(): void
     {
-        if (!isset($this->eventData->data['type'])) {
+        if (empty($this->eventData->data['type']) || empty($this->eventData->data['game_id'])) {
             return;
         }
 
@@ -105,6 +105,10 @@ class HydraDoomEventParserJob implements ShouldQueue
 
     private function processPlayerJoinedEvent(): void
     {
+        if (empty($this->eventData->data['key'])) {
+            return;
+        }
+
         $this->recordProjectAccountSessionEvent([
             'project_id' => $this->eventData->project_id,
             'reference' => $this->eventData->data['key'],
@@ -120,6 +124,10 @@ class HydraDoomEventParserJob implements ShouldQueue
     {
         $killerReference = $this->eventData->data['killer'];
         $victimReference = $this->eventData->data['victim'];
+
+        if (empty($killerReference) || empty($victimReference)) {
+            return;
+        }
 
         if ($killerReference === $victimReference) {
 
