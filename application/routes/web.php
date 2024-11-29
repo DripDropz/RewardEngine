@@ -34,3 +34,20 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+// TEST ROUTE :: START
+Route::get('test', static function() {
+    if (app()->environment('local')) {
+
+        $globalStat = \App\Models\EventData::query()
+            ->where('id', 2)
+            ->first();
+
+        (new \App\Jobs\HydraDoomEventParserJob($globalStat))->handle();
+
+        dd(\Illuminate\Support\Facades\Cache::get(sprintf('project-%d:global-stats', 1)));
+
+    }
+});
+// TEST ROUTE :: END
