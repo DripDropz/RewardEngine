@@ -15,6 +15,7 @@ class EventData extends Model
         'event_id',
         'data',
         'timestamp',
+        'last_error',
     ];
 
     protected function data(): Attribute

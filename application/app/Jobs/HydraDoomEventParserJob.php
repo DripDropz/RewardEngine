@@ -59,7 +59,7 @@ class HydraDoomEventParserJob implements ShouldQueue
     public function handle(): void
     {
         if (empty($this->eventData->data['type'])) {
-            Log::info(sprintf('Skipping event %d (empty type)', $this->eventData->id));
+            $this->updateLastError(sprintf('Skipping event %d (empty type)', $this->eventData->id));
             return;
         }
 
@@ -83,7 +83,7 @@ class HydraDoomEventParserJob implements ShouldQueue
                 $this->processKillEvent();
                 break;
             default:
-                Log::info(sprintf('Skipping event %d (unknown type: %s)', $this->eventData->id, $this->eventData->data['type']));
+                $this->updateLastError(sprintf('Skipping event %d (unknown type: %s)', $this->eventData->id, $this->eventData->data['type']));
                 break;
         }
     }
@@ -91,7 +91,7 @@ class HydraDoomEventParserJob implements ShouldQueue
     private function processGlobalEvent(): void
     {
         if (empty($this->eventData->data['stats'])) {
-            Log::info(sprintf('Skipping event %d (empty stats)', $this->eventData->id));
+            $this->updateLastError(sprintf('Skipping event %d (empty stats)', $this->eventData->id));
             return;
         }
 
@@ -104,7 +104,7 @@ class HydraDoomEventParserJob implements ShouldQueue
     private function processNewGameEvent(): void
     {
         if (empty($this->eventData->data['game_id'])) {
-            Log::info(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
+            $this->updateLastError(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
             return;
         }
 
@@ -122,7 +122,7 @@ class HydraDoomEventParserJob implements ShouldQueue
     private function processGameStartedEvent(): void
     {
         if (empty($this->eventData->data['keys']) || empty($this->eventData->data['game_id'])) {
-            Log::info(sprintf('Skipping event %d (empty keys or game_id)', $this->eventData->id));
+            $this->updateLastError(sprintf('Skipping event %d (empty keys or game_id)', $this->eventData->id));
             return;
         }
 
@@ -145,7 +145,7 @@ class HydraDoomEventParserJob implements ShouldQueue
     private function processPlayerJoinedEvent(): void
     {
         if (empty($this->eventData->data['key']) || empty($this->eventData->data['game_id'])) {
-            Log::info(sprintf('Skipping event %d (empty key or game_id)', $this->eventData->id));
+            $this->updateLastError(sprintf('Skipping event %d (empty key or game_id)', $this->eventData->id));
             return;
         }
 
@@ -163,7 +163,7 @@ class HydraDoomEventParserJob implements ShouldQueue
     private function processKillEvent(): void
     {
         if (empty($this->eventData->data['game_id'])) {
-            Log::info(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
+            $this->updateLastError(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
             return;
         }
 
@@ -171,7 +171,7 @@ class HydraDoomEventParserJob implements ShouldQueue
         $victimReference = $this->eventData->data['victim'];
 
         if (empty($killerReference) || empty($victimReference) || !is_string($killerReference) || !is_string($victimReference)) {
-            Log::info(sprintf('Skipping event %d (empty killer or victim)', $this->eventData->id));
+            $this->updateLastError(sprintf('Skipping event %d (empty killer or victim)', $this->eventData->id));
             return;
         }
 
@@ -215,7 +215,7 @@ class HydraDoomEventParserJob implements ShouldQueue
     private function processGameFinishedEvent(): void
     {
         if (empty($this->eventData->data['game_id'])) {
-            Log::info(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
+            $this->updateLastError(sprintf('Skipping event %d (empty game_id)', $this->eventData->id));
             return;
         }
 
@@ -247,5 +247,13 @@ class HydraDoomEventParserJob implements ShouldQueue
                 dispatch(new HydraDoomAccountStatsJob($payload['project_id'], $payload['reference']));
             }
         } catch (UniqueConstraintViolationException) {}
+    }
+
+    private function updateLastError(string $message): void
+    {
+        Log::info($message);
+        $this->eventData->update([
+            'last_error' => substr($message, 0, 256),
+        ]);
     }
 }
