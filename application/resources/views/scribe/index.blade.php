@@ -439,10 +439,10 @@
                                                                             </div>
                                                                     <div class="expandable">
                                         <div class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"
-                                             id="toc-item-stats-GETapi-v1-stats-session--publicApiKey---sessionId-">
+                                             id="toc-item-stats-GETapi-v1-stats-session--publicApiKey---reference-">
                                             <div class="sl-flex-1 sl-items-center sl-truncate sl-mr-1.5 sl-p-0" title="Session Stats">
                                                 <a class="ElementsTableOfContentsItem sl-block sl-no-underline"
-                                                   href="#stats-GETapi-v1-stats-session--publicApiKey---sessionId-">
+                                                   href="#stats-GETapi-v1-stats-session--publicApiKey---reference-">
                                                     Session Stats
                                                 </a>
                                             </div>
@@ -1431,7 +1431,7 @@ response.json()</code></pre>                                        </div>
                                                                                                                     access-control-allow-origin
                                                             : *
                                                                                                                     set-cookie
-                                                            : XSRF-TOKEN=eyJpdiI6Im1CMHdXZklUUExXMk9BQTRMRGtQTHc9PSIsInZhbHVlIjoiMUYwSVJ4Y2JyZjJEQ1hnZy9pdHhlQU5FVDljckNvY3E2UUdvTS8zUTVTVXh6MjJZQTRuTUE1YlBZOGU3UG5Ra0UrNkc4TTJoQ3NYTFI4b1ZFVUlicENCUlJUamErM2NGOHVXNkR6a28zY0pSTERvQTd5MjZBRGRNK3M5emF4RVciLCJtYWMiOiJkOTk5NDE0ODEyNmU5MTg4YmY5YWY3ZTUzMDY5MTA3ZjM0NDBmMTA2ZDc3NmJmMzk0NzdiMWQ3NDBmNDMzN2VmIiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 03:03:52 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6IktHYzBMSXBSTjRPMWVUQ01KUXhZOVE9PSIsInZhbHVlIjoibEgvb3hrZC9HNm5Da1VRWkxaamhRd3ErZ0I3ZnpFdlBubUlsTWM0R1FKNEl6VE8ydDlWK3ZqWHVxZ3VwMkppNTB4QnRCdWRpbGdtMWZ1ZmdqbkNlNis5dHNpcUNXWFB2c3FuTmlkNnUybE9qemJsSjh6YTQrcHkwZWNnaFUwNk4iLCJtYWMiOiJlODk5YmU4N2Y2Yzc4Mzk5YmRkMGMzMjE0NDMyNzIyOWI1YzczOTJkN2M0NmNiYTY5OWMwMGM5OWNlZjY2OTlmIiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 03:03:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+                                                            : XSRF-TOKEN=eyJpdiI6IlZBK2UrWUh4NGYxOHBLaVQvR2Z4bmc9PSIsInZhbHVlIjoiOXd5MjZVdkE0WW81RFdNLzFodUdMK29iWTNpUWNGeDUxdDlWUWtKQkIxeGVCdXJiMjVxVFk3c0JOM3lZUnhxY0ZGM0lUNFVrRndKREtIK3Jxb2pEc3N5OGlESnJvbmkvRlFEbFduc01tM0JoajgvTzVib1ZiM0l1ZzMrVTMyaEEiLCJtYWMiOiI4OWM4ZDYyN2Y2ZGNjODRlMmU3ZmZhN2NlZDY4NTIyMTJlNjViNDVlNjBhOTRhMzBlNWEwMmNmMDM2ZGE4OGJkIiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 05:49:16 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6IkNQcnY4QTVHV1B3dEk0Q3lvVUhwSEE9PSIsInZhbHVlIjoiOUtOdjloa0NiMGM3aWJHVnZucC96SGRSVmRJbTVldFgyaVpKUjc5RG8yNUIxUlE4OUtzM3NXV05KU1dIRDF6TDdmR1grVkRPUTJlOTVHMURvUFI4V3NNNi8rTzF2Vi83K1lSUnhQc2J4STR0VFVWMXhJbXVZd2gxelhtQkVORDciLCJtYWMiOiI5N2I5MmNlMGE0MWU4ZGFlZTgwZDQwYWE1NzViNTE5NzE3MWI0OThmNjQ3YjI5NjRiMTQzM2MwOTllMTA0NDJmIiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 05:49:16 GMT; Max-Age=7200; path=/; httponly; samesite=lax
                                                          </code></pre>
                                             </details>
                                                                                                                                                                         
@@ -1564,7 +1564,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        voluptatem
+                        soluta
                     </div>
                 </div>
             </div>
@@ -1598,7 +1598,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        czpyutgxmwwasvlgyg
+                        nstyqxrw
                     </div>
                 </div>
             </div>
@@ -1625,7 +1625,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        wuorqshjmuimsfieyfvt
+                        vatpakn
                     </div>
                 </div>
             </div>
@@ -1721,7 +1721,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-POSTapi-v1-auth-initWallet--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="voluptatem" data-component="url"
+                                               value="soluta" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -1752,8 +1752,8 @@ response.json()</code></pre>                                        </div>
                                      id="json-body-POSTapi-v1-auth-initWallet--publicApiKey-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "reference": "czpyutgxmwwasvlgyg",
-    "stakeKeyAddress": "wuorqshjmuimsfieyfvt"
+    "reference": "nstyqxrw",
+    "stakeKeyAddress": "vatpakn"
 }</div>
                             </div>
                                             </div>
@@ -1847,12 +1847,12 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8200/api/v1/auth/initWallet/voluptatem" \
+    "http://localhost:8200/api/v1/auth/initWallet/soluta" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"reference\": \"czpyutgxmwwasvlgyg\",
-    \"stakeKeyAddress\": \"wuorqshjmuimsfieyfvt\"
+    \"reference\": \"nstyqxrw\",
+    \"stakeKeyAddress\": \"vatpakn\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -1862,7 +1862,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/auth/initWallet/voluptatem"
+    "http://localhost:8200/api/v1/auth/initWallet/soluta"
 );
 
 const headers = {
@@ -1871,8 +1871,8 @@ const headers = {
 };
 
 let body = {
-    "reference": "czpyutgxmwwasvlgyg",
-    "stakeKeyAddress": "wuorqshjmuimsfieyfvt"
+    "reference": "nstyqxrw",
+    "stakeKeyAddress": "vatpakn"
 };
 
 fetch(url, {
@@ -1887,7 +1887,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/auth/initWallet/voluptatem';
+$url = 'http://localhost:8200/api/v1/auth/initWallet/soluta';
 $response = $client-&gt;post(
     $url,
     [
@@ -1896,8 +1896,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'reference' =&gt; 'czpyutgxmwwasvlgyg',
-            'stakeKeyAddress' =&gt; 'wuorqshjmuimsfieyfvt',
+            'reference' =&gt; 'nstyqxrw',
+            'stakeKeyAddress' =&gt; 'vatpakn',
         ],
     ]
 );
@@ -1912,10 +1912,10 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/auth/initWallet/voluptatem'
+url = 'http://localhost:8200/api/v1/auth/initWallet/soluta'
 payload = {
-    "reference": "czpyutgxmwwasvlgyg",
-    "stakeKeyAddress": "wuorqshjmuimsfieyfvt"
+    "reference": "nstyqxrw",
+    "stakeKeyAddress": "vatpakn"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -2030,7 +2030,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        vitae
+                        aspernatur
                     </div>
                 </div>
             </div>
@@ -2064,7 +2064,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        ffoadvtcizjjuree
+                        guzkvyjvscvjwm
                     </div>
                 </div>
             </div>
@@ -2091,7 +2091,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        ros
+                        czsyhdqylfjpdylml
                     </div>
                 </div>
             </div>
@@ -2118,7 +2118,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        fvtzaabzurrjedybgohdije
+                        ycgobxcsqauhvzubkfjyvxb
                     </div>
                 </div>
             </div>
@@ -2142,7 +2142,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        true
+                        false
                     </div>
                 </div>
             </div>
@@ -2168,7 +2168,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        0
+                        1
                     </div>
                 </div>
             </div>
@@ -2264,7 +2264,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-POSTapi-v1-auth-verifyWallet--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="vitae" data-component="url"
+                                               value="aspernatur" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -2295,11 +2295,11 @@ response.json()</code></pre>                                        </div>
                                      id="json-body-POSTapi-v1-auth-verifyWallet--publicApiKey-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "walletName": "ffoadvtcizjjuree",
-    "reference": "ros",
-    "stakeKeyAddress": "fvtzaabzurrjedybgohdije",
-    "isHardwareWallet": true,
-    "networkMode": "0"
+    "walletName": "guzkvyjvscvjwm",
+    "reference": "czsyhdqylfjpdylml",
+    "stakeKeyAddress": "ycgobxcsqauhvzubkfjyvxb",
+    "isHardwareWallet": false,
+    "networkMode": "1"
 }</div>
                             </div>
                                             </div>
@@ -2393,15 +2393,15 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8200/api/v1/auth/verifyWallet/vitae" \
+    "http://localhost:8200/api/v1/auth/verifyWallet/aspernatur" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"walletName\": \"ffoadvtcizjjuree\",
-    \"reference\": \"ros\",
-    \"stakeKeyAddress\": \"fvtzaabzurrjedybgohdije\",
-    \"isHardwareWallet\": true,
-    \"networkMode\": \"0\"
+    \"walletName\": \"guzkvyjvscvjwm\",
+    \"reference\": \"czsyhdqylfjpdylml\",
+    \"stakeKeyAddress\": \"ycgobxcsqauhvzubkfjyvxb\",
+    \"isHardwareWallet\": false,
+    \"networkMode\": \"1\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -2411,7 +2411,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/auth/verifyWallet/vitae"
+    "http://localhost:8200/api/v1/auth/verifyWallet/aspernatur"
 );
 
 const headers = {
@@ -2420,11 +2420,11 @@ const headers = {
 };
 
 let body = {
-    "walletName": "ffoadvtcizjjuree",
-    "reference": "ros",
-    "stakeKeyAddress": "fvtzaabzurrjedybgohdije",
-    "isHardwareWallet": true,
-    "networkMode": "0"
+    "walletName": "guzkvyjvscvjwm",
+    "reference": "czsyhdqylfjpdylml",
+    "stakeKeyAddress": "ycgobxcsqauhvzubkfjyvxb",
+    "isHardwareWallet": false,
+    "networkMode": "1"
 };
 
 fetch(url, {
@@ -2439,7 +2439,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/auth/verifyWallet/vitae';
+$url = 'http://localhost:8200/api/v1/auth/verifyWallet/aspernatur';
 $response = $client-&gt;post(
     $url,
     [
@@ -2448,11 +2448,11 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'walletName' =&gt; 'ffoadvtcizjjuree',
-            'reference' =&gt; 'ros',
-            'stakeKeyAddress' =&gt; 'fvtzaabzurrjedybgohdije',
-            'isHardwareWallet' =&gt; true,
-            'networkMode' =&gt; '0',
+            'walletName' =&gt; 'guzkvyjvscvjwm',
+            'reference' =&gt; 'czsyhdqylfjpdylml',
+            'stakeKeyAddress' =&gt; 'ycgobxcsqauhvzubkfjyvxb',
+            'isHardwareWallet' =&gt; false,
+            'networkMode' =&gt; '1',
         ],
     ]
 );
@@ -2467,13 +2467,13 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/auth/verifyWallet/vitae'
+url = 'http://localhost:8200/api/v1/auth/verifyWallet/aspernatur'
 payload = {
-    "walletName": "ffoadvtcizjjuree",
-    "reference": "ros",
-    "stakeKeyAddress": "fvtzaabzurrjedybgohdije",
-    "isHardwareWallet": true,
-    "networkMode": "0"
+    "walletName": "guzkvyjvscvjwm",
+    "reference": "czsyhdqylfjpdylml",
+    "stakeKeyAddress": "ycgobxcsqauhvzubkfjyvxb",
+    "isHardwareWallet": false,
+    "networkMode": "1"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -3722,7 +3722,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        nobis
+                        quo
                     </div>
                 </div>
             </div>
@@ -3819,7 +3819,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-GETapi-v1-stats-global--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="nobis" data-component="url"
+                                               value="quo" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -3917,7 +3917,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8200/api/v1/stats/global/nobis" \
+    --get "http://localhost:8200/api/v1/stats/global/quo" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -3927,7 +3927,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/stats/global/nobis"
+    "http://localhost:8200/api/v1/stats/global/quo"
 );
 
 const headers = {
@@ -3946,7 +3946,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/stats/global/nobis';
+$url = 'http://localhost:8200/api/v1/stats/global/quo';
 $response = $client-&gt;get(
     $url,
     [
@@ -3967,7 +3967,7 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/stats/global/nobis'
+url = 'http://localhost:8200/api/v1/stats/global/quo'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -3992,8 +3992,9 @@ response.json()</code></pre>                                        </div>
                                                         onchange="switchExampleResponse('GETapi-v1-stats-global--publicApiKey-', event.target.value);">
                                                                                                             <option value="0">200, OK</option>
                                                                                                             <option value="1">401, Unauthorized</option>
-                                                                                                            <option value="2">500, Internal Server Error</option>
-                                                                                                            <option value="3">503, Service Unavailable</option>
+                                                                                                            <option value="2">429, Too Many Requests</option>
+                                                                                                            <option value="3">500, Internal Server Error</option>
+                                                                                                            <option value="4">503, Service Unavailable</option>
                                                                                                     </select></div>
                                         </div>
                                     </div>
@@ -4037,13 +4038,21 @@ response.json()</code></pre>                                        </div>
                                 >
                                     <div class="sl-panel__content sl-p-0">                                                                                                                                
                                             <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-global--publicApiKey- example-response-GETapi-v1-stats-global--publicApiKey--3"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
     &quot;error&quot;: &quot;Internal Server Error&quot;,
     &quot;reason&quot;: &quot;Reason for this error&quot;
 }</code></pre>
                                                                             </div>
                                 </div>
-                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-global--publicApiKey- example-response-GETapi-v1-stats-global--publicApiKey--3"
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-global--publicApiKey- example-response-GETapi-v1-stats-global--publicApiKey--4"
                                      style=" display: none;"
                                 >
                                     <div class="sl-panel__content sl-p-0">                                                                                                                                
@@ -4064,14 +4073,14 @@ response.json()</code></pre>                                        </div>
         <div class="sl-relative">
             <div class="sl-stack sl-stack--horizontal sl-stack--5 sl-flex sl-flex-row sl-items-center">
                 <h2 class="sl-text-3xl sl-leading-tight sl-font-prose sl-text-heading sl-mt-5 sl-mb-1"
-                    id="stats-GETapi-v1-stats-session--publicApiKey---sessionId-">
+                    id="stats-GETapi-v1-stats-session--publicApiKey---reference-">
                     Session Stats
                 </h2>
             </div>
         </div>
 
         <div class="sl-relative">
-            <div title="http://localhost:8200/api/v1/stats/session/{publicApiKey}/{sessionId}"
+            <div title="http://localhost:8200/api/v1/stats/session/{publicApiKey}/{reference}"
                      class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
                 >
                                             <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
@@ -4082,7 +4091,7 @@ response.json()</code></pre>                                        </div>
                                         <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
                         <div dir="rtl"
                              class="sl-overflow-x-hidden sl-truncate sl-text-muted">http://localhost:8200</div>
-                        <div class="sl-flex-1 sl-font-semibold">/api/v1/stats/session/{publicApiKey}/{sessionId}</div>
+                        <div class="sl-flex-1 sl-font-semibold">/api/v1/stats/session/{publicApiKey}/{reference}</div>
                     </div>
 
                                     </div>
@@ -4157,7 +4166,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        eveniet
+                        nihil
                     </div>
                 </div>
             </div>
@@ -4168,7 +4177,7 @@ response.json()</code></pre>                                        </div>
     <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
         <div class="sl-flex sl-items-center sl-max-w-full">
                                         <div class="sl-flex sl-items-baseline sl-text-base">
-                    <div class="sl-font-mono sl-font-semibold sl-mr-2">sessionId</div>
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">reference</div>
                                             <span class="sl-truncate sl-text-muted">string</span>
                                     </div>
                                     <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
@@ -4178,7 +4187,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        dolore
+                        sunt
                     </div>
                 </div>
             </div>
@@ -4201,7 +4210,7 @@ response.json()</code></pre>                                        </div>
     <div class="sl-overflow-y-hidden sl-rounded-lg">
         <form class="TryItPanel sl-bg-canvas-100 sl-rounded-lg"
               data-method="GET"
-              data-path="api/v1/stats/session/{publicApiKey}/{sessionId}"
+              data-path="api/v1/stats/session/{publicApiKey}/{reference}"
               data-hasfiles="0"
               data-hasjsonbody="0">
             
@@ -4224,23 +4233,23 @@ response.json()</code></pre>                                        </div>
                     <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
                         <div class="ParameterGrid sl-p-4">
                                                                                             <label aria-hidden="true"
-                                       for="header-GETapi-v1-stats-session--publicApiKey---sessionId--Content-Type">Content-Type</label>
+                                       for="header-GETapi-v1-stats-session--publicApiKey---reference--Content-Type">Content-Type</label>
                                 <span class="sl-mx-3">:</span>
                                 <div class="sl-flex sl-flex-1">
                                     <div class="sl-input sl-flex-1 sl-relative">
                                         <input aria-label="Content-Type" name="Content-Type"
-                                               id="header-GETapi-v1-stats-session--publicApiKey---sessionId--Content-Type"
+                                               id="header-GETapi-v1-stats-session--publicApiKey---reference--Content-Type"
                                                value="application/json" data-component="header"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
                                                                                             <label aria-hidden="true"
-                                       for="header-GETapi-v1-stats-session--publicApiKey---sessionId--Accept">Accept</label>
+                                       for="header-GETapi-v1-stats-session--publicApiKey---reference--Accept">Accept</label>
                                 <span class="sl-mx-3">:</span>
                                 <div class="sl-flex sl-flex-1">
                                     <div class="sl-input sl-flex-1 sl-relative">
                                         <input aria-label="Accept" name="Accept"
-                                               id="header-GETapi-v1-stats-session--publicApiKey---sessionId--Accept"
+                                               id="header-GETapi-v1-stats-session--publicApiKey---reference--Accept"
                                                value="application/json" data-component="header"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
@@ -4268,26 +4277,26 @@ response.json()</code></pre>                                        </div>
                     <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
                         <div class="ParameterGrid sl-p-4">
                                                             <label aria-hidden="true"
-                                       for="urlparam-GETapi-v1-stats-session--publicApiKey---sessionId--publicApiKey">publicApiKey</label>
+                                       for="urlparam-GETapi-v1-stats-session--publicApiKey---reference--publicApiKey">publicApiKey</label>
                                 <span class="sl-mx-3">:</span>
                                 <div class="sl-flex sl-flex-1">
                                     <div class="sl-input sl-flex-1 sl-relative">
                                         <input aria-label="publicApiKey" name="publicApiKey"
-                                               id="urlparam-GETapi-v1-stats-session--publicApiKey---sessionId--publicApiKey"
+                                               id="urlparam-GETapi-v1-stats-session--publicApiKey---reference--publicApiKey"
                                                placeholder=""
-                                               value="eveniet" data-component="url"
+                                               value="nihil" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
                                                             <label aria-hidden="true"
-                                       for="urlparam-GETapi-v1-stats-session--publicApiKey---sessionId--sessionId">sessionId</label>
+                                       for="urlparam-GETapi-v1-stats-session--publicApiKey---reference--reference">reference</label>
                                 <span class="sl-mx-3">:</span>
                                 <div class="sl-flex sl-flex-1">
                                     <div class="sl-input sl-flex-1 sl-relative">
-                                        <input aria-label="sessionId" name="sessionId"
-                                               id="urlparam-GETapi-v1-stats-session--publicApiKey---sessionId--sessionId"
+                                        <input aria-label="reference" name="reference"
+                                               id="urlparam-GETapi-v1-stats-session--publicApiKey---reference--reference"
                                                placeholder=""
-                                               value="dolore" data-component="url"
+                                               value="sunt" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -4299,7 +4308,7 @@ response.json()</code></pre>                                        </div>
             
             <div class="SendButtonHolder sl-mt-4 sl-p-4 sl-pt-0">
                 <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center">
-                    <button type="button" data-endpoint="GETapi-v1-stats-session--publicApiKey---sessionId-"
+                    <button type="button" data-endpoint="GETapi-v1-stats-session--publicApiKey---reference-"
                             class="tryItOut-btn sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-bg-primary hover:sl-bg-primary-dark active:sl-bg-primary-darker disabled:sl-bg-canvas-100 sl-text-on-primary disabled:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"
                     >
                         Send Request 💥
@@ -4307,7 +4316,7 @@ response.json()</code></pre>                                        </div>
                 </div>
             </div>
 
-            <div data-endpoint="GETapi-v1-stats-session--publicApiKey---sessionId-"
+            <div data-endpoint="GETapi-v1-stats-session--publicApiKey---reference-"
                  class="tryItOut-error expandable sl-panel sl-outline-none sl-w-full" hidden>
                 <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
                      role="button">
@@ -4334,7 +4343,7 @@ You can check the Dev Tools console for debugging information.</p>
                 </div>
             </div>
 
-                <div data-endpoint="GETapi-v1-stats-session--publicApiKey---sessionId-"
+                <div data-endpoint="GETapi-v1-stats-session--publicApiKey---reference-"
                      class="tryItOut-response expandable sl-panel sl-outline-none sl-w-full" hidden>
                     <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
                          role="button">
@@ -4385,7 +4394,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8200/api/v1/stats/session/eveniet/dolore" \
+    --get "http://localhost:8200/api/v1/stats/session/nihil/sunt" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -4395,7 +4404,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/stats/session/eveniet/dolore"
+    "http://localhost:8200/api/v1/stats/session/nihil/sunt"
 );
 
 const headers = {
@@ -4414,7 +4423,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/stats/session/eveniet/dolore';
+$url = 'http://localhost:8200/api/v1/stats/session/nihil/sunt';
 $response = $client-&gt;get(
     $url,
     [
@@ -4435,7 +4444,7 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/stats/session/eveniet/dolore'
+url = 'http://localhost:8200/api/v1/stats/session/nihil/sunt'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -4455,12 +4464,14 @@ response.json()</code></pre>                                        </div>
                                             <div class="sl-mb-2 sl-inline-block">Example response:</div>
                                             <div class="sl-mb-2 sl-inline-block">
                                                 <select
-                                                        class="example-response-GETapi-v1-stats-session--publicApiKey---sessionId--toggle sl-text-base"
+                                                        class="example-response-GETapi-v1-stats-session--publicApiKey---reference--toggle sl-text-base"
                                                         aria-label="Response sample"
-                                                        onchange="switchExampleResponse('GETapi-v1-stats-session--publicApiKey---sessionId-', event.target.value);">
-                                                                                                            <option value="0">200</option>
-                                                                                                            <option value="1">429, Too Many Requests</option>
-                                                                                                            <option value="2">500, Internal Server Error</option>
+                                                        onchange="switchExampleResponse('GETapi-v1-stats-session--publicApiKey---reference-', event.target.value);">
+                                                                                                            <option value="0">200, OK</option>
+                                                                                                            <option value="1">401, Unauthorized</option>
+                                                                                                            <option value="2">429, Too Many Requests</option>
+                                                                                                            <option value="3">500, Internal Server Error</option>
+                                                                                                            <option value="4">503, Service Unavailable</option>
                                                                                                     </select></div>
                                         </div>
                                     </div>
@@ -4477,17 +4488,29 @@ response.json()</code></pre>                                        </div>
                                     </div>
                                 </button>
                             </div>
-                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---sessionId- example-response-GETapi-v1-stats-session--publicApiKey---sessionId--0"
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--0"
                                      style=" "
                                 >
                                     <div class="sl-panel__content sl-p-0">                                                                                                                                
                                             <pre><code style="max-height: 300px;"
-                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[
-    &quot;todo&quot;
-]</code></pre>
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;key1&quot;: &quot;value1&quot;,
+    &quot;key2&quot;: &quot;value3&quot;
+}</code></pre>
                                                                             </div>
                                 </div>
-                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---sessionId- example-response-GETapi-v1-stats-session--publicApiKey---sessionId--1"
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--1"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Unauthorized&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--2"
                                      style=" display: none;"
                                 >
                                     <div class="sl-panel__content sl-p-0">                                                                                                                                
@@ -4495,13 +4518,24 @@ response.json()</code></pre>                                        </div>
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
                                                                             </div>
                                 </div>
-                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---sessionId- example-response-GETapi-v1-stats-session--publicApiKey---sessionId--2"
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--3"
                                      style=" display: none;"
                                 >
                                     <div class="sl-panel__content sl-p-0">                                                                                                                                
                                             <pre><code style="max-height: 300px;"
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
     &quot;error&quot;: &quot;Internal Server Error&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--4"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Service Unavailable&quot;,
     &quot;reason&quot;: &quot;Reason for this error&quot;
 }</code></pre>
                                                                             </div>

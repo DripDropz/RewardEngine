@@ -114,6 +114,9 @@ class HydraDoomEventParserJob implements ShouldQueue
         }
 
         foreach ($this->eventData->data['keys'] as $key) {
+            if (!is_string($key)) {
+                continue;
+            }
             $this->recordProjectAccountSessionEvent([
                 'project_id' => $this->eventData->project_id,
                 'reference' => $key,
@@ -148,7 +151,7 @@ class HydraDoomEventParserJob implements ShouldQueue
         $killerReference = $this->eventData->data['killer'];
         $victimReference = $this->eventData->data['victim'];
 
-        if (empty($killerReference) || empty($victimReference)) {
+        if (empty($killerReference) || empty($victimReference) || !is_string($killerReference) || !is_string($victimReference)) {
             return;
         }
 

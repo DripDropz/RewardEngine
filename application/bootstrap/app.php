@@ -82,9 +82,9 @@ return Application::configure(basePath: dirname(__DIR__))
         // Handle API Unhandled Exception
         $exceptions->render(function (Throwable $e, Request $request) {
             if ($request->is('api/*')) {
-//                if (app()->environment('local')) {
-//                    dd($e);
-//                }
+                if (app()->environment('local')) {
+                    dd($e);
+                }
                 Log::error(sprintf('Unhandled API Exception: %s %s', strtoupper($request->method()), $request->url()), [
                     'message' => $e->getMessage(),
                     'file' => $e->getFile(),

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class ProjectAccount extends Model
 {
@@ -39,6 +40,11 @@ class ProjectAccount extends Model
     public function sessions(): HasMany
     {
         return $this->hasMany(ProjectAccountSession::class);
+    }
+
+    public function sessionEvents(): HasManyThrough
+    {
+        return $this->hasManyThrough(ProjectAccountSessionEvent::class, ProjectAccountSession::class, 'project_account_id', 'reference', 'id', 'reference');
     }
 
     protected function authName(): Attribute
