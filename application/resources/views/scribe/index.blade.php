@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Reward Engine API Documentation</title>
+    <title>RewardEngine API Documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -275,7 +275,7 @@
      style="width: calc((100% - 1800px) / 2 + 300px); padding-left: calc((100% - 1800px) / 2); min-width: 300px; max-height: 100vh">
     <div class="sl-flex sl-items-center sl-mb-5 sl-ml-4">
                 <h4 class="sl-text-paragraph sl-leading-snug sl-font-prose sl-font-semibold sl-text-heading">
-            Reward Engine API Documentation
+            RewardEngine API Documentation
         </h4>
     </div>
 
@@ -341,6 +341,30 @@
                                                                             </div>
                                                                     <div class="expandable">
                                         <div class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"
+                                             id="toc-item-authentication-POSTapi-v1-auth-initWallet--publicApiKey-">
+                                            <div class="sl-flex-1 sl-items-center sl-truncate sl-mr-1.5 sl-p-0" title="POST api/v1/auth/initWallet/{publicApiKey}">
+                                                <a class="ElementsTableOfContentsItem sl-block sl-no-underline"
+                                                   href="#authentication-POSTapi-v1-auth-initWallet--publicApiKey-">
+                                                    POST api/v1/auth/initWallet/{publicApiKey}
+                                                </a>
+                                            </div>
+                                                                                    </div>
+
+                                                                            </div>
+                                                                    <div class="expandable">
+                                        <div class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"
+                                             id="toc-item-authentication-POSTapi-v1-auth-verifyWallet--publicApiKey-">
+                                            <div class="sl-flex-1 sl-items-center sl-truncate sl-mr-1.5 sl-p-0" title="POST api/v1/auth/verifyWallet/{publicApiKey}">
+                                                <a class="ElementsTableOfContentsItem sl-block sl-no-underline"
+                                                   href="#authentication-POSTapi-v1-auth-verifyWallet--publicApiKey-">
+                                                    POST api/v1/auth/verifyWallet/{publicApiKey}
+                                                </a>
+                                            </div>
+                                                                                    </div>
+
+                                                                            </div>
+                                                                    <div class="expandable">
+                                        <div class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"
                                              id="toc-item-authentication-GETapi-v1-auth-check--publicApiKey-">
                                             <div class="sl-flex-1 sl-items-center sl-truncate sl-mr-1.5 sl-p-0" title="Check Authentication Status">
                                                 <a class="ElementsTableOfContentsItem sl-block sl-no-underline"
@@ -384,11 +408,54 @@
                                                                             </div>
                                                             </div>
                                             </div>
+                                    <div class="expandable">
+                        <div title="Stats" id="toc-item-stats"
+                             class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-4 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none">
+                            <a href="#stats"
+                               class="sl-flex-1 sl-items-center sl-truncate sl-mr-1.5 sl-p-0">Stats</a>
+                                                            <div class="sl-flex sl-items-center sl-text-xs expansion-chevrons">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                         data-icon="chevron-right"
+                                         class="svg-inline--fa fa-chevron-right fa-fw sl-icon sl-text-muted"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                        <path fill="currentColor"
+                                              d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path>
+                                    </svg>
+                                </div>
+                                                    </div>
+
+                                                    <div class="children" style="display: none;">
+                                                                    <div class="expandable">
+                                        <div class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"
+                                             id="toc-item-stats-GETapi-v1-stats-global--publicApiKey-">
+                                            <div class="sl-flex-1 sl-items-center sl-truncate sl-mr-1.5 sl-p-0" title="Global Stats">
+                                                <a class="ElementsTableOfContentsItem sl-block sl-no-underline"
+                                                   href="#stats-GETapi-v1-stats-global--publicApiKey-">
+                                                    Global Stats
+                                                </a>
+                                            </div>
+                                                                                    </div>
+
+                                                                            </div>
+                                                                    <div class="expandable">
+                                        <div class="sl-flex sl-items-center sl-h-md sl-pr-4 sl-pl-8 sl-bg-canvas-100 hover:sl-bg-canvas-200 sl-cursor-pointer sl-select-none"
+                                             id="toc-item-stats-GETapi-v1-stats-session--publicApiKey---reference-">
+                                            <div class="sl-flex-1 sl-items-center sl-truncate sl-mr-1.5 sl-p-0" title="Session Stats">
+                                                <a class="ElementsTableOfContentsItem sl-block sl-no-underline"
+                                                   href="#stats-GETapi-v1-stats-session--publicApiKey---reference-">
+                                                    Session Stats
+                                                </a>
+                                            </div>
+                                                                                    </div>
+
+                                                                            </div>
+                                                            </div>
+                                            </div>
                             </div>
 
         </div>
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
-            Last updated: November 21, 2024
+            Last updated: November 29, 2024
         </div>
 
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
@@ -402,7 +469,7 @@
         <div class="sl-mb-10">
             <div class="sl-mb-4">
                 <h1 class="sl-text-5xl sl-leading-tight sl-font-prose sl-font-semibold sl-text-heading">
-                    Reward Engine API Documentation
+                    RewardEngine API Documentation
                 </h1>
                                     <a title="Download Postman collection" class="sl-mx-1"
                        href="{{ route("scribe.postman") }}" target="_blank">
@@ -1355,6 +1422,8 @@ response.json()</code></pre>                                        </div>
                                                             : no-cache, private
                                                                                                                     content-type
                                                             : application/json
+                                                                                                                    vary
+                                                            : X-Inertia
                                                                                                                     x-ratelimit-limit
                                                             : 60
                                                                                                                     x-ratelimit-remaining
@@ -1362,7 +1431,7 @@ response.json()</code></pre>                                        </div>
                                                                                                                     access-control-allow-origin
                                                             : *
                                                                                                                     set-cookie
-                                                            : XSRF-TOKEN=eyJpdiI6IkFhOFZhQ0xsZVdkRjJSNjA3ekdkYmc9PSIsInZhbHVlIjoiWmdDR3Bya0k1aTJacElZQmFvamdIazRpRk9Cckd4YXlPanlWRmYzVVBPaEk1bmYreXJKT1hUTWorcHk2MXdkTnhCNlhhb3B3SXJ4TlVDM2JwNjgzYjM5ZCtzYUpZZ3VHa2psbU5zUHRIbHREdlBEQWJFeGR4d2tXUWE2TTl6WjUiLCJtYWMiOiI0ZDkzYjcwODBmNmJkODBkZTQwNTA2NWNhZjRmZjRmNjg4MzY1ZjI1NWRmY2ZmOGI5M2E0YjNkNTc0NDliMzQ3IiwidGFnIjoiIn0%3D; expires=Fri, 22 Nov 2024 01:22:09 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6Imt5TXFnQTkvRjg4eXBnL016RkFpTkE9PSIsInZhbHVlIjoiSm1oOXJnYVY1UkYxSXF2bW90NlVkejR6aTdkOWxHaHhWQnVScktpUG5ySDRIZERjSUJQRTJmMC9NeFdrb2Q4aCtXYzd3YjNqSVl0V3VpM2NWdjVBbHVGZGlXUlBLMTZZaE5PemdsWXd6ZlZlYkYyOUZFcmpyRnFJb1lhK3U1NFIiLCJtYWMiOiI4OTI3ZTMyMDUzMTY3OWZjNzNkYjM0MWE3NjY5MDgzMDFiZjU1YWYzZjA3YzFhYmQ3OTMyZWM2MDk0MzFhNDQ3IiwidGFnIjoiIn0%3D; expires=Fri, 22 Nov 2024 01:22:09 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+                                                            : XSRF-TOKEN=eyJpdiI6IlZBK2UrWUh4NGYxOHBLaVQvR2Z4bmc9PSIsInZhbHVlIjoiOXd5MjZVdkE0WW81RFdNLzFodUdMK29iWTNpUWNGeDUxdDlWUWtKQkIxeGVCdXJiMjVxVFk3c0JOM3lZUnhxY0ZGM0lUNFVrRndKREtIK3Jxb2pEc3N5OGlESnJvbmkvRlFEbFduc01tM0JoajgvTzVib1ZiM0l1ZzMrVTMyaEEiLCJtYWMiOiI4OWM4ZDYyN2Y2ZGNjODRlMmU3ZmZhN2NlZDY4NTIyMTJlNjViNDVlNjBhOTRhMzBlNWEwMmNmMDM2ZGE4OGJkIiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 05:49:16 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6IkNQcnY4QTVHV1B3dEk0Q3lvVUhwSEE9PSIsInZhbHVlIjoiOUtOdjloa0NiMGM3aWJHVnZucC96SGRSVmRJbTVldFgyaVpKUjc5RG8yNUIxUlE4OUtzM3NXV05KU1dIRDF6TDdmR1grVkRPUTJlOTVHMURvUFI4V3NNNi8rTzF2Vi83K1lSUnhQc2J4STR0VFVWMXhJbXVZd2gxelhtQkVORDciLCJtYWMiOiI5N2I5MmNlMGE0MWU4ZGFlZTgwZDQwYWE1NzViNTE5NzE3MWI0OThmNjQ3YjI5NjRiMTQzM2MwOTllMTA0NDJmIiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 05:49:16 GMT; Max-Age=7200; path=/; httponly; samesite=lax
                                                          </code></pre>
                                             </details>
                                                                                                                                                                         
@@ -1393,6 +1462,1030 @@ response.json()</code></pre>                                        </div>
                                                                             </div>
                                 </div>
                                                     </div>
+                            </div>
+    </div>
+</div>
+
+                    <div class="sl-stack sl-stack--vertical sl-stack--8 HttpOperation sl-flex sl-flex-col sl-items-stretch sl-w-full">
+    <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
+        <div class="sl-relative">
+            <div class="sl-stack sl-stack--horizontal sl-stack--5 sl-flex sl-flex-row sl-items-center">
+                <h2 class="sl-text-3xl sl-leading-tight sl-font-prose sl-text-heading sl-mt-5 sl-mb-1"
+                    id="authentication-POSTapi-v1-auth-initWallet--publicApiKey-">
+                    POST api/v1/auth/initWallet/{publicApiKey}
+                </h2>
+            </div>
+        </div>
+
+        <div class="sl-relative">
+            <div title="http://localhost:8200/api/v1/auth/initWallet/{publicApiKey}"
+                     class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
+                >
+                                            <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
+                             style="background-color: black;"
+                        >
+                            POST
+                        </div>
+                                        <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
+                        <div dir="rtl"
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">http://localhost:8200</div>
+                        <div class="sl-flex-1 sl-font-semibold">/api/v1/auth/initWallet/{publicApiKey}</div>
+                    </div>
+
+                                    </div>
+        </div>
+
+        
+    </div>
+    <div class="sl-flex">
+        <div data-testid="two-column-left" class="sl-flex-1 sl-w-0">
+            <div class="sl-stack sl-stack--vertical sl-stack--10 sl-flex sl-flex-col sl-items-stretch">
+                <div class="sl-stack sl-stack--vertical sl-stack--8 sl-flex sl-flex-col sl-items-stretch">
+                                            <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">
+                                Headers
+                            </h3>
+                            <div class="sl-text-sm">
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Content-Type</div>
+                                    </div>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        application/json
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Accept</div>
+                                    </div>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        application/json
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                            </div>
+                        </div>
+                    
+                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">URL Parameters</h3>
+
+                            <div class="sl-text-sm">
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">publicApiKey</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        soluta
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                            </div>
+                        </div>
+                    
+
+                    
+                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">Body Parameters</h3>
+
+                                <div class="sl-text-sm">
+                                    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">reference</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 3 characters. Must not be greater than 512 characters.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        nstyqxrw
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">stakeKeyAddress</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 56 characters. Must not be greater than 128 characters.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        vatpakn
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+                            </div>
+                        </div>
+                    
+                                    </div>
+            </div>
+        </div>
+
+        <div data-testid="two-column-right" class="sl-relative sl-w-2/5 sl-ml-16" style="max-width: 500px;">
+            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+
+                                    <div class="sl-inverted">
+    <div class="sl-overflow-y-hidden sl-rounded-lg">
+        <form class="TryItPanel sl-bg-canvas-100 sl-rounded-lg"
+              data-method="POST"
+              data-path="api/v1/auth/initWallet/{publicApiKey}"
+              data-hasfiles="0"
+              data-hasjsonbody="1">
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Headers
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="ParameterGrid sl-p-4">
+                                                                                            <label aria-hidden="true"
+                                       for="header-POSTapi-v1-auth-initWallet--publicApiKey--Content-Type">Content-Type</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="Content-Type" name="Content-Type"
+                                               id="header-POSTapi-v1-auth-initWallet--publicApiKey--Content-Type"
+                                               value="application/json" data-component="header"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                                                            <label aria-hidden="true"
+                                       for="header-POSTapi-v1-auth-initWallet--publicApiKey--Accept">Accept</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="Accept" name="Accept"
+                                               id="header-POSTapi-v1-auth-initWallet--publicApiKey--Accept"
+                                               value="application/json" data-component="header"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            URL Parameters
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="ParameterGrid sl-p-4">
+                                                            <label aria-hidden="true"
+                                       for="urlparam-POSTapi-v1-auth-initWallet--publicApiKey--publicApiKey">publicApiKey</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="publicApiKey" name="publicApiKey"
+                                               id="urlparam-POSTapi-v1-auth-initWallet--publicApiKey--publicApiKey"
+                                               placeholder=""
+                                               value="soluta" data-component="url"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Body
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                                                    <div class="TextRequestBody sl-p-4">
+                                <div class="code-editor language-json"
+                                     id="json-body-POSTapi-v1-auth-initWallet--publicApiKey-"
+                                     style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
+                                >{
+    "reference": "nstyqxrw",
+    "stakeKeyAddress": "vatpakn"
+}</div>
+                            </div>
+                                            </div>
+                </div>
+            
+            <div class="SendButtonHolder sl-mt-4 sl-p-4 sl-pt-0">
+                <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center">
+                    <button type="button" data-endpoint="POSTapi-v1-auth-initWallet--publicApiKey-"
+                            class="tryItOut-btn sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-bg-primary hover:sl-bg-primary-dark active:sl-bg-primary-darker disabled:sl-bg-canvas-100 sl-text-on-primary disabled:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"
+                    >
+                        Send Request 💥
+                    </button>
+                </div>
+            </div>
+
+            <div data-endpoint="POSTapi-v1-auth-initWallet--publicApiKey-"
+                 class="tryItOut-error expandable sl-panel sl-outline-none sl-w-full" hidden>
+                <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                     role="button">
+                    <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                        <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                 data-icon="caret-down"
+                                 class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                      d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                            </svg>
+                        </div>
+                        Request failed with error
+                    </div>
+                </div>
+                <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                    <div class="sl-panel__content sl-p-4">
+                        <p class="sl-pb-2"><strong class="error-message"></strong></p>
+                        <p class="sl-pb-2">Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</p>
+                    </div>
+                </div>
+            </div>
+
+                <div data-endpoint="POSTapi-v1-auth-initWallet--publicApiKey-"
+                     class="tryItOut-response expandable sl-panel sl-outline-none sl-w-full" hidden>
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Received response
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="sl-panel__content sl-p-4">
+                            <p class="sl-pb-2 response-status"></p>
+                            <pre><code class="sl-pb-2 response-content language-json"
+                                       data-empty-response-text="<Empty response>"
+                                       style="max-height: 300px;"></code></pre>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+                
+                                            <div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg">
+                            <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none">
+                                <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                                    <div class="sl--ml-2">
+                                        Example request:
+                                        <select class="example-request-lang-toggle sl-text-base"
+                                                aria-label="Request Sample Language"
+                                                onchange="switchExampleLanguage(event.target.value);">
+                                                                                            <option>bash</option>
+                                                                                            <option>javascript</option>
+                                                                                            <option>php</option>
+                                                                                            <option>python</option>
+                                                                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-bash"
+                                     style="">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8200/api/v1/auth/initWallet/soluta" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"reference\": \"nstyqxrw\",
+    \"stakeKeyAddress\": \"vatpakn\"
+}"
+</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-javascript"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8200/api/v1/auth/initWallet/soluta"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "reference": "nstyqxrw",
+    "stakeKeyAddress": "vatpakn"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-php"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8200/api/v1/auth/initWallet/soluta';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'reference' =&gt; 'nstyqxrw',
+            'stakeKeyAddress' =&gt; 'vatpakn',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-python"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8200/api/v1/auth/initWallet/soluta'
+payload = {
+    "reference": "nstyqxrw",
+    "stakeKeyAddress": "vatpakn"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                    </div>
+                    
+                            </div>
+    </div>
+</div>
+
+                    <div class="sl-stack sl-stack--vertical sl-stack--8 HttpOperation sl-flex sl-flex-col sl-items-stretch sl-w-full">
+    <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
+        <div class="sl-relative">
+            <div class="sl-stack sl-stack--horizontal sl-stack--5 sl-flex sl-flex-row sl-items-center">
+                <h2 class="sl-text-3xl sl-leading-tight sl-font-prose sl-text-heading sl-mt-5 sl-mb-1"
+                    id="authentication-POSTapi-v1-auth-verifyWallet--publicApiKey-">
+                    POST api/v1/auth/verifyWallet/{publicApiKey}
+                </h2>
+            </div>
+        </div>
+
+        <div class="sl-relative">
+            <div title="http://localhost:8200/api/v1/auth/verifyWallet/{publicApiKey}"
+                     class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
+                >
+                                            <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
+                             style="background-color: black;"
+                        >
+                            POST
+                        </div>
+                                        <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
+                        <div dir="rtl"
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">http://localhost:8200</div>
+                        <div class="sl-flex-1 sl-font-semibold">/api/v1/auth/verifyWallet/{publicApiKey}</div>
+                    </div>
+
+                                    </div>
+        </div>
+
+        
+    </div>
+    <div class="sl-flex">
+        <div data-testid="two-column-left" class="sl-flex-1 sl-w-0">
+            <div class="sl-stack sl-stack--vertical sl-stack--10 sl-flex sl-flex-col sl-items-stretch">
+                <div class="sl-stack sl-stack--vertical sl-stack--8 sl-flex sl-flex-col sl-items-stretch">
+                                            <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">
+                                Headers
+                            </h3>
+                            <div class="sl-text-sm">
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Content-Type</div>
+                                    </div>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        application/json
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Accept</div>
+                                    </div>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        application/json
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                            </div>
+                        </div>
+                    
+                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">URL Parameters</h3>
+
+                            <div class="sl-text-sm">
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">publicApiKey</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        aspernatur
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                            </div>
+                        </div>
+                    
+
+                    
+                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">Body Parameters</h3>
+
+                                <div class="sl-text-sm">
+                                    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">walletName</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 3 characters. Must not be greater than 128 characters.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        guzkvyjvscvjwm
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">reference</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 3 characters. Must not be greater than 512 characters.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        czsyhdqylfjpdylml
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">stakeKeyAddress</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                <div class="sl-prose sl-markdown-viewer" style="font-size: 12px;">
+            <p>Must be at least 56 characters. Must not be greater than 128 characters.</p>
+        </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        ycgobxcsqauhvzubkfjyvxb
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">isHardwareWallet</div>
+                                            <span class="sl-truncate sl-text-muted">boolean</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        false
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+    <div class="expandable sl-text-sm sl-border-l sl-ml-px">
+        <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">networkMode</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                            Must be one of:
+            <ul style="list-style-position: inside; list-style-type: square;"><li><code>0</code></li> <li><code>1</code></li></ul>
+                                    <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        1
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+
+            </div>
+                            </div>
+                        </div>
+                    
+                                    </div>
+            </div>
+        </div>
+
+        <div data-testid="two-column-right" class="sl-relative sl-w-2/5 sl-ml-16" style="max-width: 500px;">
+            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+
+                                    <div class="sl-inverted">
+    <div class="sl-overflow-y-hidden sl-rounded-lg">
+        <form class="TryItPanel sl-bg-canvas-100 sl-rounded-lg"
+              data-method="POST"
+              data-path="api/v1/auth/verifyWallet/{publicApiKey}"
+              data-hasfiles="0"
+              data-hasjsonbody="1">
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Headers
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="ParameterGrid sl-p-4">
+                                                                                            <label aria-hidden="true"
+                                       for="header-POSTapi-v1-auth-verifyWallet--publicApiKey--Content-Type">Content-Type</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="Content-Type" name="Content-Type"
+                                               id="header-POSTapi-v1-auth-verifyWallet--publicApiKey--Content-Type"
+                                               value="application/json" data-component="header"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                                                            <label aria-hidden="true"
+                                       for="header-POSTapi-v1-auth-verifyWallet--publicApiKey--Accept">Accept</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="Accept" name="Accept"
+                                               id="header-POSTapi-v1-auth-verifyWallet--publicApiKey--Accept"
+                                               value="application/json" data-component="header"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            URL Parameters
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="ParameterGrid sl-p-4">
+                                                            <label aria-hidden="true"
+                                       for="urlparam-POSTapi-v1-auth-verifyWallet--publicApiKey--publicApiKey">publicApiKey</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="publicApiKey" name="publicApiKey"
+                                               id="urlparam-POSTapi-v1-auth-verifyWallet--publicApiKey--publicApiKey"
+                                               placeholder=""
+                                               value="aspernatur" data-component="url"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Body
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                                                    <div class="TextRequestBody sl-p-4">
+                                <div class="code-editor language-json"
+                                     id="json-body-POSTapi-v1-auth-verifyWallet--publicApiKey-"
+                                     style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
+                                >{
+    "walletName": "guzkvyjvscvjwm",
+    "reference": "czsyhdqylfjpdylml",
+    "stakeKeyAddress": "ycgobxcsqauhvzubkfjyvxb",
+    "isHardwareWallet": false,
+    "networkMode": "1"
+}</div>
+                            </div>
+                                            </div>
+                </div>
+            
+            <div class="SendButtonHolder sl-mt-4 sl-p-4 sl-pt-0">
+                <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center">
+                    <button type="button" data-endpoint="POSTapi-v1-auth-verifyWallet--publicApiKey-"
+                            class="tryItOut-btn sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-bg-primary hover:sl-bg-primary-dark active:sl-bg-primary-darker disabled:sl-bg-canvas-100 sl-text-on-primary disabled:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"
+                    >
+                        Send Request 💥
+                    </button>
+                </div>
+            </div>
+
+            <div data-endpoint="POSTapi-v1-auth-verifyWallet--publicApiKey-"
+                 class="tryItOut-error expandable sl-panel sl-outline-none sl-w-full" hidden>
+                <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                     role="button">
+                    <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                        <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                 data-icon="caret-down"
+                                 class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                      d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                            </svg>
+                        </div>
+                        Request failed with error
+                    </div>
+                </div>
+                <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                    <div class="sl-panel__content sl-p-4">
+                        <p class="sl-pb-2"><strong class="error-message"></strong></p>
+                        <p class="sl-pb-2">Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</p>
+                    </div>
+                </div>
+            </div>
+
+                <div data-endpoint="POSTapi-v1-auth-verifyWallet--publicApiKey-"
+                     class="tryItOut-response expandable sl-panel sl-outline-none sl-w-full" hidden>
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Received response
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="sl-panel__content sl-p-4">
+                            <p class="sl-pb-2 response-status"></p>
+                            <pre><code class="sl-pb-2 response-content language-json"
+                                       data-empty-response-text="<Empty response>"
+                                       style="max-height: 300px;"></code></pre>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+                
+                                            <div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg">
+                            <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none">
+                                <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                                    <div class="sl--ml-2">
+                                        Example request:
+                                        <select class="example-request-lang-toggle sl-text-base"
+                                                aria-label="Request Sample Language"
+                                                onchange="switchExampleLanguage(event.target.value);">
+                                                                                            <option>bash</option>
+                                                                                            <option>javascript</option>
+                                                                                            <option>php</option>
+                                                                                            <option>python</option>
+                                                                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-bash"
+                                     style="">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8200/api/v1/auth/verifyWallet/aspernatur" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"walletName\": \"guzkvyjvscvjwm\",
+    \"reference\": \"czsyhdqylfjpdylml\",
+    \"stakeKeyAddress\": \"ycgobxcsqauhvzubkfjyvxb\",
+    \"isHardwareWallet\": false,
+    \"networkMode\": \"1\"
+}"
+</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-javascript"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8200/api/v1/auth/verifyWallet/aspernatur"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "walletName": "guzkvyjvscvjwm",
+    "reference": "czsyhdqylfjpdylml",
+    "stakeKeyAddress": "ycgobxcsqauhvzubkfjyvxb",
+    "isHardwareWallet": false,
+    "networkMode": "1"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-php"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8200/api/v1/auth/verifyWallet/aspernatur';
+$response = $client-&gt;post(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'walletName' =&gt; 'guzkvyjvscvjwm',
+            'reference' =&gt; 'czsyhdqylfjpdylml',
+            'stakeKeyAddress' =&gt; 'ycgobxcsqauhvzubkfjyvxb',
+            'isHardwareWallet' =&gt; false,
+            'networkMode' =&gt; '1',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-python"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8200/api/v1/auth/verifyWallet/aspernatur'
+payload = {
+    "walletName": "guzkvyjvscvjwm",
+    "reference": "czsyhdqylfjpdylml",
+    "stakeKeyAddress": "ycgobxcsqauhvzubkfjyvxb",
+    "isHardwareWallet": false,
+    "networkMode": "1"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                    </div>
+                    
                             </div>
     </div>
 </div>
@@ -1873,6 +2966,7 @@ response.json()</code></pre>                                        </div>
     &quot;account&quot;: {
         &quot;auth_provider&quot;: &quot;google&quot;,
         &quot;auth_provider_id&quot;: &quot;117571893339073554831&quot;,
+        &quot;auth_wallet&quot;: &quot;eternl&quot;,
         &quot;auth_name&quot;: &quot;Latheesan&quot;,
         &quot;auth_email&quot;: &quot;latheesan@example.com&quot;,
         &quot;auth_avatar&quot;: &quot;https://example.com/profile.jpg&quot;
@@ -2513,6 +3607,935 @@ response.json()</code></pre>                                        </div>
                                             <pre><code style="max-height: 300px;"
                                                        class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
     &quot;error&quot;: &quot;Internal Server Error&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                    </div>
+                            </div>
+    </div>
+</div>
+
+                <h1 id="stats"
+        class="sl-text-5xl sl-leading-tight sl-font-prose sl-text-heading"
+    >
+        Stats
+    </h1>
+
+    
+
+                                <div class="sl-stack sl-stack--vertical sl-stack--8 HttpOperation sl-flex sl-flex-col sl-items-stretch sl-w-full">
+    <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
+        <div class="sl-relative">
+            <div class="sl-stack sl-stack--horizontal sl-stack--5 sl-flex sl-flex-row sl-items-center">
+                <h2 class="sl-text-3xl sl-leading-tight sl-font-prose sl-text-heading sl-mt-5 sl-mb-1"
+                    id="stats-GETapi-v1-stats-global--publicApiKey-">
+                    Global Stats
+                </h2>
+            </div>
+        </div>
+
+        <div class="sl-relative">
+            <div title="http://localhost:8200/api/v1/stats/global/{publicApiKey}"
+                     class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
+                >
+                                            <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
+                             style="background-color: green;"
+                        >
+                            GET
+                        </div>
+                                        <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
+                        <div dir="rtl"
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">http://localhost:8200</div>
+                        <div class="sl-flex-1 sl-font-semibold">/api/v1/stats/global/{publicApiKey}</div>
+                    </div>
+
+                                    </div>
+        </div>
+
+        
+    </div>
+    <div class="sl-flex">
+        <div data-testid="two-column-left" class="sl-flex-1 sl-w-0">
+            <div class="sl-stack sl-stack--vertical sl-stack--10 sl-flex sl-flex-col sl-items-stretch">
+                <div class="sl-stack sl-stack--vertical sl-stack--8 sl-flex sl-flex-col sl-items-stretch">
+                                            <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">
+                                Headers
+                            </h3>
+                            <div class="sl-text-sm">
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Content-Type</div>
+                                    </div>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        application/json
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Accept</div>
+                                    </div>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        application/json
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                            </div>
+                        </div>
+                    
+                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">URL Parameters</h3>
+
+                            <div class="sl-text-sm">
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">publicApiKey</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        quo
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                            </div>
+                        </div>
+                    
+
+                    
+                    
+                                    </div>
+            </div>
+        </div>
+
+        <div data-testid="two-column-right" class="sl-relative sl-w-2/5 sl-ml-16" style="max-width: 500px;">
+            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+
+                                    <div class="sl-inverted">
+    <div class="sl-overflow-y-hidden sl-rounded-lg">
+        <form class="TryItPanel sl-bg-canvas-100 sl-rounded-lg"
+              data-method="GET"
+              data-path="api/v1/stats/global/{publicApiKey}"
+              data-hasfiles="0"
+              data-hasjsonbody="0">
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Headers
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="ParameterGrid sl-p-4">
+                                                                                            <label aria-hidden="true"
+                                       for="header-GETapi-v1-stats-global--publicApiKey--Content-Type">Content-Type</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="Content-Type" name="Content-Type"
+                                               id="header-GETapi-v1-stats-global--publicApiKey--Content-Type"
+                                               value="application/json" data-component="header"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                                                            <label aria-hidden="true"
+                                       for="header-GETapi-v1-stats-global--publicApiKey--Accept">Accept</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="Accept" name="Accept"
+                                               id="header-GETapi-v1-stats-global--publicApiKey--Accept"
+                                               value="application/json" data-component="header"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            URL Parameters
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="ParameterGrid sl-p-4">
+                                                            <label aria-hidden="true"
+                                       for="urlparam-GETapi-v1-stats-global--publicApiKey--publicApiKey">publicApiKey</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="publicApiKey" name="publicApiKey"
+                                               id="urlparam-GETapi-v1-stats-global--publicApiKey--publicApiKey"
+                                               placeholder=""
+                                               value="quo" data-component="url"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            
+            
+            
+            <div class="SendButtonHolder sl-mt-4 sl-p-4 sl-pt-0">
+                <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center">
+                    <button type="button" data-endpoint="GETapi-v1-stats-global--publicApiKey-"
+                            class="tryItOut-btn sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-bg-primary hover:sl-bg-primary-dark active:sl-bg-primary-darker disabled:sl-bg-canvas-100 sl-text-on-primary disabled:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"
+                    >
+                        Send Request 💥
+                    </button>
+                </div>
+            </div>
+
+            <div data-endpoint="GETapi-v1-stats-global--publicApiKey-"
+                 class="tryItOut-error expandable sl-panel sl-outline-none sl-w-full" hidden>
+                <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                     role="button">
+                    <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                        <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                 data-icon="caret-down"
+                                 class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                      d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                            </svg>
+                        </div>
+                        Request failed with error
+                    </div>
+                </div>
+                <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                    <div class="sl-panel__content sl-p-4">
+                        <p class="sl-pb-2"><strong class="error-message"></strong></p>
+                        <p class="sl-pb-2">Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</p>
+                    </div>
+                </div>
+            </div>
+
+                <div data-endpoint="GETapi-v1-stats-global--publicApiKey-"
+                     class="tryItOut-response expandable sl-panel sl-outline-none sl-w-full" hidden>
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Received response
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="sl-panel__content sl-p-4">
+                            <p class="sl-pb-2 response-status"></p>
+                            <pre><code class="sl-pb-2 response-content language-json"
+                                       data-empty-response-text="<Empty response>"
+                                       style="max-height: 300px;"></code></pre>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+                
+                                            <div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg">
+                            <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none">
+                                <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                                    <div class="sl--ml-2">
+                                        Example request:
+                                        <select class="example-request-lang-toggle sl-text-base"
+                                                aria-label="Request Sample Language"
+                                                onchange="switchExampleLanguage(event.target.value);">
+                                                                                            <option>bash</option>
+                                                                                            <option>javascript</option>
+                                                                                            <option>php</option>
+                                                                                            <option>python</option>
+                                                                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-bash"
+                                     style="">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8200/api/v1/stats/global/quo" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-javascript"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8200/api/v1/stats/global/quo"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-php"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8200/api/v1/stats/global/quo';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-python"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8200/api/v1/stats/global/quo'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                    </div>
+                    
+                                            <div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg">
+                            <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none">
+                                <div class="sl-flex sl-flex-1 sl-items-center sl-py-2">
+                                    <div class="sl--ml-2">
+                                        <div class="sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-text-muted sl-rounded sl-border-transparent sl-border">
+                                            <div class="sl-mb-2 sl-inline-block">Example response:</div>
+                                            <div class="sl-mb-2 sl-inline-block">
+                                                <select
+                                                        class="example-response-GETapi-v1-stats-global--publicApiKey--toggle sl-text-base"
+                                                        aria-label="Response sample"
+                                                        onchange="switchExampleResponse('GETapi-v1-stats-global--publicApiKey-', event.target.value);">
+                                                                                                            <option value="0">200, OK</option>
+                                                                                                            <option value="1">401, Unauthorized</option>
+                                                                                                            <option value="2">429, Too Many Requests</option>
+                                                                                                            <option value="3">500, Internal Server Error</option>
+                                                                                                            <option value="4">503, Service Unavailable</option>
+                                                                                                    </select></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button"
+                                        class="sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 hover:sl-bg-canvas-50 active:sl-bg-canvas-100 sl-text-muted hover:sl-text-body focus:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70">
+                                    <div class="sl-mx-0">
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy"
+                                             class="svg-inline--fa fa-copy fa-fw fa-sm sl-icon" role="img"
+                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                  d="M384 96L384 0h-112c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48H464c26.51 0 48-21.49 48-48V128h-95.1C398.4 128 384 113.6 384 96zM416 0v96h96L416 0zM192 352V128h-144c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h192c26.51 0 48-21.49 48-48L288 416h-32C220.7 416 192 387.3 192 352z"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-global--publicApiKey- example-response-GETapi-v1-stats-global--publicApiKey--0"
+                                     style=" "
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;key1&quot;: &quot;value1&quot;,
+    &quot;key2&quot;: &quot;value3&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-global--publicApiKey- example-response-GETapi-v1-stats-global--publicApiKey--1"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Unauthorized&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-global--publicApiKey- example-response-GETapi-v1-stats-global--publicApiKey--2"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-global--publicApiKey- example-response-GETapi-v1-stats-global--publicApiKey--3"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Internal Server Error&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-global--publicApiKey- example-response-GETapi-v1-stats-global--publicApiKey--4"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Service Unavailable&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                    </div>
+                            </div>
+    </div>
+</div>
+
+                    <div class="sl-stack sl-stack--vertical sl-stack--8 HttpOperation sl-flex sl-flex-col sl-items-stretch sl-w-full">
+    <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
+        <div class="sl-relative">
+            <div class="sl-stack sl-stack--horizontal sl-stack--5 sl-flex sl-flex-row sl-items-center">
+                <h2 class="sl-text-3xl sl-leading-tight sl-font-prose sl-text-heading sl-mt-5 sl-mb-1"
+                    id="stats-GETapi-v1-stats-session--publicApiKey---reference-">
+                    Session Stats
+                </h2>
+            </div>
+        </div>
+
+        <div class="sl-relative">
+            <div title="http://localhost:8200/api/v1/stats/session/{publicApiKey}/{reference}"
+                     class="sl-stack sl-stack--horizontal sl-stack--3 sl-inline-flex sl-flex-row sl-items-center sl-max-w-full sl-font-mono sl-py-2 sl-pr-4 sl-bg-canvas-50 sl-rounded-lg"
+                >
+                                            <div class="sl-text-lg sl-font-semibold sl-px-2.5 sl-py-1 sl-text-on-primary sl-rounded-lg"
+                             style="background-color: green;"
+                        >
+                            GET
+                        </div>
+                                        <div class="sl-flex sl-overflow-x-hidden sl-text-lg sl-select-all">
+                        <div dir="rtl"
+                             class="sl-overflow-x-hidden sl-truncate sl-text-muted">http://localhost:8200</div>
+                        <div class="sl-flex-1 sl-font-semibold">/api/v1/stats/session/{publicApiKey}/{reference}</div>
+                    </div>
+
+                                    </div>
+        </div>
+
+        
+    </div>
+    <div class="sl-flex">
+        <div data-testid="two-column-left" class="sl-flex-1 sl-w-0">
+            <div class="sl-stack sl-stack--vertical sl-stack--10 sl-flex sl-flex-col sl-items-stretch">
+                <div class="sl-stack sl-stack--vertical sl-stack--8 sl-flex sl-flex-col sl-items-stretch">
+                                            <div class="sl-stack sl-stack--vertical sl-stack--5 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">
+                                Headers
+                            </h3>
+                            <div class="sl-text-sm">
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Content-Type</div>
+                                    </div>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        application/json
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">Accept</div>
+                                    </div>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        application/json
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                            </div>
+                        </div>
+                    
+                                            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+                            <h3 class="sl-text-2xl sl-leading-snug sl-font-prose">URL Parameters</h3>
+
+                            <div class="sl-text-sm">
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">publicApiKey</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        nihil
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                                    <div class="sl-flex sl-relative sl-max-w-full sl-py-2 sl-pl-3">
+    <div class="sl-w-1 sl-mt-2 sl-mr-3 sl--ml-3 sl-border-t"></div>
+    <div class="sl-stack sl-stack--vertical sl-stack--1 sl-flex sl-flex-1 sl-flex-col sl-items-stretch sl-max-w-full sl-ml-2 ">
+        <div class="sl-flex sl-items-center sl-max-w-full">
+                                        <div class="sl-flex sl-items-baseline sl-text-base">
+                    <div class="sl-font-mono sl-font-semibold sl-mr-2">reference</div>
+                                            <span class="sl-truncate sl-text-muted">string</span>
+                                    </div>
+                                    <div class="sl-flex-1 sl-h-px sl-mx-3"></div>
+                    <span class="sl-ml-2 sl-text-warning">required</span>
+                                    </div>
+                                            <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-baseline sl-text-muted">
+                <span>Example:</span> <!-- <span> important for spacing -->
+                <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
+                    <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
+                        sunt
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+                                                            </div>
+                        </div>
+                    
+
+                    
+                    
+                                    </div>
+            </div>
+        </div>
+
+        <div data-testid="two-column-right" class="sl-relative sl-w-2/5 sl-ml-16" style="max-width: 500px;">
+            <div class="sl-stack sl-stack--vertical sl-stack--6 sl-flex sl-flex-col sl-items-stretch">
+
+                                    <div class="sl-inverted">
+    <div class="sl-overflow-y-hidden sl-rounded-lg">
+        <form class="TryItPanel sl-bg-canvas-100 sl-rounded-lg"
+              data-method="GET"
+              data-path="api/v1/stats/session/{publicApiKey}/{reference}"
+              data-hasfiles="0"
+              data-hasjsonbody="0">
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Headers
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="ParameterGrid sl-p-4">
+                                                                                            <label aria-hidden="true"
+                                       for="header-GETapi-v1-stats-session--publicApiKey---reference--Content-Type">Content-Type</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="Content-Type" name="Content-Type"
+                                               id="header-GETapi-v1-stats-session--publicApiKey---reference--Content-Type"
+                                               value="application/json" data-component="header"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                                                            <label aria-hidden="true"
+                                       for="header-GETapi-v1-stats-session--publicApiKey---reference--Accept">Accept</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="Accept" name="Accept"
+                                               id="header-GETapi-v1-stats-session--publicApiKey---reference--Accept"
+                                               value="application/json" data-component="header"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            
+                            <div class="sl-panel sl-outline-none sl-w-full expandable">
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            URL Parameters
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="ParameterGrid sl-p-4">
+                                                            <label aria-hidden="true"
+                                       for="urlparam-GETapi-v1-stats-session--publicApiKey---reference--publicApiKey">publicApiKey</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="publicApiKey" name="publicApiKey"
+                                               id="urlparam-GETapi-v1-stats-session--publicApiKey---reference--publicApiKey"
+                                               placeholder=""
+                                               value="nihil" data-component="url"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                            <label aria-hidden="true"
+                                       for="urlparam-GETapi-v1-stats-session--publicApiKey---reference--reference">reference</label>
+                                <span class="sl-mx-3">:</span>
+                                <div class="sl-flex sl-flex-1">
+                                    <div class="sl-input sl-flex-1 sl-relative">
+                                        <input aria-label="reference" name="reference"
+                                               id="urlparam-GETapi-v1-stats-session--publicApiKey---reference--reference"
+                                               placeholder=""
+                                               value="sunt" data-component="url"
+                                               class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            
+            
+            
+            <div class="SendButtonHolder sl-mt-4 sl-p-4 sl-pt-0">
+                <div class="sl-stack sl-stack--horizontal sl-stack--2 sl-flex sl-flex-row sl-items-center">
+                    <button type="button" data-endpoint="GETapi-v1-stats-session--publicApiKey---reference-"
+                            class="tryItOut-btn sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-bg-primary hover:sl-bg-primary-dark active:sl-bg-primary-darker disabled:sl-bg-canvas-100 sl-text-on-primary disabled:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70"
+                    >
+                        Send Request 💥
+                    </button>
+                </div>
+            </div>
+
+            <div data-endpoint="GETapi-v1-stats-session--publicApiKey---reference-"
+                 class="tryItOut-error expandable sl-panel sl-outline-none sl-w-full" hidden>
+                <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                     role="button">
+                    <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                        <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                 data-icon="caret-down"
+                                 class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                      d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                            </svg>
+                        </div>
+                        Request failed with error
+                    </div>
+                </div>
+                <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                    <div class="sl-panel__content sl-p-4">
+                        <p class="sl-pb-2"><strong class="error-message"></strong></p>
+                        <p class="sl-pb-2">Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</p>
+                    </div>
+                </div>
+            </div>
+
+                <div data-endpoint="GETapi-v1-stats-session--publicApiKey---reference-"
+                     class="tryItOut-response expandable sl-panel sl-outline-none sl-w-full" hidden>
+                    <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-4 sl-pl-3 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-cursor-pointer sl-select-none"
+                         role="button">
+                        <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                            <div class="sl-flex sl-items-center sl-mr-1.5 expansion-chevrons expansion-chevrons-solid expanded">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                     data-icon="caret-down"
+                                     class="svg-inline--fa fa-caret-down fa-fw sl-icon" role="img"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                          d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path>
+                                </svg>
+                            </div>
+                            Received response
+                        </div>
+                    </div>
+                    <div class="sl-panel__content-wrapper sl-bg-canvas-100 children" role="region">
+                        <div class="sl-panel__content sl-p-4">
+                            <p class="sl-pb-2 response-status"></p>
+                            <pre><code class="sl-pb-2 response-content language-json"
+                                       data-empty-response-text="<Empty response>"
+                                       style="max-height: 300px;"></code></pre>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+                
+                                            <div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg">
+                            <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none">
+                                <div class="sl-flex sl-flex-1 sl-items-center sl-h-lg">
+                                    <div class="sl--ml-2">
+                                        Example request:
+                                        <select class="example-request-lang-toggle sl-text-base"
+                                                aria-label="Request Sample Language"
+                                                onchange="switchExampleLanguage(event.target.value);">
+                                                                                            <option>bash</option>
+                                                                                            <option>javascript</option>
+                                                                                            <option>php</option>
+                                                                                            <option>python</option>
+                                                                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-bash"
+                                     style="">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8200/api/v1/stats/session/nihil/sunt" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-javascript"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8200/api/v1/stats/session/nihil/sunt"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-php"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://localhost:8200/api/v1/stats/session/nihil/sunt';
+$response = $client-&gt;get(
+    $url,
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                            <div class="sl-bg-canvas-100 example-request example-request-python"
+                                     style="display: none;">
+                                    <div class="sl-px-0 sl-py-1">
+                                        <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
+                                            <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:8200/api/v1/stats/session/nihil/sunt'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>                                        </div>
+                                    </div>
+                                </div>
+                                                    </div>
+                    
+                                            <div class="sl-panel sl-outline-none sl-w-full sl-rounded-lg">
+                            <div class="sl-panel__titlebar sl-flex sl-items-center sl-relative focus:sl-z-10 sl-text-base sl-leading-none sl-pr-3 sl-pl-4 sl-bg-canvas-200 sl-text-body sl-border-input focus:sl-border-primary sl-select-none">
+                                <div class="sl-flex sl-flex-1 sl-items-center sl-py-2">
+                                    <div class="sl--ml-2">
+                                        <div class="sl-h-sm sl-text-base sl-font-medium sl-px-1.5 sl-text-muted sl-rounded sl-border-transparent sl-border">
+                                            <div class="sl-mb-2 sl-inline-block">Example response:</div>
+                                            <div class="sl-mb-2 sl-inline-block">
+                                                <select
+                                                        class="example-response-GETapi-v1-stats-session--publicApiKey---reference--toggle sl-text-base"
+                                                        aria-label="Response sample"
+                                                        onchange="switchExampleResponse('GETapi-v1-stats-session--publicApiKey---reference-', event.target.value);">
+                                                                                                            <option value="0">200, OK</option>
+                                                                                                            <option value="1">401, Unauthorized</option>
+                                                                                                            <option value="2">429, Too Many Requests</option>
+                                                                                                            <option value="3">500, Internal Server Error</option>
+                                                                                                            <option value="4">503, Service Unavailable</option>
+                                                                                                    </select></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button"
+                                        class="sl-button sl-h-sm sl-text-base sl-font-medium sl-px-1.5 hover:sl-bg-canvas-50 active:sl-bg-canvas-100 sl-text-muted hover:sl-text-body focus:sl-text-body sl-rounded sl-border-transparent sl-border disabled:sl-opacity-70">
+                                    <div class="sl-mx-0">
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy"
+                                             class="svg-inline--fa fa-copy fa-fw fa-sm sl-icon" role="img"
+                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                  d="M384 96L384 0h-112c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48H464c26.51 0 48-21.49 48-48V128h-95.1C398.4 128 384 113.6 384 96zM416 0v96h96L416 0zM192 352V128h-144c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h192c26.51 0 48-21.49 48-48L288 416h-32C220.7 416 192 387.3 192 352z"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--0"
+                                     style=" "
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;key1&quot;: &quot;value1&quot;,
+    &quot;key2&quot;: &quot;value3&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--1"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Unauthorized&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--2"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">[No Content]</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--3"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Internal Server Error&quot;,
+    &quot;reason&quot;: &quot;Reason for this error&quot;
+}</code></pre>
+                                                                            </div>
+                                </div>
+                                                            <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-GETapi-v1-stats-session--publicApiKey---reference- example-response-GETapi-v1-stats-session--publicApiKey---reference--4"
+                                     style=" display: none;"
+                                >
+                                    <div class="sl-panel__content sl-p-0">                                                                                                                                
+                                            <pre><code style="max-height: 300px;"
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;error&quot;: &quot;Service Unavailable&quot;,
     &quot;reason&quot;: &quot;Reason for this error&quot;
 }</code></pre>
                                                                             </div>
