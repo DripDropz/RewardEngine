@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Jobs\HydraDoomAccountStatsJob;
 use App\Models\Project;
 use App\Models\ProjectAccount;
-use App\Models\ProjectAccountSession;
 use App\Models\ProjectAccountStats;
 use App\Traits\GEOBlockTrait;
 use Illuminate\Http\JsonResponse;
@@ -108,7 +107,7 @@ class StatsController extends Controller
         if (!$projectAccount) {
             return response()->json([
                 'error' => __('Unauthorized'),
-                'reason' => __('Access not permitted'),
+                'reason' => __('Invalid reference'),
             ], 401);
         }
 

@@ -360,7 +360,7 @@ class AuthController extends Controller
                 // Load session and account info
                 $projectAccountSession = ProjectAccountSession::query()
                     ->where('reference', $request->get('reference'))
-                    ->with('account', 'project')
+                    ->with(['account', 'project'])
                     ->whereHas('project', static function ($query) use ($publicApiKey) {
                         $query->where('public_api_key', $publicApiKey);
                     })
@@ -408,7 +408,119 @@ class AuthController extends Controller
             // Log exception
             $this->logException('Failed to handle auth check', $exception, [
                 'publicApiKey' => $publicApiKey,
-                'authReference' => $request->get('reference'),
+                'reference' => $request->get('reference'),
+            ]);
+
+            // Handle error
+            return response()->json([
+                'error' => __('Internal Server Error'),
+                'reason' => __('An unknown error occurred, please notify server administrator'),
+            ], 500);
+
+        }
+    }
+
+    public function refresh(string $publicApiKey, Request $request): JsonResponse
+    {
+        try {
+
+            // Check if reference is provided in the request
+            if (empty($request->input('session_id')) || strlen($request->input('session_id')) > 64) {
+                return response()->json([
+                    'error' => __('Bad Request'),
+                    'reason' => __('The session_id field is empty or larger than 64 characters.'),
+                ], 400);
+            }
+
+            // Check if new_reference is provided in the request
+            if (empty($request->input('new_reference')) || strlen($request->input('new_reference')) > 512) {
+                return response()->json([
+                    'error' => __('Bad Request'),
+                    'reason' => __('The new_reference field is empty or larger than 512 characters.'),
+                ], 400);
+            }
+
+            // Load project by public api key
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+
+            // Check if project exists
+            if (!$project) {
+                return response()->json([
+                    'error' => __('Unauthorized'),
+                    'reason' => __('Invalid project public api key'),
+                ], 401);
+            }
+
+            // Check if this request should be geo-blocked
+            if ($this->isGEOBlocked($project, $request)) {
+                return response()->json([
+                    'error' => __('Unauthorized'),
+                    'reason' => __('Access not permitted'),
+                ], 401);
+            }
+
+            // Load specific project account session
+            $projectAccountSession = ProjectAccountSession::query()
+                ->where('session_id', $request->input('session_id'))
+                ->with('account')
+                ->first();
+            if (!$projectAccountSession || (int) $projectAccountSession->authenticated_at->diffInSeconds(now()) > $project->session_valid_for_seconds) {
+                return response()->json([
+                    'error' => __('Unauthorized'),
+                    'reason' => __('Invalid session id or session expired'),
+                ], 401);
+            }
+
+            // Ensure the new_reference is unique across project account sessions
+            $project->load(['sessions' => function ($query) use ($request) {
+                $query->where('reference', $request->input('new_reference'));
+            }]);
+            if ($project->sessions->count()) {
+                return response()->json([
+                    'error' => __('Bad Request'),
+                    'reason' => __('The reference must be unique.'),
+                ], 400);
+            }
+
+            // Create new project account session
+            $newProjectAccountSession = new ProjectAccountSession;
+            $newProjectAccountSession->fill([
+                'project_account_id' => $projectAccountSession->account->id,
+                'reference' => $request->input('new_reference'),
+                'session_id' => Str::uuid(),
+                'auth_country_code' => $this->getIPCountryCode($request),
+                'authenticated_at' => now(),
+            ]);
+            $newProjectAccountSession->save();
+
+            // Success
+            return response()->json([
+                'authenticated' => true,
+                'account' => [
+                    'auth_provider' => $projectAccountSession->account->auth_provider,
+                    'auth_provider_id' => $projectAccountSession->account->auth_provider_id,
+                    'auth_wallet' => $projectAccountSession->account->auth_wallet,
+                    'auth_name' => $projectAccountSession->account->auth_name,
+                    'auth_email' => $projectAccountSession->account->auth_email,
+                    'auth_avatar' => $projectAccountSession->account->auth_avatar,
+                ],
+                'session' => [
+                    'reference' => $newProjectAccountSession->reference,
+                    'session_id' => $newProjectAccountSession->session_id,
+                    'auth_country_code' => $newProjectAccountSession->auth_country_code,
+                    'authenticated_at' => $newProjectAccountSession->authenticated_at->toDateTimeString(),
+                ],
+            ]);
+
+        } catch (Throwable $exception) {
+
+            // Log exception
+            $this->logException('Failed to handle auth refresh', $exception, [
+                'publicApiKey' => $publicApiKey,
+                'sessionId' => $request->input('session_id'),
+                'newReference' => $request->input('new_reference'),
             ]);
 
             // Handle error
