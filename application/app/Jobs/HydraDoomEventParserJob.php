@@ -15,6 +15,7 @@ class HydraDoomEventParserJob implements ShouldQueue
 
     const TYPE_GLOBAL = 'global';
     const TYPE_NEW_GAME = 'new_game';
+    const TYPE_GAME_STARTED = 'game_started';
     const TYPE_PLAYER_JOINED = 'player_joined';
     const TYPE_GAME_FINISHED = 'game_finished';
     const TYPE_KILL = 'kill';
@@ -67,6 +68,9 @@ class HydraDoomEventParserJob implements ShouldQueue
             case self::TYPE_NEW_GAME:
                 $this->processNewGameEvent();
                 break;
+            case self::TYPE_GAME_STARTED:
+                $this->processGameStartedEvent();
+                break;
             case self::TYPE_PLAYER_JOINED:
                 $this->processPlayerJoinedEvent();
                 break;
@@ -94,13 +98,32 @@ class HydraDoomEventParserJob implements ShouldQueue
     {
         $this->recordProjectAccountSessionEvent([
             'project_id' => $this->eventData->project_id,
-            'reference' => null,
+            'reference' => '-',
             'event_id' => $this->eventData->event_id,
             'event_type' => self::TYPE_NEW_GAME,
             'event_timestamp' => $this->eventData->timestamp,
             'game_id' => $this->eventData->data['game_id'],
             'target_reference' => null,
         ]);
+    }
+
+    private function processGameStartedEvent(): void
+    {
+        if (empty($this->eventData->data['keys'])) {
+            return;
+        }
+
+        foreach ($this->eventData->data['keys'] as $key) {
+            $this->recordProjectAccountSessionEvent([
+                'project_id' => $this->eventData->project_id,
+                'reference' => $key,
+                'event_id' => $this->eventData->event_id,
+                'event_type' => self::TYPE_GAME_STARTED,
+                'event_timestamp' => $this->eventData->timestamp,
+                'game_id' => $this->eventData->data['game_id'],
+                'target_reference' => null,
+            ]);
+        }
     }
 
     private function processPlayerJoinedEvent(): void

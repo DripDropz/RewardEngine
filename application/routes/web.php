@@ -40,14 +40,22 @@ require __DIR__.'/auth.php';
 Route::get('test', static function() {
     if (app()->environment('local')) {
 
-        $globalStat = \App\Models\EventData::query()
-            ->where('id', 2)
-            ->first();
+        $eventData = \App\Models\EventData::query()
+            ->whereIn('event_id', [
+                'shardId-000000000003:49657946261021521641665930132603933531225061505022033970',
+                'shardId-000000000001:49657946256338365149974499463889294341441092324903878674',
+                'shardId-000000000001:49657946256338365149974499464011395849222169871549202450',
+                'shardId-000000000001:49657946256338365149974489397590745224747565633295613970',
+                'shardId-000000000000:49657946259170559790187531133901068268176151249074257922',
+                'shardId-000000000003:49657946261021521641666007217825748872492731357389127730',
+            ])
+            ->get();
 
-        (new \App\Jobs\HydraDoomEventParserJob($globalStat))->handle();
+        foreach ($eventData as $eventDatum) {
+            (new \App\Jobs\HydraDoomEventParserJob($eventDatum))->handle();
+        }
 
-        dd(\Illuminate\Support\Facades\Cache::get(sprintf('project-%d:global-stats', 1)));
-
+        dd('done');
     }
 });
 // TEST ROUTE :: END
