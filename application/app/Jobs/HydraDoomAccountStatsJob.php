@@ -7,7 +7,6 @@ use App\Models\ProjectAccountStats;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 
 class HydraDoomAccountStatsJob implements ShouldQueue
 {
