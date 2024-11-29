@@ -31,7 +31,9 @@ class ParseAllHydraDoomEventsCommand extends Command
             ->get();
 
         foreach ($eventData as $eventDatum) {
-            dispatch(new HydraDoomEventParserJob($eventDatum));
+            (new HydraDoomEventParserJob($eventDatum))->handle();
         }
+
+        $this->info(sprintf('Task Completed, Processed: %s', $eventData->count()));
     }
 }
