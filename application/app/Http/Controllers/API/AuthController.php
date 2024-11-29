@@ -140,6 +140,9 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * Initialize Wallet Challenge
+     */
     public function initWallet(string $publicApiKey, Request $request): JsonResponse
     {
         // Validate request
@@ -197,6 +200,9 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Verify Wallet Challenge
+     */
     public function verifyWallet(string $publicApiKey, Request $request): JsonResponse
     {
         // Validate request
@@ -420,6 +426,19 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Refresh Authentication Session
+     *
+     * @urlParam publicApiKey string required The project's public api key. Example: 414f7c5c-b932-4d26-9570-1c2f954b64ed
+     * @bodyParam session_id string required Previously authentication session id. Example: 069ff9f1-87ad-43b0-90a9-05493a330273
+     * @bodyParam new_reference string required New unique user/session identifier in your application. Example: 069ff9f1-87ad-43b0-90a9-05493a330273
+     *
+     * @response status=200 scenario="Successfully Refreshed"
+     * @response status=429 scenario="Too Many Requests" [No Content]
+     * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
+     * @responseFile status=401 scenario="Unauthorized" resources/api-responses/401.json
+     * @responseFile status=500 scenario="Internal Server Error" resources/api-responses/500.json
+     */
     public function refresh(string $publicApiKey, Request $request): JsonResponse
     {
         try {
