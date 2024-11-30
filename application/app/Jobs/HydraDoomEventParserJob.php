@@ -96,7 +96,7 @@ class HydraDoomEventParserJob implements ShouldQueue
         }
 
         Cache::forever(
-            sprintf('project-%d:global-stats', $this->eventData->project_id),
+            sprintf('project-global-stats:%d', $this->eventData->project_id),
             $this->eventData->data['stats'],
         );
     }
