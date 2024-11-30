@@ -32,7 +32,7 @@ Route::prefix('v1')->name('api.v1.')->group(static function ()
         // Public Endpoints
         Route::get('global/{publicApiKey}', [StatsController::class, 'global']);
         Route::get('session/{publicApiKey}/{reference}', [StatsController::class, 'session']);
-        Route::get('leaderboard/{publicApiKey}', [StatsController::class, 'leaderboard']);
+        Route::get('leaderboard/{publicApiKey}', [StatsController::class, 'leaderboard'])->name('leaderboard');
 
     });
 
