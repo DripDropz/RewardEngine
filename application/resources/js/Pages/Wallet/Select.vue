@@ -245,6 +245,7 @@ const connectWallet = async (walletName) => {
 };
 
 </script>
+
 <template>
     <GuestLayout :title="props.projectName">
         <v-container>

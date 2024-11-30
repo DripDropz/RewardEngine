@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SocialAuthCallbackController;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('demo', fn() => view('demo'));
 Route::get('social-auth-callback/{authProvider}', [SocialAuthCallbackController::class, 'handle']);
+Route::get('leaderboard/{publicApiKey}', [LeaderboardController::class, 'index']);
 
 Route::middleware(['auth', 'verified'])->group(static function () {
 
