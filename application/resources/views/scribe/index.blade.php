@@ -1443,7 +1443,7 @@ response.json()</code></pre>                                        </div>
                                                                                                                     access-control-allow-origin
                                                             : *
                                                                                                                     set-cookie
-                                                            : XSRF-TOKEN=eyJpdiI6InRGYk1Qa1VQNElRZlVkOVF0Yi9XWlE9PSIsInZhbHVlIjoiMlpXOTJqR0F5RXBuN21iSm9iUnpQL0hueUhtRVlWK2wvUlhVdS93OUNKWStrUWVxK3hsSjZZN1p4MXVQb0R0OS8vZlY4dFpxakVReEVUOVdSZ2FKOE5SZGFFVTM0RG05TUJOWUdhZWYxY0c0VERlZ2NRREJleUs2LzBOVXplbFQiLCJtYWMiOiI2NzVmZTZlYjM4MjhiMjQxNmNlN2U0NDBmZDc4MTlmOTE2NjM0ZTQ5OTg3NWM1ZjUzNzNmNzk2ODMwNjAxMjBlIiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 20:56:59 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6IkVhekR1Q3dHWEVlY0hhTzZ4b2V3YXc9PSIsInZhbHVlIjoiU21UbXNXZ1EvZzA1dEZ0ZVQ2dkRNd2txRkNDWnV6ZHhUOUlzZG5EckhDNXZRaDU1NVVKZEs4eThCQi9KQzVBR2MrdnRWREJ1eVNNOGJtVlBpanQ0VlByV0EzYm5NcHdCQnp5YURJeGxSYnJWMjJ3V25nNmUrNTJ4VW1VbWQ0VVoiLCJtYWMiOiIxZGM3ZDA4ZjJmM2JmZGE4NDNjZTJiYWNkMDAzYjhjMzY0ZWQ0OGFkZjliNDdlMWEyZGEzMmUyMjc5Mzc0MTE5IiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 20:56:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+                                                            : XSRF-TOKEN=eyJpdiI6IjlqV3JJcURqUVNhTlhzZ2t1UmZ1Y1E9PSIsInZhbHVlIjoiWEtLYjUzVnBkQm9RemNqQU1TTW02Yi9YdU9qeW5lS0NjTGY5MjB5aHlRUk5aa3BIN1RBdGs3SUlvcTlqSFpPc0U1OWF4MExJTlZhcXNFSENmSTJVQTIwU3NSZU9PQ2RVQU1ZR05Mc1I2UUFvK0VyaXp5NjdqRVYxeTZLT1YxOVQiLCJtYWMiOiI1YzQwNzdkMjg4OTRlMGFiNjY0NTI1OGRkMThhNDA5NzU4NzBjNjFiMjU5YWQ5ODM2YmE2ODMxOGY4NGEzZGE3IiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 21:53:34 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6Ikc5dWlaTW55OUVuR0Mzbk14b0pCemc9PSIsInZhbHVlIjoic2VEQUlQOEZDYVQ3MHhFQzdTZjhDUGVpZzVBVWZtMWMwMkZaeGl5Smloak50eEhXbVBSRTJ3RytwNkV2NWZ5TjQ3VHFEdElrakNWMDFZakJiYnU1OUExeTVOV3c5czgxblhVek1tRDZxV2FVY2JzUWl3T0JuTkdCWDVOTEJWdGgiLCJtYWMiOiI5OWFlM2M1MGJjNGU0Y2RmNjRmNTMyNTFmYzQ1NTQwMDA4MDVjNTY5ZTM1ODA1MDZmNjUyYzBmYjIyYjE4YjdkIiwidGFnIjoiIn0%3D; expires=Fri, 29 Nov 2024 21:53:34 GMT; Max-Age=7200; path=/; httponly; samesite=lax
                                                          </code></pre>
                                             </details>
                                                                                                                                                                         
@@ -1576,7 +1576,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        veritatis
+                        et
                     </div>
                 </div>
             </div>
@@ -1610,7 +1610,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        ejkieadtdlscvzwcbtylj
+                        mqybngakwegcyzkk
                     </div>
                 </div>
             </div>
@@ -1637,7 +1637,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        mzjmmghnkqw
+                        n
                     </div>
                 </div>
             </div>
@@ -1733,7 +1733,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-POSTapi-v1-auth-initWallet--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="veritatis" data-component="url"
+                                               value="et" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -1764,8 +1764,8 @@ response.json()</code></pre>                                        </div>
                                      id="json-body-POSTapi-v1-auth-initWallet--publicApiKey-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "reference": "ejkieadtdlscvzwcbtylj",
-    "stakeKeyAddress": "mzjmmghnkqw"
+    "reference": "mqybngakwegcyzkk",
+    "stakeKeyAddress": "n"
 }</div>
                             </div>
                                             </div>
@@ -1859,12 +1859,12 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8200/api/v1/auth/initWallet/veritatis" \
+    "http://localhost:8200/api/v1/auth/initWallet/et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"reference\": \"ejkieadtdlscvzwcbtylj\",
-    \"stakeKeyAddress\": \"mzjmmghnkqw\"
+    \"reference\": \"mqybngakwegcyzkk\",
+    \"stakeKeyAddress\": \"n\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -1874,7 +1874,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/auth/initWallet/veritatis"
+    "http://localhost:8200/api/v1/auth/initWallet/et"
 );
 
 const headers = {
@@ -1883,8 +1883,8 @@ const headers = {
 };
 
 let body = {
-    "reference": "ejkieadtdlscvzwcbtylj",
-    "stakeKeyAddress": "mzjmmghnkqw"
+    "reference": "mqybngakwegcyzkk",
+    "stakeKeyAddress": "n"
 };
 
 fetch(url, {
@@ -1899,7 +1899,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/auth/initWallet/veritatis';
+$url = 'http://localhost:8200/api/v1/auth/initWallet/et';
 $response = $client-&gt;post(
     $url,
     [
@@ -1908,8 +1908,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'reference' =&gt; 'ejkieadtdlscvzwcbtylj',
-            'stakeKeyAddress' =&gt; 'mzjmmghnkqw',
+            'reference' =&gt; 'mqybngakwegcyzkk',
+            'stakeKeyAddress' =&gt; 'n',
         ],
     ]
 );
@@ -1924,10 +1924,10 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/auth/initWallet/veritatis'
+url = 'http://localhost:8200/api/v1/auth/initWallet/et'
 payload = {
-    "reference": "ejkieadtdlscvzwcbtylj",
-    "stakeKeyAddress": "mzjmmghnkqw"
+    "reference": "mqybngakwegcyzkk",
+    "stakeKeyAddress": "n"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -2042,7 +2042,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        quis
+                        possimus
                     </div>
                 </div>
             </div>
@@ -2076,7 +2076,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        pdvuexijdqtmbnszpumw
+                        ylbhpqumjgn
                     </div>
                 </div>
             </div>
@@ -2103,7 +2103,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        qjrzgylr
+                        lfkwanvidhoatvspfrje
                     </div>
                 </div>
             </div>
@@ -2130,7 +2130,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        vmmzvqzdfusmzjeols
+                        ftkzxm
                     </div>
                 </div>
             </div>
@@ -2180,7 +2180,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        0
+                        1
                     </div>
                 </div>
             </div>
@@ -2276,7 +2276,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-POSTapi-v1-auth-verifyWallet--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="quis" data-component="url"
+                                               value="possimus" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -2307,11 +2307,11 @@ response.json()</code></pre>                                        </div>
                                      id="json-body-POSTapi-v1-auth-verifyWallet--publicApiKey-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "walletName": "pdvuexijdqtmbnszpumw",
-    "reference": "qjrzgylr",
-    "stakeKeyAddress": "vmmzvqzdfusmzjeols",
+    "walletName": "ylbhpqumjgn",
+    "reference": "lfkwanvidhoatvspfrje",
+    "stakeKeyAddress": "ftkzxm",
     "isHardwareWallet": true,
-    "networkMode": "0"
+    "networkMode": "1"
 }</div>
                             </div>
                                             </div>
@@ -2405,15 +2405,15 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8200/api/v1/auth/verifyWallet/quis" \
+    "http://localhost:8200/api/v1/auth/verifyWallet/possimus" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"walletName\": \"pdvuexijdqtmbnszpumw\",
-    \"reference\": \"qjrzgylr\",
-    \"stakeKeyAddress\": \"vmmzvqzdfusmzjeols\",
+    \"walletName\": \"ylbhpqumjgn\",
+    \"reference\": \"lfkwanvidhoatvspfrje\",
+    \"stakeKeyAddress\": \"ftkzxm\",
     \"isHardwareWallet\": true,
-    \"networkMode\": \"0\"
+    \"networkMode\": \"1\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -2423,7 +2423,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/auth/verifyWallet/quis"
+    "http://localhost:8200/api/v1/auth/verifyWallet/possimus"
 );
 
 const headers = {
@@ -2432,11 +2432,11 @@ const headers = {
 };
 
 let body = {
-    "walletName": "pdvuexijdqtmbnszpumw",
-    "reference": "qjrzgylr",
-    "stakeKeyAddress": "vmmzvqzdfusmzjeols",
+    "walletName": "ylbhpqumjgn",
+    "reference": "lfkwanvidhoatvspfrje",
+    "stakeKeyAddress": "ftkzxm",
     "isHardwareWallet": true,
-    "networkMode": "0"
+    "networkMode": "1"
 };
 
 fetch(url, {
@@ -2451,7 +2451,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/auth/verifyWallet/quis';
+$url = 'http://localhost:8200/api/v1/auth/verifyWallet/possimus';
 $response = $client-&gt;post(
     $url,
     [
@@ -2460,11 +2460,11 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'walletName' =&gt; 'pdvuexijdqtmbnszpumw',
-            'reference' =&gt; 'qjrzgylr',
-            'stakeKeyAddress' =&gt; 'vmmzvqzdfusmzjeols',
+            'walletName' =&gt; 'ylbhpqumjgn',
+            'reference' =&gt; 'lfkwanvidhoatvspfrje',
+            'stakeKeyAddress' =&gt; 'ftkzxm',
             'isHardwareWallet' =&gt; true,
-            'networkMode' =&gt; '0',
+            'networkMode' =&gt; '1',
         ],
     ]
 );
@@ -2479,13 +2479,13 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/auth/verifyWallet/quis'
+url = 'http://localhost:8200/api/v1/auth/verifyWallet/possimus'
 payload = {
-    "walletName": "pdvuexijdqtmbnszpumw",
-    "reference": "qjrzgylr",
-    "stakeKeyAddress": "vmmzvqzdfusmzjeols",
+    "walletName": "ylbhpqumjgn",
+    "reference": "lfkwanvidhoatvspfrje",
+    "stakeKeyAddress": "ftkzxm",
     "isHardwareWallet": true,
-    "networkMode": "0"
+    "networkMode": "1"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -3541,7 +3541,23 @@ response.json()</code></pre>                                        </div>
                                 >
                                     <div class="sl-panel__content sl-p-0">                                                                                                                                
                                             <pre><code style="max-height: 300px;"
-                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto"></code></pre>
+                                                       class="language-json sl-overflow-x-auto sl-overflow-y-auto">{
+    &quot;authenticated&quot;: true,
+    &quot;account&quot;: {
+        &quot;auth_provider&quot;: &quot;google&quot;,
+        &quot;auth_provider_id&quot;: &quot;117571893339073554831&quot;,
+        &quot;auth_wallet&quot;: &quot;eternl&quot;,
+        &quot;auth_name&quot;: &quot;Latheesan&quot;,
+        &quot;auth_email&quot;: &quot;latheesan@example.com&quot;,
+        &quot;auth_avatar&quot;: &quot;https://example.com/profile.jpg&quot;
+    },
+    &quot;session&quot;: {
+        &quot;reference&quot;: &quot;your-app-identifier-123&quot;,
+        &quot;session_id&quot;: &quot;265dfd21-0fa2-4895-9277-87d2ed74a294&quot;,
+        &quot;auth_country_code&quot;: &quot;GB&quot;,
+        &quot;authenticated_at&quot;: &quot;2024-11-21 22:46:16&quot;
+    }
+}</code></pre>
                                                                             </div>
                                 </div>
                                                             <div class="sl-panel__content-wrapper sl-bg-canvas-100 example-response-POSTapi-v1-auth-refresh--publicApiKey- example-response-POSTapi-v1-auth-refresh--publicApiKey--1"
@@ -4285,7 +4301,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        fuga
+                        odit
                     </div>
                 </div>
             </div>
@@ -4382,7 +4398,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-GETapi-v1-stats-global--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="fuga" data-component="url"
+                                               value="odit" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -4480,7 +4496,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8200/api/v1/stats/global/fuga" \
+    --get "http://localhost:8200/api/v1/stats/global/odit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -4490,7 +4506,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/stats/global/fuga"
+    "http://localhost:8200/api/v1/stats/global/odit"
 );
 
 const headers = {
@@ -4509,7 +4525,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/stats/global/fuga';
+$url = 'http://localhost:8200/api/v1/stats/global/odit';
 $response = $client-&gt;get(
     $url,
     [
@@ -4530,7 +4546,7 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/stats/global/fuga'
+url = 'http://localhost:8200/api/v1/stats/global/odit'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -4729,7 +4745,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        distinctio
+                        consequatur
                     </div>
                 </div>
             </div>
@@ -4750,7 +4766,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        totam
+                        atque
                     </div>
                 </div>
             </div>
@@ -4847,7 +4863,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-GETapi-v1-stats-session--publicApiKey---reference--publicApiKey"
                                                placeholder=""
-                                               value="distinctio" data-component="url"
+                                               value="consequatur" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -4859,7 +4875,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="reference" name="reference"
                                                id="urlparam-GETapi-v1-stats-session--publicApiKey---reference--reference"
                                                placeholder=""
-                                               value="totam" data-component="url"
+                                               value="atque" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -4957,7 +4973,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8200/api/v1/stats/session/distinctio/totam" \
+    --get "http://localhost:8200/api/v1/stats/session/consequatur/atque" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -4967,7 +4983,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/stats/session/distinctio/totam"
+    "http://localhost:8200/api/v1/stats/session/consequatur/atque"
 );
 
 const headers = {
@@ -4986,7 +5002,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/stats/session/distinctio/totam';
+$url = 'http://localhost:8200/api/v1/stats/session/consequatur/atque';
 $response = $client-&gt;get(
     $url,
     [
@@ -5007,7 +5023,7 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/stats/session/distinctio/totam'
+url = 'http://localhost:8200/api/v1/stats/session/consequatur/atque'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
