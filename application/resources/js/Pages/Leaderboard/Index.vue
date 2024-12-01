@@ -3,18 +3,36 @@ import GuestLayout from "@/Layouts/GuestLayout.vue";
 import {ref, computed, onMounted} from "vue";
 import { Bar } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
+import {useToast} from "vue-toast-notification";
 
 const props = defineProps({
     publicApiKey: String,
     projectName: String,
 });
 
-// TODO: Fetch this data from the api route (api.v1.stats.leaderboard)
-// TODO: show progress bar/loading screen as we are fetching
-const leaderboardData = ref(JSON.parse('{"overview":[{"auth_name":"stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","auth_avatar":"https://api.dicebear.com/9.x/pixel-art/svg?seed=stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","total_kills":"28","total_deaths":"40","total_suicides":"0","total_game_starts":"0","total_player_joins":"3","kill_death_ratio":"0.7"},{"auth_name":"Latheesan Kanesamoorthy","auth_avatar":"https://lh3.googleusercontent.com/a/ACg8ocJYZyURUYgovmom0jCRV9fRwnqb3gM07XUNQ3izr_hikxFQQ4g=s96-c","total_kills":"3","total_deaths":"9","total_suicides":"1","total_game_starts":"0","total_player_joins":"1","kill_death_ratio":"0.33"}],"kills":[{"auth_name":"stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","auth_avatar":"https://api.dicebear.com/9.x/pixel-art/svg?seed=stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","total_kills":"28"},{"auth_name":"Latheesan Kanesamoorthy","auth_avatar":"https://lh3.googleusercontent.com/a/ACg8ocJYZyURUYgovmom0jCRV9fRwnqb3gM07XUNQ3izr_hikxFQQ4g=s96-c","total_kills":"3"}],"deaths":[{"auth_name":"stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","auth_avatar":"https://api.dicebear.com/9.x/pixel-art/svg?seed=stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","total_deaths":"40"},{"auth_name":"Latheesan Kanesamoorthy","auth_avatar":"https://lh3.googleusercontent.com/a/ACg8ocJYZyURUYgovmom0jCRV9fRwnqb3gM07XUNQ3izr_hikxFQQ4g=s96-c","total_deaths":"9"}],"suicides":[{"auth_name":"Latheesan Kanesamoorthy","auth_avatar":"https://lh3.googleusercontent.com/a/ACg8ocJYZyURUYgovmom0jCRV9fRwnqb3gM07XUNQ3izr_hikxFQQ4g=s96-c","total_suicides":"1"},{"auth_name":"stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","auth_avatar":"https://api.dicebear.com/9.x/pixel-art/svg?seed=stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","total_suicides":"0"}],"killDeathRatio":[{"auth_name":"stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","auth_avatar":"https://api.dicebear.com/9.x/pixel-art/svg?seed=stake_test1upc5wrfvhgk8zt40gv787xe39mvulf205vg8h88eect03yg8t4jl8","total_kills":"28","total_deaths":"40","kill_death_ratio":"0.7"},{"auth_name":"Latheesan Kanesamoorthy","auth_avatar":"https://lh3.googleusercontent.com/a/ACg8ocJYZyURUYgovmom0jCRV9fRwnqb3gM07XUNQ3izr_hikxFQQ4g=s96-c","total_kills":"3","total_deaths":"9","kill_death_ratio":"0.33"}],"generatedAt":"2024-11-30 00:13:24"}'));
-
 // Register Chart.js components
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+
+// Initialise
+const $toast = useToast();
+const STATS_TYPE_OVERVIEW = 'overview';
+const STATS_TYPE_QUALIFIER = 'qualifier';
+const tab = ref(STATS_TYPE_OVERVIEW);
+const isLoading = ref(false);
+const leaderboardData = ref(JSON.parse('{"overview":{"summary":[],"kills":[],"deaths":[],"suicides":[],"killDeathRatio":[]},"qualifier":{"summary":[],"kills":[],"deaths":[],"suicides":[],"killDeathRatio":[]},"generatedAt":"2024-12-01 18:12:43"}'));
+
+// Periodically load leaderboard data
+const loadLeaderboardData = () => {
+    isLoading.value = true;
+    axios.get(route('api.v1.stats.leaderboard', props.publicApiKey))
+        .then(res => leaderboardData.value = res.data)
+        .catch(err => $toast.error('Failed to load leaderboard data.'))
+        .finally(() => isLoading.value = false);
+};
+onMounted(() => {
+    loadLeaderboardData();
+    setInterval(loadLeaderboardData, 5000);
+});
 
 // Table Headers
 const tableHeaders = [
@@ -50,20 +68,20 @@ const getKDRatioColor = (ratio) => {
 
 // Computed Aggregate Statistics
 const totalKills = computed(() =>
-    leaderboardData.value.overview.reduce((sum, player) => sum + parseInt(player.total_kills), 0)
+    leaderboardData.value[tab.value].summary.reduce((sum, player) => sum + parseInt(player.total_kills), 0)
 );
 const totalDeaths = computed(() =>
-    leaderboardData.value.overview.reduce((sum, player) => sum + parseInt(player.total_deaths), 0)
+    leaderboardData.value[tab.value].summary.reduce((sum, player) => sum + parseInt(player.total_deaths), 0)
 );
 const averageKDRatio = computed(() =>
-    leaderboardData.value.overview.reduce((sum, player) => sum + parseFloat(player.kill_death_ratio), 0) /
-    leaderboardData.value.overview.length
+    (leaderboardData.value[tab.value].summary.reduce((sum, player) => sum + parseFloat(player.kill_death_ratio), 0) /
+    leaderboardData.value[tab.value].summary.length) || 0
 );
 
 // Top 10 Players by Kills Chart
 const topKillsChartData = computed(() => {
     // Sort players by kills and take top 10
-    const topPlayers = [...leaderboardData.value.kills]
+    const topPlayers = [...leaderboardData.value[tab.value].kills]
         .sort((a, b) => parseInt(b.total_kills) - parseInt(a.total_kills))
         .slice(0, 10);
 
@@ -90,7 +108,7 @@ const kdRatioDistributionData = computed(() => {
     ];
 
     // Categorize players into K/D ratio buckets
-    leaderboardData.value.killDeathRatio.forEach(player => {
+    leaderboardData.value[tab.value].killDeathRatio.forEach(player => {
         const kdRatio = parseFloat(player.kill_death_ratio);
         if (kdRatio < 0.5) buckets[0].count++;
         else if (kdRatio < 1) buckets[1].count++;
@@ -116,11 +134,23 @@ const kdRatioDistributionData = computed(() => {
     <GuestLayout :title="props.projectName + ': Leaderboard'">
         <v-container fluid>
 
-            <!-- Overview Statistics Cards -->
+            <!-- Grouped Stats -->
+            <v-card class="mb-6">
+                <v-tabs v-model="tab" bg-color="primary">
+                    <v-tab :value="STATS_TYPE_OVERVIEW">{{ STATS_TYPE_OVERVIEW }}</v-tab>
+                    <v-tab :value="STATS_TYPE_QUALIFIER">{{ STATS_TYPE_QUALIFIER }}</v-tab>
+                </v-tabs>
+                <v-card-text>
+                    <v-progress-linear v-if="isLoading" height="16" color="primary" indeterminate />
+                    <span v-else>Leaderboard data generated at {{ leaderboardData.generatedAt }} (UTC)</span>
+                </v-card-text>
+            </v-card>
+
+            <!-- Summary Statistics Cards -->
             <v-row>
                 <v-col cols="12">
                     <v-card>
-                        <v-card-title>Leaderboard Overview</v-card-title>
+                        <v-card-title>Leaderboard Summary</v-card-title>
                         <v-card-text>
                             <v-row>
                                 <v-col cols="12" md="4">
@@ -160,7 +190,7 @@ const kdRatioDistributionData = computed(() => {
                         <v-card-title>Player Statistics</v-card-title>
                         <v-data-table
                             :headers="tableHeaders"
-                            :items="leaderboardData.overview"
+                            :items="leaderboardData[tab].summary"
                             :items-per-page="5"
                             class="elevation-1"
                         >
