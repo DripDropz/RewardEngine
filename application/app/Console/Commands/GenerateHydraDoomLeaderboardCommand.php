@@ -13,6 +13,8 @@ class GenerateHydraDoomLeaderboardCommand extends Command
     use LogExceptionTrait;
 
     private const PROJECT_ID = 1;
+    private const STATS_TYPE_OVERVIEW = 'overview';
+    private const STATS_TYPE_QUALIFIER = 'qualifier';
 
     /**
      * The name and signature of the console command.
@@ -40,11 +42,20 @@ class GenerateHydraDoomLeaderboardCommand extends Command
 
             // Generate leaderboard
             $leaderboard = [
-                'overview' => $this->generateOverviewLeaderboard(),
-                'kills' => $this->generateKillsLeaderboard(),
-                'deaths' => $this->generateDeathsLeaderboard(),
-                'suicides' => $this->generateSuicidesLeaderboard(),
-                'killDeathRatio' => $this->generateKillDeathRatioLeaderboard(),
+                'overview' => [
+                    'summary' => $this->generateSummaryLeaderboard(self::STATS_TYPE_OVERVIEW),
+                    'kills' => $this->generateKillsLeaderboard(self::STATS_TYPE_OVERVIEW),
+                    'deaths' => $this->generateDeathsLeaderboard(self::STATS_TYPE_OVERVIEW),
+                    'suicides' => $this->generateSuicidesLeaderboard(self::STATS_TYPE_OVERVIEW),
+                    'killDeathRatio' => $this->generateKillDeathRatioLeaderboard(self::STATS_TYPE_OVERVIEW),
+                ],
+                'qualifier' => [
+                    'summary' => $this->generateSummaryLeaderboard(self::STATS_TYPE_QUALIFIER),
+                    'kills' => $this->generateKillsLeaderboard(self::STATS_TYPE_QUALIFIER),
+                    'deaths' => $this->generateDeathsLeaderboard(self::STATS_TYPE_QUALIFIER),
+                    'suicides' => $this->generateSuicidesLeaderboard(self::STATS_TYPE_QUALIFIER),
+                    'killDeathRatio' => $this->generateKillDeathRatioLeaderboard(self::STATS_TYPE_QUALIFIER),
+                ],
                 'generatedAt' => now()->toDateTimeString(),
             ];
 
@@ -62,19 +73,19 @@ class GenerateHydraDoomLeaderboardCommand extends Command
         }
     }
 
-    private function generateOverviewLeaderboard(): array
+    private function generateSummaryLeaderboard(string $statsType): array
     {
         $sql = <<<QUERY
 SELECT
     project_accounts.auth_name,
     project_accounts.auth_avatar,
-    JSON_EXTRACT(stats, '$.kill') AS total_kills,
-    JSON_EXTRACT(stats, '$.death') AS total_deaths,
-    JSON_EXTRACT(stats, '$.suicide') AS total_suicides,
-    JSON_EXTRACT(stats, '$.game_started') AS total_game_starts,
-    JSON_EXTRACT(stats, '$.player_joined') AS total_player_joins,
-    JSON_EXTRACT(stats, '$.game_finished') AS total_game_starts,
-    IF (JSON_EXTRACT(stats, '$.death') > 0, ROUND(JSON_EXTRACT(stats, '$.kill') / JSON_EXTRACT(stats, '$.death'), 2), JSON_EXTRACT(stats, '$.kill')) AS kill_death_ratio
+    JSON_EXTRACT(stats, '$.{$statsType}.kill') AS total_kills,
+    JSON_EXTRACT(stats, '$.{$statsType}.death') AS total_deaths,
+    JSON_EXTRACT(stats, '$.{$statsType}.suicide') AS total_suicides,
+    JSON_EXTRACT(stats, '$.{$statsType}.game_started') AS total_game_starts,
+    JSON_EXTRACT(stats, '$.{$statsType}.player_joined') AS total_player_joins,
+    JSON_EXTRACT(stats, '$.{$statsType}.game_finished') AS total_game_starts,
+    IF (JSON_EXTRACT(stats, '$.{$statsType}.death') > 0, ROUND(JSON_EXTRACT(stats, '$.{$statsType}.kill') / JSON_EXTRACT(stats, '$.{$statsType}.death'), 2), JSON_EXTRACT(stats, '$.{$statsType}.kill')) AS kill_death_ratio
 FROM project_account_stats
 JOIN project_accounts on project_account_stats.project_account_id = project_accounts.id
 WHERE project_account_stats.project_id = ?
@@ -85,13 +96,13 @@ QUERY;
         return $this->transformRows(DB::select($sql, [self::PROJECT_ID]));
     }
 
-    private function generateKillsLeaderboard(): array
+    private function generateKillsLeaderboard(string $statsType): array
     {
         $sql = <<<QUERY
 SELECT
     project_accounts.auth_name,
     project_accounts.auth_avatar,
-    JSON_EXTRACT(stats, '$.kill') AS total_kills
+    JSON_EXTRACT(stats, '$.{$statsType}.kill') AS total_kills
 FROM project_account_stats
 JOIN project_accounts on project_account_stats.project_account_id = project_accounts.id
 WHERE project_account_stats.project_id = ?
@@ -102,13 +113,13 @@ QUERY;
         return $this->transformRows(DB::select($sql, [self::PROJECT_ID]));
     }
 
-    private function generateDeathsLeaderboard(): array
+    private function generateDeathsLeaderboard(string $statsType): array
     {
         $sql = <<<QUERY
 SELECT
     project_accounts.auth_name,
     project_accounts.auth_avatar,
-    JSON_EXTRACT(stats, '$.death') AS total_deaths
+    JSON_EXTRACT(stats, '$.{$statsType}.death') AS total_deaths
 FROM project_account_stats
 JOIN project_accounts on project_account_stats.project_account_id = project_accounts.id
 WHERE project_account_stats.project_id = ?
@@ -119,13 +130,13 @@ QUERY;
         return $this->transformRows(DB::select($sql, [self::PROJECT_ID]));
     }
 
-    private function generateSuicidesLeaderboard(): array
+    private function generateSuicidesLeaderboard(string $statsType): array
     {
         $sql = <<<QUERY
 SELECT
     project_accounts.auth_name,
     project_accounts.auth_avatar,
-    JSON_EXTRACT(stats, '$.suicide') AS total_suicides
+    JSON_EXTRACT(stats, '$.{$statsType}.suicide') AS total_suicides
 FROM project_account_stats
 JOIN project_accounts on project_account_stats.project_account_id = project_accounts.id
 WHERE project_account_stats.project_id = ?
@@ -136,15 +147,15 @@ QUERY;
         return $this->transformRows(DB::select($sql, [self::PROJECT_ID]));
     }
 
-    private function generateKillDeathRatioLeaderboard(): array
+    private function generateKillDeathRatioLeaderboard(string $statsType): array
     {
         $sql = <<<QUERY
 SELECT
     project_accounts.auth_name,
     project_accounts.auth_avatar,
-    JSON_EXTRACT(stats, '$.kill') AS total_kills,
-    JSON_EXTRACT(stats, '$.death') AS total_deaths,
-    IF (JSON_EXTRACT(stats, '$.death') > 0, ROUND(JSON_EXTRACT(stats, '$.kill') / JSON_EXTRACT(stats, '$.death'), 2), JSON_EXTRACT(stats, '$.kill')) AS kill_death_ratio
+    JSON_EXTRACT(stats, '$.{$statsType}.kill') AS total_kills,
+    JSON_EXTRACT(stats, '$.{$statsType}.death') AS total_deaths,
+    IF (JSON_EXTRACT(stats, '$.{$statsType}.death') > 0, ROUND(JSON_EXTRACT(stats, '$.{$statsType}.kill') / JSON_EXTRACT(stats, '$.{$statsType}.death'), 2), JSON_EXTRACT(stats, '$.{$statsType}.kill')) AS kill_death_ratio
 FROM project_account_stats
 JOIN project_accounts on project_account_stats.project_account_id = project_accounts.id
 WHERE project_account_stats.project_id = ?
