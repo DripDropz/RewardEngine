@@ -31,10 +31,19 @@ class ParseAllHydraDoomEventsCommand extends Command
             ->orderBy('timestamp', 'asc')
             ->get();
 
-        foreach ($eventData as $eventDatum) {
+        $this->info(sprintf('Found Event Data: %s', $eventData->count()));
+
+        foreach ($eventData as $index => $eventDatum) {
+            if ($eventDatum->data['type'] === 'global') {
+                // Skip global stats event
+                continue;
+            }
             (new HydraDoomEventParserJob($eventDatum))->handle();
+            if (($index+1) % 1000 === 0) {
+                $this->info(sprintf('Done Parsing: %s', $index+1));
+            }
         }
 
-        $this->info(sprintf('Task Completed, Processed: %s', $eventData->count()));
+        $this->info('Task Completed');
     }
 }
