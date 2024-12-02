@@ -31,7 +31,7 @@ const loadLeaderboardData = () => {
 };
 onMounted(() => {
     loadLeaderboardData();
-    setInterval(loadLeaderboardData, 5000);
+    setInterval(loadLeaderboardData, 20000);
 });
 
 // Table Headers
