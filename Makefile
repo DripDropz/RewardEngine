@@ -18,6 +18,8 @@ down:
 build:
 	docker compose build
 	$(MAKE) up
+	docker exec -it rewardengine-web bash -c "cd sidecar/cardano && npm install"
+	docker compose restart rewardengine-cardano-sidecar
 	$(MAKE) frontend-build
 
 #
