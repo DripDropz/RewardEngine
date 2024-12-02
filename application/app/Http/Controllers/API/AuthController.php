@@ -433,7 +433,7 @@ class AuthController extends Controller
      * @bodyParam session_id string required Previously authentication session id. Example: 069ff9f1-87ad-43b0-90a9-05493a330273
      * @bodyParam new_reference string required New unique user/session identifier in your application. Example: 069ff9f1-87ad-43b0-90a9-05493a330273
      *
-     * @response status=200 scenario="Successfully Refreshed"
+     * @response status=200 scenario="Successfully Refreshed" {"authenticated":true,"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_wallet":"eternl","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg"},"session":{"reference":"your-app-identifier-123","session_id":"265dfd21-0fa2-4895-9277-87d2ed74a294","auth_country_code":"GB","authenticated_at":"2024-11-21 22:46:16"}}
      * @response status=429 scenario="Too Many Requests" [No Content]
      * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
      * @responseFile status=401 scenario="Unauthorized" resources/api-responses/401.json

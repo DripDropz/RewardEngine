@@ -50,7 +50,7 @@ onMounted(async () => {
         const knownWallet = [];
         if (window.cardano !== undefined) {
             for (const [walletName, walletObject] of Object.entries(window.cardano)) {
-                if (!['enable', 'isEnabled'].includes(walletName)) {
+                if (Object.hasOwn(walletObject, 'enable') && Object.hasOwn(walletObject, 'name')) {
                     let walletDisplayName = walletObject.name.replace('Wallet', '').trim();
                     walletDisplayName = walletDisplayName.charAt(0).toUpperCase() + walletDisplayName.slice(1);
                     if (!knownWallet.includes(walletDisplayName) && walletObject.icon) {
@@ -245,6 +245,7 @@ const connectWallet = async (walletName) => {
 };
 
 </script>
+
 <template>
     <GuestLayout :title="props.projectName">
         <v-container>

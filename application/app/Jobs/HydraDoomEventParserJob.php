@@ -96,7 +96,7 @@ class HydraDoomEventParserJob implements ShouldQueue
         }
 
         Cache::forever(
-            sprintf('project-%d:global-stats', $this->eventData->project_id),
+            sprintf('project-global-stats:%d', $this->eventData->project_id),
             $this->eventData->data['stats'],
         );
     }
@@ -222,7 +222,8 @@ class HydraDoomEventParserJob implements ShouldQueue
         $allJoinedPlayers = ProjectAccountSessionEvent::query()
             ->where('game_id', $this->eventData->data['game_id'])
             ->where('event_type', self::TYPE_PLAYER_JOINED)
-            ->select('reference');
+            ->select('reference')
+            ->get();
 
         foreach ($allJoinedPlayers as $joinedPlayer) {
             try {

@@ -50,7 +50,7 @@ class HydraDoomAccountStatsJob implements ShouldQueue
         // Find project account by reference
         $projectAccount = ProjectAccount::query()
             ->where('project_id', $this->projectId)
-            ->with('sessionEvents')
+            ->with('sessionEvents.eventData')
             ->whereHas('sessions', function ($query) {
                 $query->where('reference', $this->reference);
             })
@@ -60,9 +60,15 @@ class HydraDoomAccountStatsJob implements ShouldQueue
         }
 
         // Aggregate stats
-        $projectAccountStats = self::DEFAULT_STATS;
+        $projectAccountStats = [
+            'overview' => self::DEFAULT_STATS,
+            'qualifier' => self::DEFAULT_STATS,
+        ];
         $projectAccount->sessionEvents->each(function ($sessionEvent) use (&$projectAccountStats) {
-            $projectAccountStats[$sessionEvent->event_type]++;
+            $projectAccountStats['overview'][$sessionEvent->event_type]++;
+            if (isset($sessionEvent?->eventData?->data['is_qualifier']) && $sessionEvent->eventData->data['is_qualifier'] === true) {
+                $projectAccountStats['qualifier'][$sessionEvent->event_type]++;
+            }
         });
 
         // Upsert project account stats
