@@ -12,7 +12,7 @@ environments:
         cli-timeout: 600
         runtime: docker
         database: rewardengine-production-mysql
-        cache: rewardengine-staging-mysql
+        cache: rewardengine-production-redis
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
             - 'php artisan optimize'
