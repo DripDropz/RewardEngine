@@ -1,5 +1,6 @@
 /.phpunit.cache
 /node_modules
+/sidecar/cardano/node_modules
 /public/build
 /public/hot
 /public/storage
@@ -10,6 +11,7 @@
 .env.production
 .phpactor.json
 .phpunit.result.cache
+.scribe
 Homestead.json
 Homestead.yaml
 auth.json

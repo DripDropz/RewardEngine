@@ -1,12 +1,17 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\SocialAuthCallbackController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index']);
+Route::get('demo', fn() => view('demo'));
+Route::get('social-auth-callback/{authProvider}', [SocialAuthCallbackController::class, 'handle']);
+Route::get('leaderboard/{publicApiKey}', [LeaderboardController::class, 'index']);
 
 Route::middleware(['auth', 'verified'])->group(static function () {
 
@@ -16,9 +21,10 @@ Route::middleware(['auth', 'verified'])->group(static function () {
     // Projects
     Route::prefix('projects')->group(static function () {
         Route::get('/', [ProjectsController::class, 'index'])->name('projects.index');
-        Route::get('{projectId}', [ProjectsController::class, 'show'])->name('projects.show');
         Route::get('create', [ProjectsController::class, 'create'])->name('projects.create');
         Route::post('store', [ProjectsController::class, 'store'])->name('projects.store');
+        Route::get('{projectId}', [ProjectsController::class, 'show'])->name('projects.show');
+        Route::post('{projectId}', [ProjectsController::class, 'update'])->name('projects.update');
     });
 
 });
@@ -30,18 +36,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-// TEST ROUTE :: START
-if (app()->environment('local')) {
-
-    Route::get('test/{authProvider}', static function ($authProvider) {
-        return \Laravel\Socialite\Facades\Socialite::driver($authProvider)->redirect();
-    });
-
-    Route::get('social-auth-callback/{authProvider}', static function ($authProvider) {
-        $socialUser = \Laravel\Socialite\Facades\Socialite::driver($authProvider)->user();
-        dd($socialUser);
-    });
-
-}
-// TEST ROUTE :: END

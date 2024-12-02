@@ -1,4 +1,4 @@
-id: 67278
+id: 67320
 name: rewardengine
 environments:
 
@@ -13,7 +13,6 @@ environments:
         runtime: docker
         database: rewardengine-production-mysql
         cache: rewardengine-staging-mysql
-        # TODO: AWS Managed Firewall (WAF)
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
             - 'php artisan optimize'
@@ -34,9 +33,8 @@ environments:
         runtime: docker
         database: rewardengine-staging-mysql
         cache: rewardengine-staging-redis
-        # TODO: AWS Managed Firewall (WAF)
         build:
-            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
             - 'php artisan optimize'
             - 'php artisan event:cache'
             - 'php artisan config:cache'

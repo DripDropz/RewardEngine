@@ -49,3 +49,4 @@ WORKDIR /home/rewardengine/application
 
 # Expose ports
 EXPOSE 80
+EXPOSE 8201

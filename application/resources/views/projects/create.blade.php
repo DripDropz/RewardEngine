@@ -38,6 +38,12 @@
                             </p>
                         </div>
 
+                        <div>
+                            <x-input-label for="session_valid_for_seconds" :value="__('Session Valid For in Seconds')" />
+                            <x-text-input id="session_valid_for_seconds" name="session_valid_for_seconds" type="number" min="60" step="1" class="mt-1 block w-full" :value="old('session_valid_for_seconds')" required autocomplete="session_valid_for_seconds" />
+                            <x-input-error class="mt-2" :messages="$errors->get('session_valid_for_seconds')" />
+                        </div>
+
                         <div class="flex items-center gap-4">
                             <x-primary-button>{{ __('Save') }}</x-primary-button>
                         </div>

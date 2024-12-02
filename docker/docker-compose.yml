@@ -1,59 +1,73 @@
 services:
 
-  # Web Service
-  rewardengine-web:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
-    container_name: rewardengine-web
-    restart: unless-stopped
-    tty: true
-    networks: [ rewardengine ]
-    volumes:
-      - ../application:/home/rewardengine/application
-    ports:
-      - "8200:80"
-    depends_on:
-      - rewardengine-mysql
-      - rewardengine-redis
-    links:
-      - rewardengine-mysql
-      - rewardengine-redis
+    # Web Service
+    rewardengine-web:
+        build:
+            context: ..
+            dockerfile: docker/Web.Dockerfile
+        container_name: rewardengine-web
+        restart: unless-stopped
+        tty: true
+        networks: [ rewardengine ]
+        volumes:
+            - ../application:/home/rewardengine/application
+        ports:
+            - "8200:80"   # Laravel
+            - "8201:8201" # Vite
+        depends_on:
+            - rewardengine-mysql
+            - rewardengine-redis
+        links:
+            - rewardengine-mysql
+            - rewardengine-redis
+            - rewardengine-cardano-sidecar
 
-  # MySQL Service
-  rewardengine-mysql:
-    image: mysql:8.0
-    container_name: rewardengine-mysql
-    restart: unless-stopped
-    tty: true
-    networks: [ rewardengine ]
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: rewardengine
-      MYSQL_USER: rewardengine
-      MYSQL_PASSWORD: 123456
-    healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      interval: 5s
-      timeout: 10s
-      retries: 30
-    volumes: [ "mysql:/var/lib/mysql:cached" ]
-    ports: [ "33200:3306" ]
+    # MySQL Service
+    rewardengine-mysql:
+        image: mysql:8.0
+        container_name: rewardengine-mysql
+        restart: unless-stopped
+        tty: true
+        networks: [ rewardengine ]
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456
+            MYSQL_DATABASE: rewardengine
+            MYSQL_USER: rewardengine
+            MYSQL_PASSWORD: 123456
+        healthcheck:
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+            interval: 5s
+            timeout: 10s
+            retries: 30
+        volumes: [ "mysql:/var/lib/mysql:cached" ]
+        ports: [ "33200:3306" ]
 
-  # Redis Service
-  rewardengine-redis:
-    container_name: rewardengine-redis
-    image: redis:6
-    restart: unless-stopped
-    volumes:
-      - redis:/data
-    networks: [ rewardengine ]
+    # Redis Service
+    rewardengine-redis:
+        container_name: rewardengine-redis
+        image: redis:6
+        restart: unless-stopped
+        volumes:
+            - redis:/data
+        networks: [ rewardengine ]
+
+    # Cardano Sidecar Service
+    rewardengine-cardano-sidecar:
+        build:
+            context: ..
+            dockerfile: docker/CardanoSidecar.Dockerfile
+        container_name: rewardengine-cardano-sidecar
+        restart: unless-stopped
+        tty: true
+        networks: [ rewardengine ]
+        volumes:
+            - ../application/sidecar/cardano:/app
 
 volumes:
-  mysql:
-    driver: local
-  redis:
+    mysql:
+        driver: local
+    redis:
 
 networks:
-  rewardengine:
-    driver: bridge
+    rewardengine:
+        driver: bridge

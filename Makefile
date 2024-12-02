@@ -8,6 +8,7 @@ up:
 	$(MAKE) composer-install
 	./docker/wait-for-mysql.sh
 	$(MAKE) db-migrate
+	$(MAKE) frontend-build
 
 .PHONY: down
 down:
@@ -17,15 +18,34 @@ down:
 build:
 	docker compose build
 	$(MAKE) up
-	docker exec -it rewardengine-web bash -c "npm install && npm run build"
+	docker exec -it rewardengine-web bash -c "cd sidecar/cardano && npm install"
+	docker compose restart rewardengine-cardano-sidecar
+	$(MAKE) frontend-build
 
 #
 # Helper functions
 #
 
+.PHONY: frontend-build
+frontend-build:
+	docker exec -it rewardengine-web bash -c "npm install && npm run build"
+
+.PHONY: frontend-watch
+frontend-watch:
+	docker exec -it rewardengine-web bash -c "npm install && npm run dev"
+
+.PHONY: frontend-upgrade
+frontend-upgrade:
+	docker exec -it rewardengine-web bash -c "npm update"
+
 .PHONY: composer-install
 composer-install:
 	docker exec -it rewardengine-web bash -c "composer install"
+
+.PHONY: deploy-sidecar
+deploy-sidecar:
+	docker exec -it rewardengine-web bash -c "php artisan sidecar:deploy --env=production"
+	docker exec -it rewardengine-web bash -c "php artisan sidecar:activate --env=production"
 
 .PHONY: db-migrate
 db-migrate:
@@ -34,6 +54,10 @@ db-migrate:
 .PHONY: db-refresh
 db-refresh:
 	docker exec -it rewardengine-web bash -c "php artisan migrate:fresh --seed"
+
+.PHONY: api-docs
+api-docs:
+	docker exec -it rewardengine-web bash -c "php artisan scribe:generate --force"
 
 .PHONY: tinker
 tinker:
@@ -51,13 +75,17 @@ logs:
 logs-web:
 	docker compose logs -f --tail=100 rewardengine-web
 
+.PHONY: logs-cardano-sidecar
+logs-cardano-sidecar:
+	docker compose logs -f --tail=100 rewardengine-cardano-sidecar
+
 .PHONY: shell
 shell:
 	docker exec -it rewardengine-web bash
 
 .PHONY: stats
 stats:
-	docker stats rewardengine-web rewardengine-mysql rewardengine-redis
+	docker stats rewardengine-web rewardengine-mysql rewardengine-redis rewardengine-cardano-sidecar
 
 .PHONY: artisan
 artisan:

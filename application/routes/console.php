@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use App\Console\Commands\GenerateHydraDoomLeaderboardCommand;
+use App\Console\Commands\SyncHydraDoomGlobalStatsCommand;
+use Illuminate\Support\Facades\Schedule;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->hourly();
+// Sync hydra doom global stats every minute
+Schedule::command(SyncHydraDoomGlobalStatsCommand::class)->everyMinute();
+
+// Generate hydra doom leaderboard every five minutes
+Schedule::command(GenerateHydraDoomLeaderboardCommand::class)->everyFiveMinutes();
