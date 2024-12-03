@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        RateLimiter::for('api-auth', fn() => Limit::perMinute(60));
+        // RateLimiter::for('api-auth', fn() => Limit::perMinute(60));
 
         Event::listen(function (SocialiteWasCalled $event) {
             $event->extendSocialite('discord', DiscordProvider::class);

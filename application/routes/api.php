@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Route;
  */
 Route::prefix('v1')->name('api.v1.')->group(static function ()
 {
+    // ->middleware(['throttle:api-auth'])
 
     // Auth
-    Route::prefix('auth')->name('auth.')->middleware(['throttle:api-auth'])->group(static function ()
+    Route::prefix('auth')->name('auth.')->group(static function ()
     {
 
         // Public Endpoints
@@ -27,7 +28,7 @@ Route::prefix('v1')->name('api.v1.')->group(static function ()
     });
 
     // Stats
-    Route::prefix('stats')->name('stats.')->middleware(['throttle:api-auth'])->group(static function ()
+    Route::prefix('stats')->name('stats.')->group(static function ()
     {
         // Public Endpoints
         Route::get('global/{publicApiKey}', [StatsController::class, 'global']);
