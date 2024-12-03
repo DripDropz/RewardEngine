@@ -83,14 +83,11 @@ SELECT
     JSON_EXTRACT(stats, '$.{$statsType}.death') AS total_deaths,
     JSON_EXTRACT(stats, '$.{$statsType}.suicide') AS total_suicides,
     JSON_EXTRACT(stats, '$.{$statsType}.game_started') AS total_game_starts,
-    JSON_EXTRACT(stats, '$.{$statsType}.player_joined') AS total_player_joins,
-    JSON_EXTRACT(stats, '$.{$statsType}.game_finished') AS total_game_starts,
     IF (JSON_EXTRACT(stats, '$.{$statsType}.death') > 0, ROUND(JSON_EXTRACT(stats, '$.{$statsType}.kill') / JSON_EXTRACT(stats, '$.{$statsType}.death'), 2), JSON_EXTRACT(stats, '$.{$statsType}.kill')) AS kill_death_ratio
 FROM project_account_stats
 JOIN project_accounts on project_account_stats.project_account_id = project_accounts.id
 WHERE project_account_stats.project_id = ?
 ORDER BY total_kills DESC
-LIMIT 10;
 QUERY;
 
         return $this->transformRows(DB::select($sql, [self::PROJECT_ID]));
@@ -160,7 +157,6 @@ FROM project_account_stats
 JOIN project_accounts on project_account_stats.project_account_id = project_accounts.id
 WHERE project_account_stats.project_id = ?
 ORDER BY kill_death_ratio DESC
-LIMIT 10;
 QUERY;
 
         return $this->transformRows(DB::select($sql, [self::PROJECT_ID]));
