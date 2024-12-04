@@ -331,7 +331,7 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                                         <v-avatar size="40">
                                             <v-img :src="item.auth_avatar" cover></v-img>
                                         </v-avatar>
-                                        <span>{{ item.auth_name }}</span>
+                                        <v-list-item :title="item.auth_name" />
                                     </div>
                                 </template>
                             </v-data-table>
@@ -354,7 +354,7 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                                         <v-avatar size="40">
                                             <v-img :src="item.auth_avatar" cover></v-img>
                                         </v-avatar>
-                                        <span>{{ item.auth_name }}</span>
+                                        <v-list-item :title="item.auth_name" />
                                     </div>
                                 </template>
                             </v-data-table>
