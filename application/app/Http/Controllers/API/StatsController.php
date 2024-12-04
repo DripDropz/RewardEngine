@@ -31,11 +31,15 @@ class StatsController extends Controller
     public function global(string $publicApiKey, Request $request): JsonResponse
     {
         // Load project by public api key
-        $project = Project::query()
-            ->where('public_api_key', $publicApiKey)
-            ->first();
-
-        // Check if project exists
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
         if (!$project) {
             return response()->json([
                 'error' => __('Unauthorized'),
@@ -77,11 +81,15 @@ class StatsController extends Controller
     public function session(string $publicApiKey, string $reference, Request $request): JsonResponse
     {
         // Load project by public api key
-        $project = Project::query()
-            ->where('public_api_key', $publicApiKey)
-            ->first();
-
-        // Check if project exists
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
         if (!$project) {
             return response()->json([
                 'error' => __('Unauthorized'),
@@ -98,12 +106,18 @@ class StatsController extends Controller
         }
 
         // Find project account by reference
-        $projectAccount = ProjectAccount::query()
-            ->where('project_id', $project->id)
-            ->whereHas('sessions', function ($query) use ($reference) {
-                $query->where('reference', $reference);
-            })
-            ->first();
+        $projectAccount = Cache::remember(sprintf('project-account-reference:%d-%s', $project->id, $reference), 600, function () use ($project, $reference) {
+            $projectAccount = ProjectAccount::query()
+                ->where('project_id', $project->id)
+                ->whereHas('sessions', function ($query) use ($reference) {
+                    $query->where('reference', $reference);
+                })
+                ->first();
+            if (!$projectAccount) {
+                return false;
+            }
+            return $projectAccount;
+        });
         if (!$projectAccount) {
             return response()->json([
                 'error' => __('Unauthorized'),
@@ -147,11 +161,15 @@ class StatsController extends Controller
     public function leaderboard(string $publicApiKey, Request $request): JsonResponse
     {
         // Load project by public api key
-        $project = Project::query()
-            ->where('public_api_key', $publicApiKey)
-            ->first();
-
-        // Check if project exists
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
         if (!$project) {
             return response()->json([
                 'error' => __('Unauthorized'),

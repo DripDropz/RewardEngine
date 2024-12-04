@@ -77,11 +77,15 @@ class AuthController extends Controller
         }
 
         // Load project by public api key
-        $project = Project::query()
-            ->where('public_api_key', $publicApiKey)
-            ->first();
-
-        // Check if project exists
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
         if (!$project) {
             return response()->json([
                 'error' => __('Unauthorized'),
@@ -98,10 +102,13 @@ class AuthController extends Controller
         }
 
         // Ensure the reference is unique across project account sessions
-        $project->load(['sessions' => function ($query) use ($request) {
-            $query->where('reference', $request->get('reference'));
-        }]);
-        if ($project->sessions->count()) {
+        $projectAccountSessionCount = Cache::remember(sprintf('project-account-session-count:%d-%s', $project->id, $request->get('reference')), 600, function () use ($project, $request) {
+            $project->load(['sessions' => function ($query) use ($request) {
+                $query->where('reference', $request->get('reference'));
+            }]);
+            return $project->sessions->count();
+        });
+        if ((int) $projectAccountSessionCount > 0) {
             return response()->json([
                 'error' => __('Bad Request'),
                 'reason' => __('The reference must be unique.'),
@@ -152,11 +159,15 @@ class AuthController extends Controller
         ]);
 
         // Load project by public api key
-        $project = Project::query()
-            ->where('public_api_key', $publicApiKey)
-            ->first();
-
-        // Check if project exists
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
         if (!$project) {
             return response()->json([
                 'error' => __('Unauthorized'),
@@ -173,10 +184,13 @@ class AuthController extends Controller
         }
 
         // Ensure the reference is unique across project account sessions
-        $project->load(['sessions' => function ($query) use ($request) {
-            $query->where('reference', $request->get('reference'));
-        }]);
-        if ($project->sessions->count()) {
+        $projectAccountSessionCount = Cache::remember(sprintf('project-account-session-count:%d-%s', $project->id, $request->get('reference')), 600, function () use ($project, $request) {
+            $project->load(['sessions' => function ($query) use ($request) {
+                $query->where('reference', $request->get('reference'));
+            }]);
+            return $project->sessions->count();
+        });
+        if ((int) $projectAccountSessionCount > 0) {
             return response()->json([
                 'error' => __('Bad Request'),
                 'reason' => __('The reference must be unique.'),
@@ -223,11 +237,15 @@ class AuthController extends Controller
         $request->validate($rules);
 
         // Load project by public api key
-        $project = Project::query()
-            ->where('public_api_key', $publicApiKey)
-            ->first();
-
-        // Check if project exists
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
         if (!$project) {
             return response()->json([
                 'error' => __('Unauthorized'),
@@ -244,10 +262,13 @@ class AuthController extends Controller
         }
 
         // Ensure the reference is unique across project account sessions
-        $project->load(['sessions' => function ($query) use ($request) {
-            $query->where('reference', $request->get('reference'));
-        }]);
-        if ($project->sessions->count()) {
+        $projectAccountSessionCount = Cache::remember(sprintf('project-account-session-count:%d-%s', $project->id, $request->get('reference')), 600, function () use ($project, $request) {
+            $project->load(['sessions' => function ($query) use ($request) {
+                $query->where('reference', $request->get('reference'));
+            }]);
+            return $project->sessions->count();
+        });
+        if ((int) $projectAccountSessionCount > 0) {
             return response()->json([
                 'error' => __('Bad Request'),
                 'reason' => __('The reference must be unique.'),
@@ -460,11 +481,15 @@ class AuthController extends Controller
             }
 
             // Load project by public api key
-            $project = Project::query()
-                ->where('public_api_key', $publicApiKey)
-                ->first();
-
-            // Check if project exists
+            $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+                $project = Project::query()
+                    ->where('public_api_key', $publicApiKey)
+                    ->first();
+                if (!$project) {
+                    return false;
+                }
+                return $project;
+            });
             if (!$project) {
                 return response()->json([
                     'error' => __('Unauthorized'),
