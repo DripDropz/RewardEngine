@@ -151,6 +151,18 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
     .sort((a, b) => parseInt(b.total_deaths) - parseInt(a.total_deaths))
     .slice(0, 10));
 
+// String truncate helper
+const truncateString = function (fullStr, strLen, separator) {
+    if (fullStr.length <= strLen) return fullStr;
+    separator = separator || '...';
+    const sepLen = separator.length,
+        charsToShow = strLen - sepLen,
+        frontChars = Math.ceil(charsToShow/2),
+        backChars = Math.floor(charsToShow/2);
+    return fullStr.substring(0, frontChars) +
+        separator +
+        fullStr.substring(fullStr.length - backChars);
+};
 
 </script>
 
@@ -336,7 +348,7 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                                         <v-avatar size="40">
                                             <v-img :src="item.auth_avatar" cover></v-img>
                                         </v-avatar>
-                                        <span>{{ item.auth_name }}</span>
+                                        <span>{{ truncateString(item.auth_name, 22) }}</span>
                                     </div>
                                 </template>
                             </v-data-table>
@@ -369,7 +381,7 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                                         <v-avatar size="40">
                                             <v-img :src="item.auth_avatar" cover></v-img>
                                         </v-avatar>
-                                        <span>{{ item.auth_name }}</span>
+                                        <span>{{ truncateString(item.auth_name, 22) }}</span>
                                     </div>
                                 </template>
                             </v-data-table>
