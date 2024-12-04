@@ -84,9 +84,8 @@ const getKDRatioColor = (ratio) => {
 
 // Top 10 Players By Kills Headers
 const top10PlayersByKillsTableHeaders = [
-    { title: 'Avatar', key: 'auth_avatar' },
-    { title: 'Name', key: 'auth_name' },
-    { title: 'Total Kills', key: 'total_kills' },
+    { title: 'Player', key: 'auth_name' },
+    { title: 'Kills', key: 'total_kills' },
 ];
 const top10PlayersByKillsTableData = computed(() => [...leaderboardData.value[tab.value].kills]
     .sort((a, b) => parseInt(b.total_kills) - parseInt(a.total_kills))
@@ -145,9 +144,8 @@ const chartOptions = ref({
 
 // Top 10 Players By Deaths Headers
 const top10PlayersByDeathsTableHeaders = [
-    { title: 'Avatar', key: 'auth_avatar' },
-    { title: 'Name', key: 'auth_name' },
-    { title: 'Total Deaths', key: 'total_deaths' },
+    { title: 'Player', key: 'auth_name' },
+    { title: 'Deaths', key: 'total_deaths' },
 ];
 const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[tab.value].deaths]
     .sort((a, b) => parseInt(b.total_deaths) - parseInt(a.total_deaths))
@@ -333,10 +331,13 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                                 :loading="isLoading"
                                 hide-default-footer
                             >
-                                <template v-slot:item.auth_avatar="{ item }">
-                                    <v-avatar size="40">
-                                        <v-img :src="item.auth_avatar" cover></v-img>
-                                    </v-avatar>
+                                <template v-slot:item.auth_name="{ item }">
+                                    <div class="d-flex ga-2 align-center align-items-center">
+                                        <v-avatar size="40">
+                                            <v-img :src="item.auth_avatar" cover></v-img>
+                                        </v-avatar>
+                                        <span>{{ item.auth_name }}</span>
+                                    </div>
                                 </template>
                             </v-data-table>
                         </v-card-text>
@@ -363,10 +364,13 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                                 :loading="isLoading"
                                 hide-default-footer
                             >
-                                <template v-slot:item.auth_avatar="{ item }">
-                                    <v-avatar size="40">
-                                        <v-img :src="item.auth_avatar" cover></v-img>
-                                    </v-avatar>
+                                <template v-slot:item.auth_name="{ item }">
+                                    <div class="d-flex ga-2 align-center align-items-center">
+                                        <v-avatar size="40">
+                                            <v-img :src="item.auth_avatar" cover></v-img>
+                                        </v-avatar>
+                                        <span>{{ item.auth_name }}</span>
+                                    </div>
                                 </template>
                             </v-data-table>
                         </v-card-text>
