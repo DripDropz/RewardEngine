@@ -2,7 +2,7 @@
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import {ref, computed, onMounted} from "vue";
 import { Pie } from 'vue-chartjs';
-import { Chart as ChartJS, Title, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import {useToast} from "vue-toast-notification";
 
 const props = defineProps({
@@ -11,7 +11,7 @@ const props = defineProps({
 });
 
 // Register Chart.js components
-ChartJS.register(Title, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 // Initialise
 const $toast = useToast();
@@ -135,10 +135,6 @@ const chartOptions = ref({
         legend: {
             position: 'top'
         },
-        title: {
-            display: true,
-            text: 'Distribution of Kill/Death Ratios'
-        }
     }
 });
 
@@ -370,6 +366,7 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                 <v-col cols="12" md="4"></v-col>
                 <v-col cols="12" md="4">
                     <v-card>
+                        <v-card-title class="text-center">Distribution of Kill/Death Ratios</v-card-title>
                         <v-card-text>
                             <Pie
                                 :data="chartData"
