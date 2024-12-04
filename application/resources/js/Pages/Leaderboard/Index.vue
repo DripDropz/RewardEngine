@@ -85,7 +85,7 @@ const getKDRatioColor = (ratio) => {
 // Top 10 Players By Kills Headers
 const top10PlayersByKillsTableHeaders = [
     { title: 'Player', key: 'auth_name' },
-    { title: 'Kills', key: 'total_kills' },
+    { title: 'Kills', key: 'total_kills', align: 'end' },
 ];
 const top10PlayersByKillsTableData = computed(() => [...leaderboardData.value[tab.value].kills]
     .sort((a, b) => parseInt(b.total_kills) - parseInt(a.total_kills))
@@ -141,7 +141,7 @@ const chartOptions = ref({
 // Top 10 Players By Deaths Headers
 const top10PlayersByDeathsTableHeaders = [
     { title: 'Player', key: 'auth_name' },
-    { title: 'Deaths', key: 'total_deaths' },
+    { title: 'Deaths', key: 'total_deaths', align: 'end' },
 ];
 const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[tab.value].deaths]
     .sort((a, b) => parseInt(b.total_deaths) - parseInt(a.total_deaths))
@@ -315,7 +315,7 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
 
             <!-- Charts -->
             <v-row class="mt-4">
-                <v-col cols="12" md="6">
+                <v-col cols="12" md="4">
                     <v-card>
                         <v-card-title>Top 10 Players by Kills</v-card-title>
                         <v-card-text>
@@ -338,7 +338,18 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                         </v-card-text>
                     </v-card>
                 </v-col>
-                <v-col cols="12" md="6">
+                <v-col cols="12" md="4">
+                    <v-card :loading="isLoading">
+                        <v-card-title class="text-center">Distribution of Kill/Death Ratios</v-card-title>
+                        <v-card-text>
+                            <Pie
+                                :data="chartData"
+                                :options="chartOptions"
+                            />
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" md="4">
                     <v-card>
                         <v-card-title>Top 10 Players by Deaths</v-card-title>
                         <v-card-text>
@@ -361,21 +372,6 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
                         </v-card-text>
                     </v-card>
                 </v-col>
-            </v-row>
-            <v-row class="mt-4 mb-2">
-                <v-col cols="12" md="4"></v-col>
-                <v-col cols="12" md="4">
-                    <v-card :loading="isLoading">
-                        <v-card-title class="text-center">Distribution of Kill/Death Ratios</v-card-title>
-                        <v-card-text>
-                            <Pie
-                                :data="chartData"
-                                :options="chartOptions"
-                            />
-                        </v-card-text>
-                    </v-card>
-                </v-col>
-                <v-col cols="12" md="4"></v-col>
             </v-row>
 
         </v-container>
