@@ -365,7 +365,7 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
             <v-row class="mt-4 mb-2">
                 <v-col cols="12" md="4"></v-col>
                 <v-col cols="12" md="4">
-                    <v-card>
+                    <v-card :loading="isLoading">
                         <v-card-title class="text-center">Distribution of Kill/Death Ratios</v-card-title>
                         <v-card-text>
                             <Pie
