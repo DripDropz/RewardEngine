@@ -151,19 +151,6 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
     .sort((a, b) => parseInt(b.total_deaths) - parseInt(a.total_deaths))
     .slice(0, 10));
 
-// String truncate helper
-const truncateString = function (fullStr, strLen, separator) {
-    if (fullStr.length <= strLen) return fullStr;
-    separator = separator || '...';
-    const sepLen = separator.length,
-        charsToShow = strLen - sepLen,
-        frontChars = Math.ceil(charsToShow/2),
-        backChars = Math.floor(charsToShow/2);
-    return fullStr.substring(0, frontChars) +
-        separator +
-        fullStr.substring(fullStr.length - backChars);
-};
-
 </script>
 
 <template>
@@ -171,7 +158,7 @@ const truncateString = function (fullStr, strLen, separator) {
         <v-container>
 
             <!-- Grouped Stats -->
-            <v-card class="mt-6 mb-6">
+            <v-card class="mt-4 mb-6">
                 <v-tabs v-model="tab" bg-color="primary">
                     <v-tab :value="STATS_TYPE_OVERVIEW">{{ STATS_TYPE_OVERVIEW }}</v-tab>
                     <v-tab :value="STATS_TYPE_QUALIFIER">{{ STATS_TYPE_QUALIFIER }}</v-tab>
@@ -332,7 +319,7 @@ const truncateString = function (fullStr, strLen, separator) {
 
             <!-- Charts -->
             <v-row class="mt-4">
-                <v-col cols="12" md="4">
+                <v-col cols="12" md="6">
                     <v-card>
                         <v-card-title>Top 10 Players by Kills</v-card-title>
                         <v-card-text>
@@ -348,24 +335,14 @@ const truncateString = function (fullStr, strLen, separator) {
                                         <v-avatar size="40">
                                             <v-img :src="item.auth_avatar" cover></v-img>
                                         </v-avatar>
-                                        <span>{{ truncateString(item.auth_name, 22) }}</span>
+                                        <span>{{ item.auth_name }}</span>
                                     </div>
                                 </template>
                             </v-data-table>
                         </v-card-text>
                     </v-card>
                 </v-col>
-                <v-col cols="12" md="4">
-                    <v-card>
-                        <v-card-text>
-                            <Pie
-                                :data="chartData"
-                                :options="chartOptions"
-                            />
-                        </v-card-text>
-                    </v-card>
-                </v-col>
-                <v-col cols="12" md="4">
+                <v-col cols="12" md="6">
                     <v-card>
                         <v-card-title>Top 10 Players by Deaths</v-card-title>
                         <v-card-text>
@@ -381,13 +358,27 @@ const truncateString = function (fullStr, strLen, separator) {
                                         <v-avatar size="40">
                                             <v-img :src="item.auth_avatar" cover></v-img>
                                         </v-avatar>
-                                        <span>{{ truncateString(item.auth_name, 22) }}</span>
+                                        <span>{{ item.auth_name }}</span>
                                     </div>
                                 </template>
                             </v-data-table>
                         </v-card-text>
                     </v-card>
                 </v-col>
+            </v-row>
+            <v-row class="mt-4 mb-2">
+                <v-col cols="12" md="4"></v-col>
+                <v-col cols="12" md="4">
+                    <v-card>
+                        <v-card-text>
+                            <Pie
+                                :data="chartData"
+                                :options="chartOptions"
+                            />
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" md="4"></v-col>
             </v-row>
 
         </v-container>
