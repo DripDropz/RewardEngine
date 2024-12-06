@@ -479,7 +479,7 @@
 
         </div>
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
-            Last updated: November 30, 2024
+            Last updated: December 6, 2024
         </div>
 
         <div class="sl-flex sl-items-center sl-px-4 sl-py-3 sl-border-t">
@@ -1448,14 +1448,10 @@ response.json()</code></pre>                                        </div>
                                                             : application/json
                                                                                                                     vary
                                                             : X-Inertia
-                                                                                                                    x-ratelimit-limit
-                                                            : 60
-                                                                                                                    x-ratelimit-remaining
-                                                            : 59
                                                                                                                     access-control-allow-origin
                                                             : *
                                                                                                                     set-cookie
-                                                            : XSRF-TOKEN=eyJpdiI6ImozNyszblNpQ2JHVHZ6eFZMSUdmQVE9PSIsInZhbHVlIjoiVWJzNktQaDVyRWg3aHVVR2FVRnM1eHNhWHdkb2hreDc1b3ZIcVMzOVF4bW1vNmZpRlpQU2xHL2dFaVcza0E4QXRuMGg5Y0JvaXZYZlhoZE1Eakc5KzNqZGIydmtJUFp2cmx6WmtDbCtvVDBJZWNaT2tCS0F4RkRIVW0wbVZBb1EiLCJtYWMiOiI0ZjBlY2Q4ODUzMTJkMmQxY2IxNzVjNTgxODdmMjRlYTQ0OGNkMGJhOGVmMTgxMWM3YmEyMjNiOTY1NmQ0NWUyIiwidGFnIjoiIn0%3D; expires=Sat, 30 Nov 2024 03:35:28 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6IkJkb3ZuWjBCZlZnREgzNmhyRy9yV2c9PSIsInZhbHVlIjoiSS95eEkrb1V1U1hPejJQbTUweEtRS1N5Wng5ZytnQzNRWGlQWWdXdWxKNWRtR3NYWUhQQzJjY0RtWTlTWVQvNmtrTytQTXpKbnpXV2ZCQzNCZFRKaDZSdzRqcWl1RnJXTXFieXF0SjcwV3c4cjR4NEw2Nm1zSE9OL0VQMW9wTFQiLCJtYWMiOiJkNDQ0YWI2Y2VhMjJiODIyODNiMjlhNmU2NzQ5ZDQ4MmEyZTg1ZGNiNDhmM2FhYjhlMmQxMDllNmQ3ZjRlNTI1IiwidGFnIjoiIn0%3D; expires=Sat, 30 Nov 2024 03:35:28 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+                                                            : XSRF-TOKEN=eyJpdiI6IkJ0S05MQzNibUVoejIrS2h3MEY1cFE9PSIsInZhbHVlIjoiS0RkN1lxN1NMd2ZDWW9ZcU0zWXIwZEhldWorcGhLUHdWdERFZVNjQlhCVi84TVFYYUowekR4a0l2VkRjVXF2T0RENVlyTUw2NVNiaStQS2FNWWczZmJrU3ViMFc1L01UMXFlZkNSeEFpNXZVZG1adW5Ha3Rod1ArVDdLVTBWSmgiLCJtYWMiOiIxMWNlMGEwNGMwMDUzYjQ1OWExODQwNWRkNTUzZTBlZmFjYzMyMmUwNzIwNTQ0NTM3MGFkMTdiYTlhZTAxOWM0IiwidGFnIjoiIn0%3D; expires=Fri, 06 Dec 2024 02:55:23 GMT; Max-Age=7200; path=/; samesite=lax; rewardengine_session=eyJpdiI6Ii8xRElEaFd5NXA1dUFhVTRYeG5lUEE9PSIsInZhbHVlIjoialh3Ylh6ZjYzazZieTNHSy8vdnc5ZUl0Q09IZHY0NkcwN2pXcUYrYXRvZ3pwcFhBWGxXVVNMZVdqSzViaVhNMU5TS2MxaXdHTGJNUldPNWlKNy9OeVE1SVEzNWZxZStDLy9QMG1rR01GYjZRU242enZmcEZlc2M4VHdRNEdXUnoiLCJtYWMiOiIzODk2ODBkNmExMDQ0NDJkZDQ5ZGNmZjgwYzA4M2E5Zjc2ZmMwZGMxNmMxZGMzZjRhNTMxMGZhNDFkNGRjNGFhIiwidGFnIjoiIn0%3D; expires=Fri, 06 Dec 2024 02:55:23 GMT; Max-Age=7200; path=/; httponly; samesite=lax
                                                          </code></pre>
                                             </details>
                                                                                                                                                                         
@@ -1588,7 +1584,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        quaerat
+                        aut
                     </div>
                 </div>
             </div>
@@ -1622,7 +1618,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        unjamjwacdzvbnxdqddrtxsdh
+                        rerlsatli
                     </div>
                 </div>
             </div>
@@ -1649,7 +1645,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        l
+                        byahawfchcse
                     </div>
                 </div>
             </div>
@@ -1745,7 +1741,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-POSTapi-v1-auth-initWallet--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="quaerat" data-component="url"
+                                               value="aut" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -1776,8 +1772,8 @@ response.json()</code></pre>                                        </div>
                                      id="json-body-POSTapi-v1-auth-initWallet--publicApiKey-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "reference": "unjamjwacdzvbnxdqddrtxsdh",
-    "stakeKeyAddress": "l"
+    "reference": "rerlsatli",
+    "stakeKeyAddress": "byahawfchcse"
 }</div>
                             </div>
                                             </div>
@@ -1871,12 +1867,12 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8200/api/v1/auth/initWallet/quaerat" \
+    "http://localhost:8200/api/v1/auth/initWallet/aut" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"reference\": \"unjamjwacdzvbnxdqddrtxsdh\",
-    \"stakeKeyAddress\": \"l\"
+    \"reference\": \"rerlsatli\",
+    \"stakeKeyAddress\": \"byahawfchcse\"
 }"
 </code></pre>                                        </div>
                                     </div>
@@ -1886,7 +1882,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/auth/initWallet/quaerat"
+    "http://localhost:8200/api/v1/auth/initWallet/aut"
 );
 
 const headers = {
@@ -1895,8 +1891,8 @@ const headers = {
 };
 
 let body = {
-    "reference": "unjamjwacdzvbnxdqddrtxsdh",
-    "stakeKeyAddress": "l"
+    "reference": "rerlsatli",
+    "stakeKeyAddress": "byahawfchcse"
 };
 
 fetch(url, {
@@ -1911,7 +1907,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/auth/initWallet/quaerat';
+$url = 'http://localhost:8200/api/v1/auth/initWallet/aut';
 $response = $client-&gt;post(
     $url,
     [
@@ -1920,8 +1916,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'reference' =&gt; 'unjamjwacdzvbnxdqddrtxsdh',
-            'stakeKeyAddress' =&gt; 'l',
+            'reference' =&gt; 'rerlsatli',
+            'stakeKeyAddress' =&gt; 'byahawfchcse',
         ],
     ]
 );
@@ -1936,10 +1932,10 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/auth/initWallet/quaerat'
+url = 'http://localhost:8200/api/v1/auth/initWallet/aut'
 payload = {
-    "reference": "unjamjwacdzvbnxdqddrtxsdh",
-    "stakeKeyAddress": "l"
+    "reference": "rerlsatli",
+    "stakeKeyAddress": "byahawfchcse"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -2054,7 +2050,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        omnis
+                        maiores
                     </div>
                 </div>
             </div>
@@ -2088,7 +2084,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        jfjjzgvdtijrpofu
+                        dcsdvabtz
                     </div>
                 </div>
             </div>
@@ -2115,7 +2111,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        cubxbavmttncyhqxdq
+                        hzewiqhsuwagnfvwbrjgzjxr
                     </div>
                 </div>
             </div>
@@ -2142,7 +2138,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        sgcgyzihfpmoe
+                        gynlu
                     </div>
                 </div>
             </div>
@@ -2288,7 +2284,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-POSTapi-v1-auth-verifyWallet--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="omnis" data-component="url"
+                                               value="maiores" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -2319,9 +2315,9 @@ response.json()</code></pre>                                        </div>
                                      id="json-body-POSTapi-v1-auth-verifyWallet--publicApiKey-"
                                      style="font-family: var(--font-code); font-size: 12px; line-height: var(--lh-code);"
                                 >{
-    "walletName": "jfjjzgvdtijrpofu",
-    "reference": "cubxbavmttncyhqxdq",
-    "stakeKeyAddress": "sgcgyzihfpmoe",
+    "walletName": "dcsdvabtz",
+    "reference": "hzewiqhsuwagnfvwbrjgzjxr",
+    "stakeKeyAddress": "gynlu",
     "isHardwareWallet": false,
     "networkMode": "0"
 }</div>
@@ -2417,13 +2413,13 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8200/api/v1/auth/verifyWallet/omnis" \
+    "http://localhost:8200/api/v1/auth/verifyWallet/maiores" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"walletName\": \"jfjjzgvdtijrpofu\",
-    \"reference\": \"cubxbavmttncyhqxdq\",
-    \"stakeKeyAddress\": \"sgcgyzihfpmoe\",
+    \"walletName\": \"dcsdvabtz\",
+    \"reference\": \"hzewiqhsuwagnfvwbrjgzjxr\",
+    \"stakeKeyAddress\": \"gynlu\",
     \"isHardwareWallet\": false,
     \"networkMode\": \"0\"
 }"
@@ -2435,7 +2431,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/auth/verifyWallet/omnis"
+    "http://localhost:8200/api/v1/auth/verifyWallet/maiores"
 );
 
 const headers = {
@@ -2444,9 +2440,9 @@ const headers = {
 };
 
 let body = {
-    "walletName": "jfjjzgvdtijrpofu",
-    "reference": "cubxbavmttncyhqxdq",
-    "stakeKeyAddress": "sgcgyzihfpmoe",
+    "walletName": "dcsdvabtz",
+    "reference": "hzewiqhsuwagnfvwbrjgzjxr",
+    "stakeKeyAddress": "gynlu",
     "isHardwareWallet": false,
     "networkMode": "0"
 };
@@ -2463,7 +2459,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/auth/verifyWallet/omnis';
+$url = 'http://localhost:8200/api/v1/auth/verifyWallet/maiores';
 $response = $client-&gt;post(
     $url,
     [
@@ -2472,9 +2468,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'walletName' =&gt; 'jfjjzgvdtijrpofu',
-            'reference' =&gt; 'cubxbavmttncyhqxdq',
-            'stakeKeyAddress' =&gt; 'sgcgyzihfpmoe',
+            'walletName' =&gt; 'dcsdvabtz',
+            'reference' =&gt; 'hzewiqhsuwagnfvwbrjgzjxr',
+            'stakeKeyAddress' =&gt; 'gynlu',
             'isHardwareWallet' =&gt; false,
             'networkMode' =&gt; '0',
         ],
@@ -2491,11 +2487,11 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/auth/verifyWallet/omnis'
+url = 'http://localhost:8200/api/v1/auth/verifyWallet/maiores'
 payload = {
-    "walletName": "jfjjzgvdtijrpofu",
-    "reference": "cubxbavmttncyhqxdq",
-    "stakeKeyAddress": "sgcgyzihfpmoe",
+    "walletName": "dcsdvabtz",
+    "reference": "hzewiqhsuwagnfvwbrjgzjxr",
+    "stakeKeyAddress": "gynlu",
     "isHardwareWallet": false,
     "networkMode": "0"
 }
@@ -2993,7 +2989,8 @@ response.json()</code></pre>                                        </div>
         &quot;auth_wallet&quot;: &quot;eternl&quot;,
         &quot;auth_name&quot;: &quot;Latheesan&quot;,
         &quot;auth_email&quot;: &quot;latheesan@example.com&quot;,
-        &quot;auth_avatar&quot;: &quot;https://example.com/profile.jpg&quot;
+        &quot;auth_avatar&quot;: &quot;https://example.com/profile.jpg&quot;,
+        &quot;linked_wallet_stake_address&quot;: null
     },
     &quot;session&quot;: {
         &quot;reference&quot;: &quot;your-app-identifier-123&quot;,
@@ -4313,7 +4310,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        eveniet
+                        non
                     </div>
                 </div>
             </div>
@@ -4410,7 +4407,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-GETapi-v1-stats-global--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="eveniet" data-component="url"
+                                               value="non" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -4508,7 +4505,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8200/api/v1/stats/global/eveniet" \
+    --get "http://localhost:8200/api/v1/stats/global/non" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -4518,7 +4515,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/stats/global/eveniet"
+    "http://localhost:8200/api/v1/stats/global/non"
 );
 
 const headers = {
@@ -4537,7 +4534,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/stats/global/eveniet';
+$url = 'http://localhost:8200/api/v1/stats/global/non';
 $response = $client-&gt;get(
     $url,
     [
@@ -4558,7 +4555,7 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/stats/global/eveniet'
+url = 'http://localhost:8200/api/v1/stats/global/non'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -4757,7 +4754,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        ipsa
+                        voluptatem
                     </div>
                 </div>
             </div>
@@ -4778,7 +4775,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        necessitatibus
+                        consequuntur
                     </div>
                 </div>
             </div>
@@ -4875,7 +4872,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-GETapi-v1-stats-session--publicApiKey---reference--publicApiKey"
                                                placeholder=""
-                                               value="ipsa" data-component="url"
+                                               value="voluptatem" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -4887,7 +4884,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="reference" name="reference"
                                                id="urlparam-GETapi-v1-stats-session--publicApiKey---reference--reference"
                                                placeholder=""
-                                               value="necessitatibus" data-component="url"
+                                               value="consequuntur" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -4985,7 +4982,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8200/api/v1/stats/session/ipsa/necessitatibus" \
+    --get "http://localhost:8200/api/v1/stats/session/voluptatem/consequuntur" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -4995,7 +4992,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/stats/session/ipsa/necessitatibus"
+    "http://localhost:8200/api/v1/stats/session/voluptatem/consequuntur"
 );
 
 const headers = {
@@ -5014,7 +5011,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/stats/session/ipsa/necessitatibus';
+$url = 'http://localhost:8200/api/v1/stats/session/voluptatem/consequuntur';
 $response = $client-&gt;get(
     $url,
     [
@@ -5035,7 +5032,7 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/stats/session/ipsa/necessitatibus'
+url = 'http://localhost:8200/api/v1/stats/session/voluptatem/consequuntur'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -5234,7 +5231,7 @@ response.json()</code></pre>                                        </div>
                 <span>Example:</span> <!-- <span> important for spacing -->
                 <div class="sl-flex sl-flex-1 sl-flex-wrap" style="gap: 4px;">
                     <div class="sl-max-w-full sl-break-all sl-px-1 sl-bg-canvas-tint sl-text-muted sl-rounded sl-border">
-                        eum
+                        provident
                     </div>
                 </div>
             </div>
@@ -5331,7 +5328,7 @@ response.json()</code></pre>                                        </div>
                                         <input aria-label="publicApiKey" name="publicApiKey"
                                                id="urlparam-GETapi-v1-stats-leaderboard--publicApiKey--publicApiKey"
                                                placeholder=""
-                                               value="eum" data-component="url"
+                                               value="provident" data-component="url"
                                                class="sl-relative sl-w-full sl-h-md sl-text-base sl-pr-2.5 sl-pl-2.5 sl-rounded sl-border-transparent hover:sl-border-input focus:sl-border-primary sl-border">
                                     </div>
                                 </div>
@@ -5429,7 +5426,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8200/api/v1/stats/leaderboard/eum" \
+    --get "http://localhost:8200/api/v1/stats/leaderboard/provident" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>                                        </div>
                                     </div>
@@ -5439,7 +5436,7 @@ You can check the Dev Tools console for debugging information.</p>
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8200/api/v1/stats/leaderboard/eum"
+    "http://localhost:8200/api/v1/stats/leaderboard/provident"
 );
 
 const headers = {
@@ -5458,7 +5455,7 @@ fetch(url, {
                                     <div class="sl-px-0 sl-py-1">
                                         <div style="max-height: 400px;" class="sl-overflow-y-auto sl-rounded">
                                             <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8200/api/v1/stats/leaderboard/eum';
+$url = 'http://localhost:8200/api/v1/stats/leaderboard/provident';
 $response = $client-&gt;get(
     $url,
     [
@@ -5479,7 +5476,7 @@ print_r(json_decode((string) $body));</code></pre>                              
                                             <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:8200/api/v1/stats/leaderboard/eum'
+url = 'http://localhost:8200/api/v1/stats/leaderboard/provident'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
