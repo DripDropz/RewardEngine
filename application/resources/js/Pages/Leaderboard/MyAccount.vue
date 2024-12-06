@@ -1,6 +1,7 @@
 <script setup>
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import {useToast} from "vue-toast-notification";
+import {useConfirm} from "vuetify-use-dialog";
 import {onMounted, ref, watch} from "vue";
 
 const props = defineProps({
@@ -10,6 +11,7 @@ const props = defineProps({
 
 // Initialise
 const $toast = useToast();
+const createConfirm = useConfirm();
 const STATS_TYPE_OVERVIEW = 'overview';
 const STATS_TYPE_QUALIFIER = 'qualifier';
 const isLoading = ref(false);
@@ -17,6 +19,7 @@ const authProviders = ref([]);
 const isSigningIn = ref(false);
 const user = ref(null);
 const stats = ref(null);
+const linkedWalletAddress = ref('');
 
 // Helper functions
 const capitalize = s => (s && String(s[0]).toUpperCase() + String(s).slice(1)) || '';
@@ -57,6 +60,33 @@ watch(user, () => {
         .catch(err => $toast.error('Failed to load stats.', { duration: 5000 }))
         .finally(() => isLoading.value = false);
 });
+
+// Link wallet address handler
+const linkWalletAddress = async () => {
+    if (
+        /^addr(_test)?1(?=[qpzry9x8gf2tvdw0s3jn54khce6mua7l]+)(?:.{98})$/.test(linkedWalletAddress.value.toLowerCase()) === false &&
+        /^stake(_test)?1(?=[qpzry9x8gf2tvdw0s3jn54khce6mua7l]+)(?:.{53})$/.test(linkedWalletAddress.value.toLowerCase()) === false
+    ) {
+        $toast.error('That appears to be an invalid cardano wallet address.', {duration: 5000})
+        return;
+    }
+    const isConfirmed = await createConfirm({
+        title: 'Are you sure',
+        content: 'Link your social account to wallet address ' + linkedWalletAddress.value.toLowerCase() + '?',
+    });
+    if (!isConfirmed) return;
+    isLoading.value = true;
+    axios.post(route('api.v1.stats.session.link-wallet-address', {publicApiKey: props.publicApiKey}), {
+        session_id: user.value.session.session_id,
+        wallet_address: linkedWalletAddress.value,
+    })
+    .then(res => {
+        user.value.account.linked_wallet_stake_address = linkedWalletAddress.value;
+        $toast.success('Wallet address successfully linked to your social account.', {duration: 5000});
+    })
+    .catch(err => $toast.error('Failed to link wallet address.', {duration: 5000}))
+    .finally(() => isLoading.value = false);
+};
 
 </script>
 
@@ -113,14 +143,14 @@ watch(user, () => {
                             <v-list-item v-if="user.account.auth_email" title="Auth Email" :subtitle="user.account.auth_email" />
                             <v-list-item v-if="user.account.auth_provider !== 'wallet' && !user.account.linked_wallet_stake_address">
                                 <v-alert type="warning" density="compact">
-                                    Wallet stake address not linked
+                                    Wallet address not linked
                                 </v-alert>
-                                <v-form class="mt-2" @submit.prevent>
-                                    <v-text-field v-model="firstName" label=" Wallet Stake Address" placeholder="e.g. stake1upafv37jqjy8pgrjdauxyxrruqme0hqhh9ryww34mm297agc0f3vc" hide-details />
-                                    <v-btn class="mt-2" variant="tonal" type="submit" block>Link</v-btn>
+                                <v-form class="mt-2" @submit.prevent="linkWalletAddress">
+                                    <v-text-field v-model="linkedWalletAddress" clearable label="Wallet Address" placeholder="e.g. stake1upafv37jqjy8pgrjdauxyxrruqme0hqhh9ryww34mm297agc0f3vc" hide-details />
+                                    <v-btn :loading="isLoading" class="mt-2" variant="tonal" type="submit" block>Link Wallet Address</v-btn>
                                 </v-form>
                             </v-list-item>
-                            <v-list-item v-if="user.account.linked_wallet_stake_address" title="Linked Wallet Stake Address" :subtitle="user.account.linked_wallet_stake_address" />
+                            <v-list-item v-if="user.account.linked_wallet_stake_address" title="Linked Wallet Address" :subtitle="user.account.linked_wallet_stake_address" />
                         </div>
                     </div>
                 </v-card-text>
