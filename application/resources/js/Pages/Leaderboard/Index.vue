@@ -151,6 +151,11 @@ const top10PlayersByDeathsTableData = computed(() => [...leaderboardData.value[t
 
 <template>
     <GuestLayout :title="props.projectName + ': Leaderboard'">
+        <template v-slot:right-app-bar>
+            <v-btn :href="route('leaderboard.myAccount', props.publicApiKey)" variant="tonal">
+                My Account
+            </v-btn>
+        </template>
         <v-container>
 
             <!-- Grouped Stats -->

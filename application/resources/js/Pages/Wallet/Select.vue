@@ -248,6 +248,11 @@ const connectWallet = async (walletName) => {
 
 <template>
     <GuestLayout :title="props.projectName">
+        <template v-slot:right-app-bar>
+            <v-btn :href="route('leaderboard.index', props.publicApiKey)" variant="tonal">
+                Leaderboard
+            </v-btn>
+        </template>
         <v-container>
             <v-row justify="center" class="mt-6">
                 <v-col cols="12" md="8" lg="6" xl="3">

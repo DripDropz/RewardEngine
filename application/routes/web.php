@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('demo', fn() => view('demo'));
 Route::get('social-auth-callback/{authProvider}', [SocialAuthCallbackController::class, 'handle']);
-Route::get('leaderboard/{publicApiKey}', [LeaderboardController::class, 'index']);
+Route::get('leaderboard/{publicApiKey}', [LeaderboardController::class, 'index'])->name('leaderboard.index');
+Route::get('leaderboard/{publicApiKey}/my-account', [LeaderboardController::class, 'myAccount'])->name('leaderboard.myAccount');
 
 Route::middleware(['auth', 'verified'])->group(static function () {
 

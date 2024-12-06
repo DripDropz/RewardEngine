@@ -10,6 +10,8 @@ defineProps({
         <Head :title="title"/>
         <v-app-bar color="white" elevation="0" class="px-8">
             {{ title }}
+            <v-spacer />
+            <slot name="right-app-bar" />
         </v-app-bar>
         <v-main>
             <slot/>
