@@ -11,9 +11,18 @@ class ProjectAccountStats extends Model
         'project_id',
         'project_account_id',
         'stats',
+        'qualifier',
     ];
 
     protected function stats(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string|null $value) => $value ? json_decode($value, true) : null,
+            set: fn (string|null $value) => $value ? json_encode($value) : null,
+        );
+    }
+
+    protected function qualifier(): Attribute
     {
         return Attribute::make(
             get: fn (string|null $value) => $value ? json_decode($value, true) : null,
