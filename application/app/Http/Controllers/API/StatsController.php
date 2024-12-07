@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Jobs\HydraDoomAccountStatsJob;
 use App\Models\Project;
 use App\Models\ProjectAccount;
+use App\Models\ProjectAccountSession;
 use App\Models\ProjectAccountStats;
 use App\Traits\GEOBlockTrait;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Throwable;
 
 /**
  * @group Stats
@@ -147,6 +149,83 @@ class StatsController extends Controller
         // Return cached data
         return response()
             ->json($projectAccountStats);
+    }
+
+    /**
+     * Session Link Wallet Address
+     *
+     * @urlParam publicApiKey string required The project's public api key. Example: 414f7c5c-b932-4d26-9570-1c2f954b64ed
+     * @bodyParam session_id string required Previously authentication session id. Example: 069ff9f1-87ad-43b0-90a9-05493a330273
+     * @bodyParam wallet_address string required The wallet address you want to link to your social account. Example: stake1upafv37jqjy8pgrjdauxyxrruqme0hqhh9ryww34mm297agc0f3vc
+     *
+     * @response status=204 scenario="Successfully Linked" [No Content]
+     * @response status=429 scenario="Too Many Requests" [No Content]
+     * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
+     * @responseFile status=401 scenario="Unauthorized" resources/api-responses/401.json
+     * @responseFile status=500 scenario="Internal Server Error" resources/api-responses/500.json
+     */
+    public function sessionLinkWalletAddress(string $publicApiKey, Request $request): \Illuminate\Http\Response|JsonResponse
+    {
+        // Check if reference is provided in the request
+        if (empty($request->input('session_id')) || strlen($request->input('session_id')) > 64) {
+            return response()->json([
+                'error' => __('Bad Request'),
+                'reason' => __('The session_id field is empty or larger than 64 characters.'),
+            ], 400);
+        }
+
+        // Check if new_reference is provided in the request
+        if (empty($request->input('wallet_address'))) {
+            return response()->json([
+                'error' => __('Bad Request'),
+                'reason' => __('The wallet_address field is empty.'),
+            ], 400);
+        }
+
+        // Load project by public api key
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
+        if (!$project) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Invalid project public api key'),
+            ], 401);
+        }
+
+        // Check if this request should be geo-blocked
+        if ($this->isGEOBlocked($project, $request)) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Access not permitted'),
+            ], 401);
+        }
+
+        // Load specific project account session
+        $projectAccountSession = ProjectAccountSession::query()
+            ->where('session_id', $request->input('session_id'))
+            ->with('account')
+            ->first();
+        if (!$projectAccountSession || (int) $projectAccountSession->authenticated_at->diffInSeconds(now()) > $project->session_valid_for_seconds) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Invalid session id or session expired'),
+            ], 401);
+        }
+
+        // Update linked wallet address
+        $projectAccountSession->account->update([
+            'linked_wallet_stake_address' => $request->input('wallet_address'),
+        ]);
+
+        // Success
+        return response()->noContent();
     }
 
     /**

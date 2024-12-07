@@ -38,10 +38,10 @@ class EventsController extends Controller
 
         try {
 
-            // Hotfix: Hydra doom is not sending is_qualifier flag in game_started event (so add it manually)
-            if ($validated['data']['type'] === 'game_started') {
-                $validated['data']['is_qualifier'] = true;
-            }
+            // // Hotfix: Hydra doom is not sending is_qualifier flag in game_started event (so add it manually)
+            // if ($validated['data']['type'] === 'game_started') {
+            //     $validated['data']['is_qualifier'] = true;
+            // }
 
             $eventData = EventData::create([
                 'project_id' => $request->project->id,

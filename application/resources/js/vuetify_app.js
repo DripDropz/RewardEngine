@@ -7,6 +7,7 @@ import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import {ZiggyVue} from '../../vendor/tightenco/ziggy';
 import ToastPlugin from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-bootstrap.css';
+import VuetifyUseDialog from 'vuetify-use-dialog'
 
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
@@ -59,6 +60,7 @@ createInertiaApp({
             .use(ZiggyVue)
             .use(ToastPlugin)
             .use(Vuetify)
+            .use(VuetifyUseDialog)
             .mount(el);
     },
     progress: {
