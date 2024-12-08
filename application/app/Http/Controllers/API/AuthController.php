@@ -387,7 +387,7 @@ class AuthController extends Controller
                 // Load session and account info
                 $projectAccountSession = ProjectAccountSession::query()
                     ->where('reference', $request->get('reference'))
-                    ->with(['account', 'project'])
+                    ->with(['account', 'project', 'stats'])
                     ->whereHas('project', static function ($query) use ($publicApiKey) {
                         $query->where('public_api_key', $publicApiKey);
                     })
@@ -425,6 +425,7 @@ class AuthController extends Controller
                         'auth_country_code' => $projectAccountSession->auth_country_code,
                         'authenticated_at' => $projectAccountSession->authenticated_at->toDateTimeString(),
                     ] : null,
+                    'qualifier' => $isAuthenticated && isset($projectAccountSession->stats['qualifier']) ? $projectAccountSession->stats['qualifier'] : null,
                 ];
 
             });
