@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('project_accounts', function (Blueprint $table) {
-            $table->string('linked_discord_id', 1024)->after('linked_wallet_stake_address')->nullable();
+            $table->json('linked_discord_account')->after('linked_wallet_stake_address')->nullable();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('project_accounts', function (Blueprint $table) {
-            $table->dropColumn('linked_discord_id');
+            $table->dropColumn('linked_discord_account');
         });
     }
 };

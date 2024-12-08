@@ -90,7 +90,10 @@ class SocialAuthCallbackController extends Controller
 
         // Update linked discord account
         $projectAccount->update([
-            'linked_discord_id' => $socialUser->getName(),
+            'linked_discord_account' => [
+                'id' => $socialUser->id,
+                'name' => $socialUser->getName(),
+            ],
         ]);
 
         // Handle empty avatar
