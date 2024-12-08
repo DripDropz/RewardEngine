@@ -37,6 +37,22 @@
                                     </div>
                                 </div>
                             </div>
+                            @if (isset($linked))
+                                <div>
+                                    <p class="text-center text-xl dark:text-white">
+                                        {{ __('and Linked to the main account') }}
+                                    </p>
+                                </div>
+                                <div class="py-6">
+                                    <div class="flex justify-center items-center gap-4">
+                                        <img class="w-10 h-10 rounded-full" src="{{ $linked['avatar'] }}" alt="">
+                                        <div class="dark:text-white">
+                                            <div>{{ $linked['name'] }}</div>
+                                            <div class="text-sm">{{ $linked['email'] }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                             <div>
                                 <p class="text-center text-sm">
                                     {{ __('you may close this tab and return to the application') }}

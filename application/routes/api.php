@@ -34,6 +34,7 @@ Route::prefix('v1')->name('api.v1.')->group(static function ()
         Route::get('global/{publicApiKey}', [StatsController::class, 'global'])->name('global');
         Route::get('session/{publicApiKey}/{reference}', [StatsController::class, 'session'])->name('session');
         Route::post('session/{publicApiKey}/link-wallet-address', [StatsController::class, 'sessionLinkWalletAddress'])->name('session.link-wallet-address');
+        Route::get('session/{publicApiKey}/{sessionId}/link-discord-account', [StatsController::class, 'sessionLinkDiscordAccount'])->middleware(['web'])->name('session.link-discord-account');
         Route::get('leaderboard/{publicApiKey}', [StatsController::class, 'leaderboard'])->name('leaderboard');
 
     });

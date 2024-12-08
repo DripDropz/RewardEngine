@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Enums\AuthProviderType;
 use App\Http\Controllers\Controller;
 use App\Jobs\HydraDoomAccountStatsJob;
 use App\Models\Project;
@@ -10,8 +11,11 @@ use App\Models\ProjectAccountSession;
 use App\Models\ProjectAccountStats;
 use App\Traits\GEOBlockTrait;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cookie;
+use Laravel\Socialite\Facades\Socialite;
 use Throwable;
 
 /**
@@ -226,6 +230,56 @@ class StatsController extends Controller
 
         // Success
         return response()->noContent();
+    }
+
+    public function sessionLinkDiscordAccount(string $publicApiKey, string $sessionId, Request $request): JsonResponse|RedirectResponse
+    {
+        // Load project by public api key
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
+        if (!$project) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Invalid project public api key'),
+            ], 401);
+        }
+
+        // Check if this request should be geo-blocked
+        if ($this->isGEOBlocked($project, $request)) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Access not permitted'),
+            ], 401);
+        }
+
+        // Load specific project account session
+        $projectAccountSession = ProjectAccountSession::query()
+            ->where('session_id', $sessionId)
+            ->with('account')
+            ->first();
+        if (!$projectAccountSession || (int) $projectAccountSession->authenticated_at->diffInSeconds(now()) > $project->session_valid_for_seconds) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Invalid session id or session expired'),
+            ], 401);
+        }
+
+        // Redirect to discord with cookie
+        return Socialite::driver(AuthProviderType::DISCORD->value)
+            ->redirect()
+            ->withCookies([
+                Cookie::make(
+                    'link_discord_account',
+                    $projectAccountSession->account->id,
+                ),
+            ]);
     }
 
     /**

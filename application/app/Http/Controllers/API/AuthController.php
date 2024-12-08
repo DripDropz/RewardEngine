@@ -363,7 +363,7 @@ class AuthController extends Controller
      * @urlParam publicApiKey string required The project's public api key. Example: 414f7c5c-b932-4d26-9570-1c2f954b64ed
      * @queryParam reference string required Unique user/session identifier in your application that was used in the initialization step. Example: abcd1234
      *
-     * @response status=200 scenario="OK - Authenticated" {"authenticated":true,"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_wallet":"eternl","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg", "linked_wallet_stake_address": null},"session":{"reference":"your-app-identifier-123","session_id":"265dfd21-0fa2-4895-9277-87d2ed74a294","auth_country_code":"GB","authenticated_at":"2024-11-21 22:46:16"}}
+     * @response status=200 scenario="OK - Authenticated" {"authenticated":true,"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_wallet":"eternl","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg", "linked_wallet_stake_address": null, "linked_discord_id": null},"session":{"reference":"your-app-identifier-123","session_id":"265dfd21-0fa2-4895-9277-87d2ed74a294","auth_country_code":"GB","authenticated_at":"2024-11-21 22:46:16"},"qualifier":null}
      * @response status=200 scenario="OK - Unauthenticated" {"authenticated":false,"account":null,"session":null}
      * @response status=429 scenario="Too Many Requests" [No Content]
      * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
@@ -418,6 +418,7 @@ class AuthController extends Controller
                         'auth_email' => $projectAccountSession->account->auth_email,
                         'auth_avatar' => $projectAccountSession->account->auth_avatar,
                         'linked_wallet_stake_address' => $projectAccountSession->account->linked_wallet_stake_address,
+                        'linked_discord_id' => $projectAccountSession->account->linked_discord_id,
                     ] : null,
                     'session' => $isAuthenticated ? [
                         'reference' => $projectAccountSession->reference,
@@ -456,7 +457,7 @@ class AuthController extends Controller
      * @bodyParam session_id string required Previously authentication session id. Example: 069ff9f1-87ad-43b0-90a9-05493a330273
      * @bodyParam new_reference string required New unique user/session identifier in your application. Example: 069ff9f1-87ad-43b0-90a9-05493a330273
      *
-     * @response status=200 scenario="Successfully Refreshed" {"authenticated":true,"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_wallet":"eternl","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg"},"session":{"reference":"your-app-identifier-123","session_id":"265dfd21-0fa2-4895-9277-87d2ed74a294","auth_country_code":"GB","authenticated_at":"2024-11-21 22:46:16"}}
+     * @response status=200 scenario="Successfully Refreshed" {"authenticated":true,"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_wallet":"eternl","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg", "linked_wallet_stake_address": null, "linked_discord_id": null},"session":{"reference":"your-app-identifier-123","session_id":"265dfd21-0fa2-4895-9277-87d2ed74a294","auth_country_code":"GB","authenticated_at":"2024-11-21 22:46:16"},"qualifier":null}
      * @response status=429 scenario="Too Many Requests" [No Content]
      * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
      * @responseFile status=401 scenario="Unauthorized" resources/api-responses/401.json
@@ -510,7 +511,7 @@ class AuthController extends Controller
             // Load specific project account session
             $projectAccountSession = ProjectAccountSession::query()
                 ->where('session_id', $request->input('session_id'))
-                ->with('account')
+                ->with(['account', 'stats'])
                 ->first();
             if (!$projectAccountSession || (int) $projectAccountSession->authenticated_at->diffInSeconds(now()) > $project->session_valid_for_seconds) {
                 return response()->json([
@@ -551,6 +552,8 @@ class AuthController extends Controller
                     'auth_name' => $projectAccountSession->account->auth_name,
                     'auth_email' => $projectAccountSession->account->auth_email,
                     'auth_avatar' => $projectAccountSession->account->auth_avatar,
+                    'linked_wallet_stake_address' => $projectAccountSession->account->linked_wallet_stake_address,
+                    'linked_discord_id' => $projectAccountSession->account->linked_discord_id,
                 ],
                 'session' => [
                     'reference' => $newProjectAccountSession->reference,
@@ -558,6 +561,7 @@ class AuthController extends Controller
                     'auth_country_code' => $newProjectAccountSession->auth_country_code,
                     'authenticated_at' => $newProjectAccountSession->authenticated_at->toDateTimeString(),
                 ],
+                'qualifier' => isset($projectAccountSession->stats['qualifier']) ? $projectAccountSession->stats['qualifier'] : null,
             ]);
 
         } catch (Throwable $exception) {

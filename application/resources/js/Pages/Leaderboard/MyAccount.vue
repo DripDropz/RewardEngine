@@ -88,6 +88,25 @@ const linkWalletAddress = async () => {
     .finally(() => isLoading.value = false);
 };
 
+// Link discord account handler
+const linkDiscordAccount = () => {
+    isLoading.value = true;
+    $toast.info('Please sign in with your discord account to complete the linking process.', {duration: 5000});
+    window.open(route('api.v1.stats.session.link-discord-account', { publicApiKey: props.publicApiKey, sessionId: user.value.session.session_id }), '_blank').focus();
+    signInCheck = setInterval(() => {
+        isLoading.value = true;
+        axios.get(route('api.v1.auth.check', { publicApiKey: props.publicApiKey }) + '?reference=' + user.value.session.reference)
+            .then(checkRes => {
+                if (checkRes.data.account.linked_discord_id) {
+                    user.value = checkRes.data;
+                    clearInterval(signInCheck);
+                }
+            })
+            .catch(err => $toast.error('Failed to check authentication state.', { duration: 5000 }))
+            .finally(() => isLoading.value = false);
+    }, 10000);
+};
+
 </script>
 
 <template>
@@ -151,6 +170,13 @@ const linkWalletAddress = async () => {
                                 </v-form>
                             </v-list-item>
                             <v-list-item v-if="user.account.linked_wallet_stake_address" title="Linked Wallet Address" :subtitle="user.account.linked_wallet_stake_address" />
+                            <v-list-item v-if="user.account.auth_provider !== 'discord' && !user.account.linked_discord_id">
+                                <v-alert type="warning" density="compact">
+                                    Discord account not linked
+                                </v-alert>
+                                <v-btn :loading="isLoading" @click="linkDiscordAccount" class="mt-2" variant="tonal" block>Link Discord Account</v-btn>
+                            </v-list-item>
+                            <v-list-item v-if="user.account.auth_provider !== 'discord' && user.account.linked_discord_id" title="Linked Discord Account" :subtitle="user.account.linked_discord_id" />
                         </div>
                     </div>
                 </v-card-text>

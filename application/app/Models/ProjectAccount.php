@@ -21,6 +21,7 @@ class ProjectAccount extends Model
         'generated_wallet_mnemonic',
         'generated_wallet_stake_address',
         'linked_wallet_stake_address',
+        'linked_discord_id',
     ];
 
     protected $casts = [
@@ -72,6 +73,14 @@ class ProjectAccount extends Model
     }
 
     protected function generatedWalletMnemonic(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string|null $value) => $value ? decrypt($value) : null,
+            set: fn (string|null $value) => $value ? encrypt($value) : null,
+        );
+    }
+
+    protected function linkedDiscordId(): Attribute
     {
         return Attribute::make(
             get: fn (string|null $value) => $value ? decrypt($value) : null,
