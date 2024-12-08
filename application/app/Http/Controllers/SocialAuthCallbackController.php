@@ -11,6 +11,7 @@ use App\Traits\IPTrait;
 use App\Traits\LogExceptionTrait;
 use App\Traits\WalletAuthTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Contracts\User;
 use Laravel\Socialite\Facades\Socialite;
@@ -26,6 +27,11 @@ class SocialAuthCallbackController extends Controller
 
             // Validate requested auth provider
             $this->validateRequestedAuthProvider($authProvider);
+
+            // Retrieve link discord account from cookie
+            if ($authProvider === AuthProviderType::DISCORD->value && $projectAccountId = (int) $request->cookie('link_discord_account')) {
+                return $this->handleLinkDiscordAccount($projectAccountId, $authProvider);
+            }
 
             // Retrieve auth attempt from cookie
             [$authReference, $publicAPIKey] = $this->retrieveAuthAttemptFromCookie($request, $authProvider);
@@ -67,6 +73,50 @@ class SocialAuthCallbackController extends Controller
             exit(__('Failed to authenticate via :authProvider, please try again', ['authProvider' => $authProvider]));
 
         }
+    }
+
+    public function handleLinkDiscordAccount(int $projectAccountId, string $authProvider)
+    {
+        // Load project account
+        $projectAccount = ProjectAccount::query()
+            ->where('id', $projectAccountId)
+            ->first();
+        if (!$projectAccount) {
+            exit(__('Invalid attempt to link discord account, please try again'));
+        }
+
+        // Load social user from callback
+        $socialUser = $this->getSocialUser($authProvider);
+
+        // Update linked discord account
+        $projectAccount->update([
+            'linked_discord_account' => [
+                'id' => $socialUser->id,
+                'name' => $socialUser->getName(),
+            ],
+        ]);
+
+        // Handle empty avatar
+        $avatar = $socialUser->getAvatar();
+        if (empty($avatar)) {
+            $avatar = sprintf('https://api.dicebear.com/9.x/pixel-art/svg?seed=%s', $socialUser->getName());
+        }
+
+        // Forget cookie
+        Cookie::queue(Cookie::forget('link_discord_account'));
+
+        // Success
+        return view('success', [
+            'linked' => [
+                'name' => $projectAccount->auth_name,
+                'email' => $projectAccount->auth_email,
+                'avatar' => $projectAccount->auth_avatar,
+            ],
+            'authProvider' => ucfirst($authProvider),
+            'name' => $socialUser->getName(),
+            'email' => $socialUser->getEmail(),
+            'avatar' => $avatar,
+        ]);
     }
 
     public function validateRequestedAuthProvider(string $authProvider): void
