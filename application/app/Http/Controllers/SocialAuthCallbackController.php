@@ -197,6 +197,13 @@ class SocialAuthCallbackController extends Controller
             ]);
         }
 
+        if ( $authProvider === AuthProviderType::DISCORD->value && !$projectAccount->linked_discord_account) {
+            $projectAccount->linked_discord_account = [
+                'id' => $socialUser->id,
+                'name' => $socialUser->getName(),
+            ];
+        }
+
         $avatar = $socialUser->getAvatar();
         if (empty($avatar)) {
             $avatar = sprintf('https://api.dicebear.com/9.x/pixel-art/svg?seed=%s', $socialUser->getName());
