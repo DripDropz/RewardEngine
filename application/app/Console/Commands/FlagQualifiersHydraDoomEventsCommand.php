@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class FlagQualifiersHydraDoomEventsCommand extends Command
 {
     const QUALIFIER_DATE_START = '2024-12-03 00:00:00';
-    const QUALIFIER_DATE_END = '2024-12-03 23:59:59';
+    const QUALIFIER_DATE_END = '2024-12-04 16:00:00';
     const REQUIRED_KILL_COUNT = 25;
     const REQUIRED_PLAY_MINUTES = 15;
 
