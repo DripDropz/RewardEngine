@@ -15,6 +15,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
 use Throwable;
 
@@ -232,6 +233,18 @@ class StatsController extends Controller
         return response()->noContent();
     }
 
+    /**
+     * Session Link Discord Account
+     *
+     * @urlParam publicApiKey string required The project's public api key. Example: 414f7c5c-b932-4d26-9570-1c2f954b64ed
+     * @urlParam sessionId string required Previously authentication session id. Example: 069ff9f1-87ad-43b0-90a9-05493a330273
+     *
+     * @response status=322 scenario="When successfully initialised" [Redirect]
+     * @response status=429 scenario="Too Many Requests" [No Content]
+     * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
+     * @responseFile status=401 scenario="Unauthorized" resources/api-responses/401.json
+     * @responseFile status=500 scenario="Internal Server Error" resources/api-responses/500.json
+     */
     public function sessionLinkDiscordAccount(string $publicApiKey, string $sessionId, Request $request): JsonResponse|RedirectResponse
     {
         // Load project by public api key
@@ -269,6 +282,14 @@ class StatsController extends Controller
                 'error' => __('Unauthorized'),
                 'reason' => __('Invalid session id or session expired'),
             ], 401);
+        }
+
+        // Check if linked discord account already present
+        if (!empty($projectAccountSession->account->linked_discord_account)) {
+            return response()->json([
+                'error' => __('Bad Request'),
+                'reason' => __('Already linked'),
+            ], 400);
         }
 
         // Redirect to discord with cookie
@@ -330,5 +351,78 @@ class StatsController extends Controller
         // Return Cached data
         return response()
             ->json($leaderboard);
+    }
+
+    /**
+     * Leaderboard Qualifiers
+     *
+     * @response 200 scenario="OK" {"key1":"value1", "key2":"value3"}
+     * @response status=429 scenario="Too Many Requests" [No Content]
+     * @response status=503 scenario="Service Unavailable" {"error":"Service Unavailable", "reason":"Reason for this error"}
+     * @responseFile status=401 scenario="Unauthorized" resources/api-responses/401.json
+     * @responseFile status=500 scenario="Internal Server Error" resources/api-responses/500.json
+     */
+    public function leaderboardQualifiers(string $publicApiKey, Request $request): JsonResponse
+    {
+        // Load project by public api key
+        $project = Cache::remember(sprintf('project:%s', $publicApiKey), 600, function () use ($publicApiKey) {
+            $project = Project::query()
+                ->where('public_api_key', $publicApiKey)
+                ->first();
+            if (!$project) {
+                return false;
+            }
+            return $project;
+        });
+        if (!$project) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Invalid project public api key'),
+            ], 401);
+        }
+
+        // Check if this request should be geo-blocked
+        if ($this->isGEOBlocked($project, $request)) {
+            return response()->json([
+                'error' => __('Unauthorized'),
+                'reason' => __('Access not permitted'),
+            ], 401);
+        }
+
+        // Load from cache (or warm up cache)
+        $leaderboardQualifiers = Cache::remember(sprintf('project-leaderboard-qualifiers:%d', $project->id), 60, function () use ($publicApiKey, $project) {
+
+            // Load qualified players query
+            $sql = <<<QUERY
+select project_accounts.auth_provider,
+       project_accounts.auth_name,
+       project_accounts.auth_avatar,
+       project_accounts.linked_wallet_stake_address,
+       project_accounts.linked_discord_account,
+       project_account_stats.qualifier
+from project_account_stats
+join project_accounts on project_account_stats.project_account_id = project_accounts.id
+where project_account_stats.project_id = ?
+  and JSON_EXTRACT(project_account_stats.qualifier, '$.is_qualified') = true
+QUERY;
+
+            // Query results
+            $results = DB::select($sql, [$project->id]);
+
+            // Format and return results
+            return collect($results)->map(function ($row) {
+                $row = (array) $row;
+                $row['auth_name'] = decrypt($row['auth_name']);
+                $row['auth_avatar'] = decrypt($row['auth_avatar']);
+                $row['linked_discord_account'] = json_decode($row['linked_discord_account'], true);
+                $row['qualifier'] = json_decode($row['qualifier'], true);
+                return $row;
+            })->toArray();
+
+        });
+
+        // Return Cached data
+        return response()
+            ->json($leaderboardQualifiers);
     }
 }

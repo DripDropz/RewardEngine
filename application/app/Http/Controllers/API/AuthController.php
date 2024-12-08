@@ -49,7 +49,7 @@ class AuthController extends Controller
      * @urlParam authProvider string required The selected auth provider. Example: twitter
      * @queryParam reference string required Unique user/session identifier in your application. Example: abcd1234
      *
-     * @response status=322 scenario="When successfully initialised"
+     * @response status=322 scenario="When successfully initialised" [Redirect]
      * @response status=429 scenario="Too Many Requests" [No Content]
      * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
      * @responseFile status=401 scenario="Unauthorized" resources/api-responses/401.json
