@@ -23,6 +23,7 @@ Route::prefix('v1')->name('api.v1.')->group(static function ()
         Route::post('initWallet/{publicApiKey}', [AuthController::class, 'initWallet'])->name('initWallet');
         Route::post('verifyWallet/{publicApiKey}', [AuthController::class, 'verifyWallet'])->name('verifyWallet');
         Route::get('check/{publicApiKey}', [AuthController::class, 'check'])->name('check');
+        Route::get('info/{publicApiKey}', [AuthController::class, 'info'])->name('info');
         Route::post('refresh/{publicApiKey}', [AuthController::class, 'refresh'])->name('refresh');
 
     });

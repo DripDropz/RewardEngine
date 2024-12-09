@@ -431,12 +431,87 @@ class AuthController extends Controller
 
             });
 
-            return response()->json($result);
+            // Return cached response
+            return response()
+                ->json($result);
 
         } catch (Throwable $exception) {
 
             // Log exception
             $this->logException('Failed to handle auth check', $exception, [
+                'publicApiKey' => $publicApiKey,
+                'reference' => $request->get('reference'),
+            ]);
+
+            // Handle error
+            return response()->json([
+                'error' => __('Internal Server Error'),
+                'reason' => __('An unknown error occurred, please notify server administrator'),
+            ], 500);
+
+        }
+    }
+
+    /**
+     * Retrieve Account Info
+     *
+     * @urlParam publicApiKey string required The project's public api key. Example: 414f7c5c-b932-4d26-9570-1c2f954b64ed
+     * @queryParam reference string required Unique user/session identifier in your application that was used in the initialization step. Example: abcd1234
+     *
+     * @response status=200 scenario="OK" {"account":{"auth_provider":"google","auth_provider_id":"117571893339073554831","auth_wallet":"eternl","auth_name":"Latheesan","auth_email":"latheesan@example.com","auth_avatar":"https://example.com/profile.jpg", "linked_wallet_stake_address": null, "linked_discord_account": null},"qualifier":null}
+     * @response status=429 scenario="Too Many Requests" [No Content]
+     * @responseFile status=400 scenario="Bad Request" resources/api-responses/400.json
+     * @responseFile status=500 scenario="Internal Server Error" resources/api-responses/500.json
+     */
+    public function info(string $publicApiKey, Request $request): JsonResponse
+    {
+        try {
+
+            // Check if reference is provided in the request
+            if (empty($request->get('reference')) || strlen($request->get('reference')) > 512) {
+                return response()->json([
+                    'error' => __('Bad Request'),
+                    'reason' => __('The reference query string parameter is empty or larger than 512 characters.'),
+                ], 400);
+            }
+
+            // Check and cache the result for 10 minutes
+            $result = Cache::remember(sprintf('auth-info:%s', md5($publicApiKey . $request->get('reference'))), 600, function () use ($publicApiKey, $request) {
+
+                // Load session and account info
+                $projectAccountSession = ProjectAccountSession::query()
+                    ->where('reference', $request->get('reference'))
+                    ->with(['account', 'stats'])
+                    ->whereHas('project', static function ($query) use ($publicApiKey) {
+                        $query->where('public_api_key', $publicApiKey);
+                    })
+                    ->first();
+
+                // Build result
+                return [
+                    'account' => $projectAccountSession ? [
+                        'auth_provider' => $projectAccountSession->account->auth_provider,
+                        'auth_provider_id' => $projectAccountSession->account->auth_provider_id,
+                        'auth_wallet' => $projectAccountSession->account->auth_wallet,
+                        'auth_name' => $projectAccountSession->account->auth_name,
+                        'auth_email' => $projectAccountSession->account->auth_email,
+                        'auth_avatar' => $projectAccountSession->account->auth_avatar,
+                        'linked_wallet_stake_address' => $projectAccountSession->account->linked_wallet_stake_address,
+                        'linked_discord_account' => $projectAccountSession->account->linked_discord_account,
+                    ] : null,
+                    'qualifier' => $projectAccountSession && isset($projectAccountSession->stats['qualifier']) ? $projectAccountSession->stats['qualifier'] : null,
+                ];
+
+            });
+
+            // Return cached response
+            return response()
+                ->json($result);
+
+        } catch (Throwable $exception) {
+
+            // Log exception
+            $this->logException('Failed to handle auth info', $exception, [
                 'publicApiKey' => $publicApiKey,
                 'reference' => $request->get('reference'),
             ]);
