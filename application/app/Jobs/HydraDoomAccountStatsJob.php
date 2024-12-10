@@ -71,7 +71,7 @@ class HydraDoomAccountStatsJob implements ShouldQueue
                 $projectAccountStats['qualifier'][$sessionEvent->event_type]++;
             }
             if (isset($sessionEvent?->eventData?->data['is_elimination']) && $sessionEvent->eventData->data['is_elimination'] === true) {
-                $projectAccountStats['qualifier'][$sessionEvent->event_type]++;
+                $projectAccountStats['elimination'][$sessionEvent->event_type]++;
             }
         });
 
