@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\ProjectAccountSession;
 use App\Models\ProjectAccountStats;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -13,6 +14,7 @@ class FlagQualifiersHydraDoomEventsCommand extends Command
     const QUALIFIER_DATE_END = '2024-12-04 16:00:00';
     const REQUIRED_KILL_COUNT = 25;
     const REQUIRED_PLAY_MINUTES = 15;
+    const REQUIRED_REGIONS = ['North America', 'Europe'];
 
     /**
      * The name and signature of the console command.
@@ -52,10 +54,14 @@ class FlagQualifiersHydraDoomEventsCommand extends Command
             // Calculate total play time in minutes
             $totalPlayTimeMinutes = $this->calculateTotalPlayTimeMinutes($projectAccountSessionEvents);
 
+            // Get project account's region
+            $projectAccountRegion = $this->getProjectAccountRegion($qualifiedPlayer->project_account_id);
+
             // Update project account stats
             $playedDuringQualifierPeriod = count($projectAccountSessionEvents) > 0;
             $achievedRequiredKillCount = ((int) $qualifiedPlayer->total_kills >= self::REQUIRED_KILL_COUNT);
             $achievedRequiredPlayMinutes = ($totalPlayTimeMinutes >= self::REQUIRED_PLAY_MINUTES);
+            $inWhiteListedRegion = in_array($projectAccountRegion, self::REQUIRED_REGIONS, true);
             ProjectAccountStats::query()
                 ->where('project_id', $qualifiedPlayer->project_id)
                 ->where('project_account_id', $qualifiedPlayer->project_account_id)
@@ -78,6 +84,11 @@ class FlagQualifiersHydraDoomEventsCommand extends Command
                                 'actual_play_minutes' => $totalPlayTimeMinutes,
                                 'is_met' => $achievedRequiredPlayMinutes,
                             ],
+                            [
+                                'in_white_listed_regions' => self::REQUIRED_REGIONS,
+                                'actual_account_region' => $projectAccountRegion,
+                                'is_met' => $inWhiteListedRegion,
+                            ]
                         ],
                     ],
                 ]);
@@ -138,5 +149,87 @@ QUERY;
         }
 
         return $totalPlayTimeMinutes;
+    }
+
+    private function getProjectAccountRegion(int $projectAccountId): string
+    {
+        $playerAccountSession = ProjectAccountSession::query()
+            ->where('project_account_id', $projectAccountId)
+            ->groupBy('project_account_id')
+            ->select(DB::raw('MAX(auth_country_code) AS `auth_country_code`'))
+            ->first();
+
+        $authCountryCode = '';
+        if ($playerAccountSession && !empty($playerAccountSession->auth_country_code)) {
+            $authCountryCode = $playerAccountSession->auth_country_code;
+        }
+
+        return $this->countryCodeToRegion($authCountryCode);
+    }
+
+    private function countryCodeToRegion(string $countryCode): string
+    {
+        $regionMap = [
+            // Europe
+            'PT' => 'Europe', // Portugal
+            'DE' => 'Europe', // Germany
+            'ES' => 'Europe', // Spain
+            'PL' => 'Europe', // Poland
+            'NL' => 'Europe', // Netherlands
+            'CY' => 'Europe', // Cyprus
+            'NO' => 'Europe', // Norway
+            'FR' => 'Europe', // France
+            'GB' => 'Europe', // United Kingdom
+            'AE' => 'Europe', // United Arab Emirates (sometimes considered part of European business context)
+            'CH' => 'Europe', // Switzerland
+            'GR' => 'Europe', // Greece
+            'HR' => 'Europe', // Croatia
+            'RO' => 'Europe', // Romania
+            'IE' => 'Europe', // Ireland
+            'AT' => 'Europe', // Austria
+            'FI' => 'Europe', // Finland
+            'SK' => 'Europe', // Slovakia
+            'SE' => 'Europe', // Sweden
+            'BG' => 'Europe', // Bulgaria
+            'IT' => 'Europe', // Italy
+            'DK' => 'Europe', // Denmark
+            'LT' => 'Europe', // Lithuania
+            'BE' => 'Europe', // Belgium
+
+            // North America
+            'US' => 'North America', // United States
+            'CA' => 'North America', // Canada
+            'MX' => 'North America', // Mexico
+            'CR' => 'North America', // Costa Rica
+            'GT' => 'North America', // Guatemala
+
+            // South America
+            'BR' => 'South America', // Brazil
+            'AR' => 'South America', // Argentina
+            'CL' => 'South America', // Chile
+            'PY' => 'South America', // Paraguay
+            'CO' => 'South America', // Colombia
+
+            // Asia
+            'PH' => 'Asia', // Philippines
+            'VN' => 'Asia', // Vietnam
+            'TH' => 'Asia', // Thailand
+            'MY' => 'Asia', // Malaysia
+            'AU' => 'Asia', // Australia (sometimes considered part of Asia-Pacific)
+            'JP' => 'Asia', // Japan
+            'KR' => 'Asia', // South Korea
+            'IN' => 'Asia', // India
+            'SG' => 'Asia', // Singapore
+            'OM' => 'Asia', // Oman
+
+            // Oceania
+            'NZ' => 'Oceania', // New Zealand
+        ];
+
+        // Convert input to uppercase to ensure matching
+        $countryCode = strtoupper($countryCode);
+
+        // Return the region if found, otherwise return 'Unknown'
+        return $regionMap[$countryCode] ?? 'Unknown';
     }
 }
