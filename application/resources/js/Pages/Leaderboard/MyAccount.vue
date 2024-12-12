@@ -2,23 +2,21 @@
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import {useToast} from "vue-toast-notification";
 import {useConfirm} from "vuetify-use-dialog";
-import {onMounted, ref, watch} from "vue";
+import {onMounted, ref} from "vue";
 
 const props = defineProps({
     publicApiKey: String,
     projectName: String,
+    settings: Object,
 });
 
 // Initialise
 const $toast = useToast();
 const createConfirm = useConfirm();
-const STATS_TYPE_OVERVIEW = 'overview';
-const STATS_TYPE_QUALIFIER = 'qualifier';
 const isLoading = ref(false);
 const authProviders = ref([]);
 const isSigningIn = ref(false);
 const user = ref(null);
-const stats = ref(null);
 const linkedWalletAddress = ref('');
 
 // Helper functions
@@ -54,13 +52,6 @@ const signIn = (redirectUrl) => {
             .finally(() => isLoading.value = false);
     }, 10000);
 };
-watch(user, () => {
-    isLoading.value = true;
-    axios.get(route('api.v1.stats.session', { publicApiKey: props.publicApiKey, reference: user.value.session.reference }))
-        .then(statsRes => stats.value = statsRes.data)
-        .catch(err => $toast.error('Failed to load stats.', { duration: 5000 }))
-        .finally(() => isLoading.value = false);
-});
 
 // Link wallet address handler
 const linkWalletAddress = async () => {
@@ -185,38 +176,116 @@ const linkDiscordAccount = () => {
                 </v-card-text>
             </v-card>
 
-            <v-row>
-                <v-col cols="6">
-                    <v-card title="Overview Stats" :loading="isLoading" class="mb-6">
+            <v-row v-if="user">
+                <v-col cols="12">
+                    <v-card :loading="isLoading">
                         <v-card-text>
-                            <v-table v-if="stats" density="compact">
-                                <tbody>
-                                    <tr v-for="[key, value] of Object.entries(stats[STATS_TYPE_OVERVIEW])">
-                                        <th>{{ capitalize(key.replace(/_/g, ' ').trim()) }}</th>
-                                        <td>{{ value }}</td>
-                                    </tr>
-                                </tbody>
-                            </v-table>
-                            <v-alert v-else type="info" density="compact">
-                                Loading...
+                            <v-alert
+                                type="success"
+                                icon="mdi-check-circle"
+                                density="compact"
+                                v-if="
+                                    parseInt(user?.qualifier?.requirements.find(s => s?.actual_kill_count)?.actual_kill_count || 0) >= settings.commemorativeTokenAirdropRequirements.required_kill_count
+                                    &&
+                                    parseFloat(user?.qualifier?.requirements.find(s => s?.actual_play_minutes)?.actual_play_minutes || 0) >= settings.commemorativeTokenAirdropRequirements.required_play_minutes
+                                "
+                            >
+                                Qualified for Commemorative Token Airdrop
                             </v-alert>
+
+                            <v-alert
+                                v-else
+                                type="error"
+                                icon="mdi-close-circle"
+                                density="compact"
+                            >
+                                Not Qualified for Commemorative Token Airdrop
+                            </v-alert>
+
+                            <v-chip-group class="mt-1">
+                                <v-chip :prepend-icon="parseInt(user?.qualifier?.requirements.find(s => s?.actual_kill_count)?.actual_kill_count || 0) >= settings.commemorativeTokenAirdropRequirements.required_kill_count ? 'mdi-check-circle' : 'mdi-close-circle'">
+                                    Required Kill Count <strong class="ml-1">{{ settings.commemorativeTokenAirdropRequirements.required_kill_count }}</strong>
+                                </v-chip>
+                                <v-chip :prepend-icon="parseFloat(user?.qualifier?.requirements.find(s => s?.actual_play_minutes)?.actual_play_minutes || 0) >= settings.commemorativeTokenAirdropRequirements.required_play_minutes ? 'mdi-check-circle' : 'mdi-close-circle'">
+                                    Required Play Minutes <strong class="ml-1">{{ settings.commemorativeTokenAirdropRequirements.required_play_minutes }}</strong>
+                                </v-chip>
+                            </v-chip-group>
                         </v-card-text>
                     </v-card>
                 </v-col>
-                <v-col>
-                    <v-card title="Qualifier Stats" :loading="isLoading" class="mb-6">
+                <v-col cols="12">
+                    <v-card :loading="isLoading">
                         <v-card-text>
-                            <v-table v-if="stats" density="compact">
-                                <tbody>
-                                    <tr v-for="[key, value] of Object.entries(stats[STATS_TYPE_QUALIFIER])">
-                                        <th>{{ capitalize(key.replace(/_/g, ' ').trim()) }}</th>
-                                        <td>{{ value }}</td>
-                                    </tr>
-                                </tbody>
-                            </v-table>
-                            <v-alert v-else type="info" density="compact">
-                                Loading...
+                            <v-alert
+                                type="success"
+                                icon="mdi-check-circle"
+                                density="compact"
+                                v-if="
+                                    parseInt(user?.qualifier?.requirements.find(s => s?.actual_kill_count)?.actual_kill_count || 0) >= settings.usdmAirdropRequirements.required_kill_count
+                                    &&
+                                    parseFloat(user?.qualifier?.requirements.find(s => s?.actual_play_minutes)?.actual_play_minutes || 0) >= settings.usdmAirdropRequirements.required_play_minutes
+                                "
+                            >
+                                Qualified for USDM Airdrop
                             </v-alert>
+
+                            <v-alert
+                                v-else
+                                type="error"
+                                icon="mdi-close-circle"
+                                density="compact"
+                            >
+                                Not qualified for USDM Airdrop
+                            </v-alert>
+
+                            <v-chip-group class="mt-1">
+                                <v-chip :prepend-icon="parseInt(user?.qualifier?.requirements.find(s => s?.actual_kill_count)?.actual_kill_count || 0) >= settings.usdmAirdropRequirements.required_kill_count ? 'mdi-check-circle' : 'mdi-close-circle'">
+                                    Required Kill Count <strong class="ml-1">{{ settings.usdmAirdropRequirements.required_kill_count }}</strong>
+                                </v-chip>
+                                <v-chip :prepend-icon="parseFloat(user?.qualifier?.requirements.find(s => s?.actual_play_minutes)?.actual_play_minutes || 0) >= settings.usdmAirdropRequirements.required_play_minutes ? 'mdi-check-circle' : 'mdi-close-circle'">
+                                    Required Play Minutes <strong class="ml-1">{{ settings.usdmAirdropRequirements.required_play_minutes }}</strong>
+                                </v-chip>
+                            </v-chip-group>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+            </v-row>
+
+            <v-row v-if="user">
+                <v-col cols="12">
+                    <v-card>
+                        <v-card-text>
+                            <v-alert
+                                type="success"
+                                icon="mdi-check-circle"
+                                density="compact"
+                                v-if="user.qualifier && user.qualifier.is_qualified === true"
+                                class="mb-2"
+                            >
+                                Congratulations, you are qualified and met all of the requirements
+                            </v-alert>
+
+                            <v-alert
+                                v-else
+                                type="error"
+                                icon="mdi-close-circle"
+                                density="compact"
+                                class="mb-2"
+                            >
+                                Sorry you did not qualify, you did not achieve all of the requirements
+                            </v-alert>
+
+                            <v-chip-group v-if="user.qualifier" v-for="requirement in user.qualifier.requirements">
+                                <v-chip v-for="[key, value] of Object.entries(requirement).reverse()">
+                                    <template v-if="typeof value === 'boolean'">
+                                        Requirement <strong :class="'ml-1 ' + (value ? 'text-green' : 'text-red')">{{ value ? 'Achieved' : 'Not Achieved' }}</strong>
+                                    </template>
+                                    <template v-else>
+                                        {{ capitalize(key.replace(/_/g, ' ')) }}:
+                                        <strong class="ml-1">{{ typeof value === 'object' ? value.join(', ') : value }}</strong>
+                                    </template>
+                                </v-chip>
+                            </v-chip-group>
                         </v-card-text>
                     </v-card>
                 </v-col>
