@@ -67,10 +67,23 @@ class LeaderboardController extends Controller
             ], 401);
         }
 
+        // Settings
+        $settings = [
+            'commemorativeTokenAirdropRequirements' => [
+                'required_kill_count' => 25,
+                'required_play_minutes' => 15,
+            ],
+            'usdmAirdropRequirements' => [
+                'required_kill_count' => 50,
+                'required_play_minutes' => 60,
+            ],
+        ];
+
         // Render view
         return Inertia::render('Leaderboard/MyAccount', [
             'publicApiKey' => $publicApiKey,
             'projectName' => $project->name,
+            'settings' => $settings,
         ]);
     }
 }
