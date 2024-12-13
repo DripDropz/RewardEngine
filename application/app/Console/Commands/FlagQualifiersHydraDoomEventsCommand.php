@@ -67,7 +67,7 @@ class FlagQualifiersHydraDoomEventsCommand extends Command
                 ->where('project_account_id', $qualifiedPlayer->project_account_id)
                 ->update([
                     'qualifier' => [
-                        'is_qualified' => ($playedDuringQualifierPeriod && $achievedRequiredKillCount && $achievedRequiredPlayMinutes),
+                        'is_qualified' => ($playedDuringQualifierPeriod && $achievedRequiredKillCount && $achievedRequiredPlayMinutes && $inWhiteListedRegion),
                         'requirements' => [
                             [
                                 'play_from' => self::QUALIFIER_DATE_START,
